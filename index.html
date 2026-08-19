@@ -511,12 +511,183 @@ body{
   color: #ccc;
   line-height: 1.6;
 }
+  /* PREMIUM ADISA NAVBAR */
+
+.topbar{
+  padding:16px 5%;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+}
+
+.brand{
+  color:#fff;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.brand span{
+  color:#d4af37;
+  font-weight:400;
+}
+
+.topbar nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.topbar nav a{
+  margin-left:0;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.topbar nav a:hover{
+  color:#d4af37;
+}
+
+.cartButton{
+  background:#d4af37;
+  color:#111;
+  border:0;
+  padding:10px 17px;
+  border-radius:25px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.5px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.cartButton:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(212,175,55,.3);
+}
+
+@media(max-width:500px){
+
+  .topbar{
+    padding:13px 15px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .brand{
+    font-size:18px;
+    letter-spacing:2px;
+  }
+
+  .topbar nav{
+    width:100%;
+    justify-content:center;
+    gap:12px;
+  }
+
+  .topbar nav a{
+    font-size:10px;
+  }
+
+  .cartButton{
+    padding:8px 12px;
+    font-size:10px;
+  }
+} /* PREMIUM ADISA NAVBAR */
+
+.topbar{
+  padding:16px 5%;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  color:#fff;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.brand span{
+  color:#d4af37;
+}
+
+.topbar nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.topbar nav a{
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+
+.topbar nav a:hover{
+  color:#d4af37;
+}
+
+.cartButton{
+  background:#d4af37;
+  color:#111;
+  border:0;
+  padding:10px 17px;
+  border-radius:25px;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+@media(max-width:500px){
+  .topbar{
+    padding:13px 15px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .brand{
+    font-size:18px;
+    letter-spacing:2px;
+  }
+
+  .topbar nav{
+    gap:12px;
+  }
+
+  .topbar nav a{
+    font-size:10px;
+  }
+
+  .cartButton{
+    padding:8px 12px;
+    font-size:10px;
+  }
+}
 </style>
 </head>
 
 <body>
 <header class="topbar">
-  <div class="brand">ADISA <span>OUTFITS</span></div>
+  <div class="brand">
+    ADISA <span>OUTFITS</span>
+  </div>
 
   <nav>
     <a href="#home">HOME</a>
