@@ -2,1942 +2,390 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ADISA OUTFITS</title>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
+  font-family:Arial,sans-serif;
   background:#f7f5f2;
   color:#111;
-  font-family:Poppins,sans-serif;
 }
-
-.topbar{
+header{
   position:sticky;
   top:0;
   z-index:1000;
-  padding:16px 5%;
-  background:rgba(10,10,10,.97);
+  min-height:76px;
+  padding:12px 5%;
+  background:#090909;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  gap:20px;
 }
-
-.brand{
+.logo{
   color:#fff;
-  font-size:23px;
+  font-size:24px;
   font-weight:900;
-  letter-spacing:3px;
+  letter-spacing:2px;
+  white-space:nowrap;
 }
-
-.brand span{
-  color:#d4af37;
-  font-weight:400;
-}
-
-nav{
-  display:flex;
-  gap:25px;
-}
-
+.logo span{color:#d4af37;font-weight:400}
+nav{display:flex;gap:25px}
 nav a{
-  color:white;
+  color:#fff;
   text-decoration:none;
-  font-size:11px;
-  font-weight:700;
+  font-size:12px;
+  font-weight:bold;
 }
-
-nav a:hover{
-  color:#d4af37;
-}
-
-.headerButtons{
-  display:flex;
-  gap:8px;
-}
-
-.profileButton,
-.cartButton{
+.actions{display:flex;gap:8px}
+.btn{
   border:0;
-  border-radius:25px;
-  padding:10px 15px;
-  font-weight:800;
+  border-radius:24px;
+  padding:11px 17px;
+  font-weight:bold;
   cursor:pointer;
 }
+.profileBtn{background:#fff;color:#111}
+.cartBtn{background:#d4af37;color:#111}
 
-.profileButton{
-  background:#fff;
-  color:#111;
-}
-
-.cartButton{
-  background:#d4af37;
-  color:#111;
-}
-
-/* HERO */
-
-.slider{
-  position:relative;
-  height:620px;
-  overflow:hidden;
-}
-
-.slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  visibility:hidden;
-  transition:.7s;
-  background-position:center;
-  background-size:cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-}
-
-.slide.active{
-  opacity:1;
-  visibility:visible;
-}
-
-.slide:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.5);
-}
-
-.slideOne{
-  background-image:url(
-    "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90"
-  );
-}
-
-.slideTwo{
-  background-image:url(
-    "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=90"
-  );
-}
-
-.slideContent{
-  position:relative;
-  z-index:2;
-  max-width:850px;
-  padding:25px;
-}
-
-.slideTag{
-  color:#d4af37;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:4px;
-  margin-bottom:15px;
-}
-
-.slide h1{
-  font-size:clamp(45px,8vw,85px);
-  line-height:1;
-  font-weight:900;
-  margin-bottom:20px;
-}
-
-.slide h1 em{
-  color:#d4af37;
-  font-style:normal;
-}
-
-.slideText{
-  color:#eee;
-  margin-bottom:28px;
-}
-
-.shopButton{
-  display:inline-block;
-  background:#fff;
-  color:#111;
-  padding:14px 27px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:800;
-}
-
-.shopButton:hover{
-  background:#d4af37;
-}
-
-.sliderDots{
-  position:absolute;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:5;
-  display:flex;
-  gap:8px;
-}
-
-.dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  border:1px solid white;
-  background:transparent;
-}
-
-.dot.active{
-  background:#d4af37;
-}
-
-/* SECTIONS */
-
-.section{
-  padding:80px 6%;
-}
-
-.sectionHeading{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.sectionHeading p{
-  color:#d4af37;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:4px;
-}
-
-.sectionHeading h2{
-  font-size:40px;
-  margin-top:8px;
-}
-
-/* COLLECTION */
-
-.collectionTrack{
-  display:flex;
-  gap:25px;
-  overflow:hidden;
-}
-
-.collectionCard{
-  min-width:calc((100% - 25px)/2);
-  height:430px;
-  position:relative;
-  overflow:hidden;
-  border-radius:22px;
-}
-
-.collectionCard img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.collectionOverlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:30px;
-  color:white;
-  background:linear-gradient(transparent 25%,rgba(0,0,0,.9));
-}
-
-.collectionOverlay small{
-  color:#d4af37;
-  font-weight:800;
-}
-
-.collectionOverlay h3{
-  font-size:28px;
-  margin:8px 0;
-}
-
-/* PRODUCTS */
-
-.productGrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.productCard{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-
-.productImage{
-  height:320px;
-  overflow:hidden;
-  position:relative;
-}
-
-.productImage img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.productImage span{
-  position:absolute;
-  top:12px;
-  left:12px;
-  background:#d4af37;
-  padding:5px 9px;
-  border-radius:15px;
-  font-size:9px;
-  font-weight:800;
-}
-
-.productInfo{
-  padding:16px;
-}
-
-.productInfo p{
-  color:#999;
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:1.5px;
-}
-
-.productInfo h3{
-  font-size:15px;
-  margin:7px 0;
-}
-
-.productInfo strong{
-  font-size:17px;
-}
-
-.addCartBtn{
-  width:100%;
-  margin-top:13px;
-  padding:11px;
-  border:0;
-  border-radius:25px;
-  background:#111;
-  color:white;
-  font-weight:800;
-  cursor:pointer;
-}
-
-/* WHY */
-
-.darkGrid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.darkCard{
-  background:#111;
-  color:white;
-  padding:32px;
-  min-height:220px;
-  border-radius:20px;
-}
-
-.darkCard small{
-  color:#d4af37;
-}
-
-.darkCard h3{
-  margin:18px 0 10px;
-}
-
-.darkCard p{
-  color:#aaa;
-  line-height:1.6;
-}
-
-/* PROMO */
-
-.promo{
-  min-height:500px;
+.hero{
+  height:570px;
   background:
-  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
-  url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=90")
+  linear-gradient(90deg,rgba(0,0,0,.7),rgba(0,0,0,.25),rgba(0,0,0,.65)),
+  url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90")
   center/cover;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:white;
+  color:#fff;
+}
+.hero small{
+  color:#d4af37;
+  letter-spacing:5px;
+  font-weight:bold;
+}
+.hero h1{
+  font-size:clamp(45px,8vw,85px);
+  line-height:.95;
+  margin:20px 0;
+}
+.hero p{margin-bottom:25px}
+.shop{
+  display:inline-block;
+  padding:15px 27px;
+  background:#fff;
+  color:#111;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-.promo p{
+section{padding:75px 6%}
+.heading{text-align:center;margin-bottom:40px}
+.heading p{
   color:#d4af37;
   letter-spacing:4px;
-  font-weight:800;
+  font-size:12px;
+  font-weight:bold;
 }
+.heading h2{font-size:38px;margin-top:10px}
 
-.promo h2{
-  font-size:clamp(42px,7vw,72px);
-  line-height:1;
-  margin:20px 0 30px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
-
-/* FOOTER */
+.card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+.card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+.info{padding:17px}
+.info small{color:#999}
+.info h3{margin:8px 0}
+.info strong{font-size:18px}
+.add{
+  width:100%;
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:12px;
+  border-radius:8px;
+  margin-top:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
 
 footer{
   background:#111;
-  color:white;
-  padding:55px 6%;
+  color:#fff;
+  padding:50px 6%;
+  text-align:center;
 }
+footer p{color:#aaa;margin-top:10px}
 
-.footerGrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:30px;
-}
-
-footer h4{
-  color:#d4af37;
-  margin-bottom:15px;
-}
-
-footer p,
-footer a{
-  color:#aaa;
-  font-size:11px;
-  line-height:1.8;
-  text-decoration:none;
-}
-
-/* MODALS */
-
+/* PHONE MODAL */
 .modal{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.7);
-  z-index:4000;
+  z-index:5000;
   display:none;
   align-items:center;
   justify-content:center;
   padding:20px;
 }
-
-.modal.show{
-  display:flex;
-}
-
+.modal.show{display:flex}
 .modalBox{
+  background:#fff;
   width:100%;
-  max-width:550px;
-  max-height:90vh;
-  overflow:auto;
-  background:white;
-  border-radius:22px;
+  max-width:420px;
+  border-radius:20px;
   padding:25px;
 }
-
-.modalHeader{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
-}
-
-.closeBtn{
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:50%;
-  background:#eee;
-  font-size:20px;
-  cursor:pointer;
-}
-
-/* PROFILE */
-
-.profileForm input,
-.profileForm textarea,
-.profileForm select,
-.checkoutForm input,
-.checkoutForm textarea{
+.modalBox h2{margin-bottom:8px}
+.modalBox p{color:#666;margin-bottom:20px}
+.input{
   width:100%;
-  padding:13px;
-  margin-bottom:12px;
+  padding:14px;
   border:1px solid #ddd;
   border-radius:10px;
-  font-family:Poppins,sans-serif;
+  margin-bottom:12px;
+  font-size:16px;
 }
-
-.saveBtn,
-.verifyBtn,
-.checkoutBtn,
-.payBtn{
+.full{
   width:100%;
   padding:14px;
   border:0;
-  border-radius:25px;
-  background:#d4af37;
-  font-weight:800;
-  cursor:pointer;
-}
-
-.verified{
-  display:none;
-  background:#e9f8ed;
-  color:#177532;
-  padding:10px;
   border-radius:10px;
-  margin-bottom:12px;
-  font-size:12px;
-  font-weight:700;
-}
-
-/* CART */
-
-.cartItem{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  padding:14px 0;
-  border-bottom:1px solid #eee;
-}
-
-.removeBtn{
-  border:0;
   background:#111;
-  color:white;
-  padding:7px 10px;
-  border-radius:15px;
+  color:#fff;
+  font-weight:bold;
+}
+.close{
+  float:right;
+  border:0;
+  background:none;
+  font-size:25px;
   cursor:pointer;
-  font-size:10px;
 }
-
-.cartTotal{
-  display:flex;
-  justify-content:space-between;
-  font-size:19px;
-  font-weight:800;
-  margin:20px 0;
-}
-
-/* CHECKOUT */
-
-.checkoutPage{
-  position:fixed;
-  inset:0;
-  z-index:5000;
-  background:#f7f5f2;
-  overflow:auto;
-  display:none;
-  padding:30px 20px;
-}
-
-.checkoutPage.show{
-  display:block;
-}
-
-.checkoutBox{
-  max-width:1000px;
-  margin:auto;
-  background:white;
-  border-radius:24px;
-  padding:35px;
-}
-
-.checkoutHeader{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.checkoutGrid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:30px;
-}
-
-.checkoutForm,
-.orderSummary{
-  background:#f7f5f2;
-  padding:25px;
-  border-radius:18px;
-}
-
-.checkoutItem{
-  display:flex;
-  justify-content:space-between;
-  padding:12px 0;
-  border-bottom:1px solid #ddd;
-}
-
-.checkoutTotal{
-  display:flex;
-  justify-content:space-between;
-  margin-top:20px;
-  font-size:20px;
-}
-
-/* MOBILE */
+#otpArea{display:none}
 
 @media(max-width:900px){
-
-  .productGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .darkGrid{
-    grid-template-columns:1fr;
-  }
-
-  .footerGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .checkoutGrid{
-    grid-template-columns:1fr;
-  }
+  .grid{grid-template-columns:repeat(2,1fr)}
 }
-
 @media(max-width:600px){
-
-  .topbar{
-    padding:12px 14px;
+  header{
+    min-height:100px;
+    flex-wrap:wrap;
   }
-
-  .brand{
-    font-size:17px;
-  }
-
   nav{
-    display:none;
+    width:100%;
+    order:3;
+    justify-content:center;
+    gap:15px;
   }
-
-  .profileButton,
-  .cartButton{
-    padding:8px 10px;
-    font-size:9px;
-  }
-
-  .slider{
-    height:550px;
-  }
-
-  .slide h1{
-    font-size:42px;
-  }
-
-  .section{
-    padding:60px 20px;
-  }
-
-  .sectionHeading h2{
-    font-size:29px;
-  }
-
-  .collectionCard{
-    min-width:100%;
-    height:380px;
-  }
-
-  .productGrid{
-    grid-template-columns:1fr 1fr;
-    gap:13px;
-  }
-
-  .productImage{
-    height:220px;
-  }
-
-  .footerGrid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .checkoutBox{
-    padding:20px;
-  }
-}
-
-@media(max-width:380px){
-
-  .productGrid,
-  .footerGrid{
-    grid-template-columns:1fr;
-  }
+  .logo{font-size:18px}
+  .hero{height:520px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card img{height:230px}
+  section{padding:55px 18px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-
-  <div class="brand">
-    ADISA <span>OUTFITS</span>
-  </div>
+<header>
+  <div class="logo">ADISA <span>OUTFITS</span></div>
 
   <nav>
     <a href="#home">HOME</a>
-    <a href="#featured">COLLECTIONS</a>
     <a href="#shop">SHOP</a>
   </nav>
 
-  <div class="headerButtons">
-    <button class="profileButton" onclick="openProfile()">
-      PROFILE
-    </button>
-
-    <button class="cartButton" onclick="openCart()">
-      CART 🛒 (0)
-    </button>
+  <div class="actions">
+    <button class="btn profileBtn" onclick="openProfile()">PROFILE 👤</button>
+    <button class="btn cartBtn" onclick="openCart()">CART 🛒 (<span id="cartCount">0</span>)</button>
   </div>
-
 </header>
 
-<section class="slider" id="home">
-
-  <div class="slide slideOne active">
-    <div class="slideContent">
-      <p class="slideTag">ADISA OUTFITS</p>
-
-      <h1>
-        YOUR STYLE.<br>
-        YOUR STORY.
-      </h1>
-
-      <p class="slideText">
-        Discover fashion that speaks your personality.
-      </p>
-
-      <a href="#shop" class="shopButton">
-        EXPLORE NOW →
-      </a>
-    </div>
+<section class="hero" id="home">
+  <div>
+    <small>ADISA OUTFITS</small>
+    <h1>YOUR STYLE.<br>YOUR STORY.</h1>
+    <p>Discover fashion that speaks your personality.</p>
+    <a href="#shop" class="shop">EXPLORE NOW →</a>
   </div>
-
-  <div class="slide slideTwo">
-    <div class="slideContent">
-      <p class="slideTag">
-        ADISA OUTFITS • NEW COLLECTION 2026
-      </p>
-
-      <h1>
-        STYLE THAT<br>
-        <em>DEFINES YOU.</em>
-      </h1>
-
-      <p class="slideText">
-        Premium fashion designed for everyone.
-      </p>
-
-      <a href="#shop" class="shopButton">
-        SHOP COLLECTION →
-      </a>
-    </div>
-  </div>
-
-  <div class="sliderDots">
-    <button class="dot active" onclick="showSlide(0)"></button>
-    <button class="dot" onclick="showSlide(1)"></button>
-  </div>
-
 </section>
 
-<section class="section" id="featured">
-
-  <div class="sectionHeading">
-    <p>THE ADISA EDIT</p>
-    <h2>Explore Our Collection</h2>
-  </div>
-
-  <div class="collectionTrack">
-
-    <div class="collectionCard">
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90">
-      <div class="collectionOverlay">
-        <small>01 — MEN</small>
-        <h3>Street Essentials</h3>
-      </div>
-    </div>
-
-    <div class="collectionCard">
-      <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90">
-      <div class="collectionOverlay">
-        <small>02 — WOMEN</small>
-        <h3>Modern Elegance</h3>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section" id="shop">
-
-  <div class="sectionHeading">
+<section id="shop">
+  <div class="heading">
     <p>ADISA EDIT</p>
     <h2>Latest Arrivals</h2>
   </div>
 
-  <div class="productGrid">
+  <div class="grid">
 
-    <div class="productCard">
-      <div class="productImage">
-        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90">
-        <span>NEW</span>
-      </div>
-
-      <div class="productInfo">
-        <p>MEN'S COLLECTION</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90">
+      <div class="info">
+        <small>MEN'S COLLECTION</small>
         <h3>Classic Oversized Shirt</h3>
         <strong>₹1,499</strong>
-
-        <button class="addCartBtn"
-          onclick="addToCart('Classic Oversized Shirt',1499)">
+        <button class="add" onclick="addToCart('Classic Oversized Shirt',1499,'https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90')">
           ADD TO CART
         </button>
       </div>
     </div>
 
-    <div class="productCard">
-      <div class="productImage">
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90">
-        <span>NEW</span>
-      </div>
-
-      <div class="productInfo">
-        <p>WOMEN'S COLLECTION</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90">
+      <div class="info">
+        <small>WOMEN'S COLLECTION</small>
         <h3>Premium Street Look</h3>
         <strong>₹1,799</strong>
-
-        <button class="addCartBtn"
-          onclick="addToCart('Premium Street Look',1799)">
+        <button class="add" onclick="addToCart('Premium Street Look',1799,'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90')">
           ADD TO CART
         </button>
       </div>
     </div>
 
-    <div class="productCard">
-      <div class="productImage">
-        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90">
-        <span>HOT</span>
-      </div>
-
-      <div class="productInfo">
-        <p>DENIM EDIT</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90">
+      <div class="info">
+        <small>DENIM EDIT</small>
         <h3>Urban Denim Jacket</h3>
         <strong>₹2,299</strong>
-
-        <button class="addCartBtn"
-          onclick="addToCart('Urban Denim Jacket',2299)">
+        <button class="add" onclick="addToCart('Urban Denim Jacket',2299,'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90')">
           ADD TO CART
         </button>
       </div>
     </div>
 
-    <div class="productCard">
-      <div class="productImage">
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90">
-        <span>NEW</span>
-      </div>
-
-      <div class="productInfo">
-        <p>ADISA EDIT</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90">
+      <div class="info">
+        <small>ADISA EDIT</small>
         <h3>Premium Everyday Look</h3>
         <strong>₹1,999</strong>
-
-        <button class="addCartBtn"
-          onclick="addToCart('Premium Everyday Look',1999)">
+        <button class="add" onclick="addToCart('Premium Everyday Look',1999,'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90')">
           ADD TO CART
         </button>
       </div>
     </div>
 
   </div>
-
-</section>
-
-<section class="section">
-
-  <div class="sectionHeading">
-    <p>WHY ADISA</p>
-    <h2>Fashion Made Different</h2>
-  </div>
-
-  <div class="darkGrid">
-
-    <div class="darkCard">
-      <small>01 — QUALITY</small>
-      <h3>Premium Fabrics</h3>
-      <p>Comfortable materials made for everyday style.</p>
-    </div>
-
-    <div class="darkCard">
-      <small>02 — STYLE</small>
-      <h3>Modern Designs</h3>
-      <p>Fresh looks that keep your wardrobe ahead.</p>
-    </div>
-
-    <div class="darkCard">
-      <small>03 — TRUST</small>
-      <h3>Made For You</h3>
-      <p>Fashion designed to match your confidence.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="promo">
-
-  <div>
-    <p>ADISA OUTFITS</p>
-
-    <h2>
-      YOUR STYLE.<br>
-      YOUR STORY.
-    </h2>
-
-    <a href="#shop" class="shopButton">
-      EXPLORE NOW →
-    </a>
-  </div>
-
 </section>
 
 <footer>
-
-  <div class="footerGrid">
-
-    <div>
-      <div class="brand">
-        ADISA <span>OUTFITS</span>
-      </div>
-
-      <p>Premium fashion for everyone.</p>
-      <p>Customer Support: 24/7</p>
-    </div>
-
-    <div>
-      <h4>CONTACT US</h4>
-
-      <p>
-        📧 adisha143143@gmail.com
-      </p>
-
-      <p>
-        💬 WhatsApp: 8677033435
-      </p>
-
-      <p>
-        📍 Rahman Chowk, Noor Akhtar Road,
-        Line Bazar, Purnia 854301
-      </p>
-    </div>
-
-    <div>
-      <h4>HELP & SUPPORT</h4>
-
-      <p>🚚 Shipping: 5–7 business days</p>
-
-      <p>
-        ↩️ Return & Refund:
-        Payment ka ₹100 cut ke baaki amount refund hoga.
-      </p>
-
-      <p>🕐 Customer Support: 24/7</p>
-    </div>
-
-    <div>
-      <h4>QUICK LINKS</h4>
-      <p><a href="#home">HOME</a></p>
-      <p><a href="#featured">COLLECTIONS</a></p>
-      <p><a href="#shop">SHOP</a></p>
-    </div>
-
-  </div>
-
+  <div class="logo">ADISA <span>OUTFITS</span></div>
+  <p>Premium fashion for everyone.</p>
+  <p>📧 adisha143143@gmail.com</p>
+  <p>📱 8677033435</p>
+  <p>© 2026 ADISA OUTFITS</p>
 </footer>
 
-<!-- PROFILE MODAL -->
-
-<div class="modal" id="profileModal">
-
+<!-- PHONE VERIFICATION -->
+<div class="modal" id="phoneModal">
   <div class="modalBox">
+    <button class="close" onclick="closePhone()">×</button>
 
-    <div class="modalHeader">
-      <h2>My Profile</h2>
+    <h2>Verify Your Phone</h2>
+    <p>Phone verification is required before entering your cart.</p>
 
-      <button class="closeBtn" onclick="closeProfile()">
-        ×
-      </button>
+    <div id="phoneArea">
+      <input id="phone" class="input" type="tel" maxlength="10"
+             placeholder="10 digit mobile number">
+      <button class="full" onclick="sendOTP()">SEND OTP</button>
     </div>
 
-    <div class="profileForm">
-
-      <input
-        id="profileName"
-        type="text"
-        placeholder="Full Name"
-      >
-
-      <input
-        id="profilePhone"
-        type="tel"
-        placeholder="Mobile Number"
-      >
-
-      <div id="verifiedMessage" class="verified">
-        ✓ Mobile number verified
-      </div>
-
-      <button
-        class="verifyBtn"
-        onclick="verifyPhone()">
-        VERIFY MOBILE
-      </button>
-
-      <br><br>
-
-      <input
-        id="profileEmail"
-        type="email"
-        placeholder="Email"
-      >
-
-      <textarea
-        id="profileAddress"
-        rows="3"
-        placeholder="Address"></textarea>
-
-      <input
-        id="profileCity"
-        type="text"
-        placeholder="City"
-      >
-
-      <input
-        id="profilePincode"
-        type="text"
-        placeholder="Pincode"
-      >
-
-      <button
-        class="saveBtn"
-        onclick="saveProfile()">
-        SAVE PROFILE
-      </button>
-
+    <div id="otpArea">
+      <input id="otp" class="input" type="text" maxlength="6"
+             placeholder="Enter OTP">
+      <button class="full" onclick="verifyOTP()">VERIFY PHONE</button>
     </div>
 
+    <p id="otpMessage" style="margin-top:15px"></p>
   </div>
-
-</div>
-
-<!-- CART MODAL -->
-
-<div class="modal" id="cartModal">
-
-  <div class="modalBox">
-
-    <div class="modalHeader">
-      <h2>Your Cart 🛒</h2>
-
-      <button class="closeBtn" onclick="closeCart()">
-        ×
-      </button>
-    </div>
-
-    <div id="cartItems"></div>
-
-    <div class="cartTotal">
-      <span>Total</span>
-      <span id="cartTotal">₹0</span>
-    </div>
-
-    <button
-      class="checkoutBtn"
-      onclick="openCheckout()">
-      PROCEED TO CHECKOUT →
-    </button>
-
-  </div>
-
-</div>
-
-<!-- CHECKOUT -->
-
-<div class="checkoutPage" id="checkoutPage">
-
-  <div class="checkoutBox">
-
-    <div class="checkoutHeader">
-
-      <h2>Checkout</h2>
-
-      <button
-        class="closeBtn"
-        onclick="closeCheckout()">
-        ×
-      </button>
-
-    </div>
-
-    <p style="color:#888;margin:8px 0 25px;">
-      Complete your details to place your order.
-    </p>
-
-    <div class="checkoutGrid">
-
-      <div class="checkoutForm">
-
-        <h3>Customer Details</h3>
-
-        <input
-          id="checkoutName"
-          placeholder="Full Name">
-
-        <input
-          id="checkoutPhone"
-          type="tel"
-          placeholder="Mobile Number">
-
-        <textarea
-          id="checkoutAddress"
-          rows="3"
-          placeholder="Full Address"></textarea>
-
-        <input
-          id="checkoutCity"
-          placeholder="City">
-
-        <input
-          id="checkoutPincode"
-          placeholder="Pincode">
-
-        <select id="paymentMethod"
-          style="width:100%;padding:13px;margin-bottom:12px;border:1px solid #ddd;border-radius:10px;">
-
-          <option value="">
-            Select Payment Method
-          </option>
-
-          <option value="COD">
-            Cash on Delivery
-          </option>
-
-          <option value="ONLINE">
-            Online Payment
-          </option>
-
-        </select>
-
-        <button
-          class="payBtn"
-          onclick="placeOrder()">
-          PLACE ORDER →
-        </button>
-
-      </div>
-
-      <div class="orderSummary">
-
-        <h3>Order Summary</h3>
-
-        <div id="checkoutItems"></div>
-
-        <div class="checkoutTotal">
-
-          <span>Total</span>
-
-          <strong id="checkoutTotal">
-            ₹0
-          </strong>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
 
 <script>
+let cart = JSON.parse(localStorage.getItem("adisaCart") || "[]");
+let verified = localStorage.getItem("adisaPhoneVerified") === "true";
 
-/* ================= HERO ================= */
-
-let currentSlide = 0;
-
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-
-function showSlide(index){
-
-  slides.forEach(x=>x.classList.remove("active"));
-  dots.forEach(x=>x.classList.remove("active"));
-
-  currentSlide = index;
-
-  slides[currentSlide].classList.add("active");
-  dots[currentSlide].classList.add("active");
+function saveCart(){
+  localStorage.setItem("adisaCart",JSON.stringify(cart));
+  document.getElementById("cartCount").textContent =
+    cart.reduce((sum,item)=>sum+item.qty,0);
 }
 
-setInterval(()=>{
-
-  currentSlide++;
-
-  if(currentSlide >= slides.length){
-    currentSlide = 0;
+function addToCart(name,price,image){
+  if(!verified){
+    sessionStorage.setItem("pendingProduct",JSON.stringify({name,price,image}));
+    document.getElementById("phoneModal").classList.add("show");
+    return;
   }
 
-  showSlide(currentSlide);
+  const existing=cart.find(x=>x.name===name);
 
-},5000);
+  if(existing) existing.qty++;
+  else cart.push({name,price,image,qty:1});
 
+  saveCart();
+  alert("Product added to cart.");
+}
 
-/* ================= PROFILE ================= */
-
-let profile = JSON.parse(
-  localStorage.getItem("adisaProfile") || "null"
-);
-
-let phoneVerified =
-  localStorage.getItem("adisaPhoneVerified") === "true";
-
+function openCart(){
+  if(!verified){
+    document.getElementById("phoneModal").classList.add("show");
+    return;
+  }
+  window.location.href="checkout.html";
+}
 
 function openProfile(){
-
-  document
-    .getElementById("profileModal")
-    .classList.add("show");
-
-  loadProfile();
+  window.location.href="profile.html";
 }
 
-
-function closeProfile(){
-
-  document
-    .getElementById("profileModal")
-    .classList.remove("show");
+function closePhone(){
+  document.getElementById("phoneModal").classList.remove("show");
 }
 
+async function sendOTP(){
+  const phone=document.getElementById("phone").value.trim();
 
-function loadProfile(){
-
-  if(!profile) return;
-
-  document.getElementById("profileName").value =
-    profile.name || "";
-
-  document.getElementById("profilePhone").value =
-    profile.phone || "";
-
-  document.getElementById("profileEmail").value =
-    profile.email || "";
-
-  document.getElementById("profileAddress").value =
-    profile.address || "";
-
-  document.getElementById("profileCity").value =
-    profile.city || "";
-
-  document.getElementById("profilePincode").value =
-    profile.pincode || "";
-
-  updateVerificationUI();
-}
-
-
-function updateVerificationUI(){
-
-  const box =
-    document.getElementById("verifiedMessage");
-
-  box.style.display =
-    phoneVerified ? "block" : "none";
-}
-
-
-async function verifyPhone(){
-
-  const phone =
-    document.getElementById("profilePhone").value.trim();
-
-  if(phone.length < 10){
-
-    alert("Please enter a valid mobile number.");
-
+  if(!/^[6-9]\d{9}$/.test(phone)){
+    document.getElementById("otpMessage").textContent="Enter a valid 10 digit Indian mobile number.";
     return;
   }
 
   /*
     IMPORTANT:
-    Actual SMS OTP needs an SMS provider.
-    This button currently verifies the entered
-    phone locally so the cart can be locked.
+    Real SMS OTP needs an SMS provider such as Twilio/MSG91.
+    This frontend intentionally does NOT fake OTP verification.
   */
 
-  phoneVerified = true;
-
-  localStorage.setItem(
-    "adisaPhoneVerified",
-    "true"
-  );
-
-  updateVerificationUI();
-
-  alert("Mobile number verified ✓");
+  document.getElementById("otpMessage").textContent =
+    "SMS OTP provider is not connected yet. Connect an SMS provider before using live phone verification.";
 }
 
-
-function saveProfile(){
-
-  const name =
-    document.getElementById("profileName").value.trim();
-
-  const phone =
-    document.getElementById("profilePhone").value.trim();
-
-  if(!name || !phone){
-
-    alert("Name and mobile number are required.");
-
-    return;
-  }
-
-  if(!phoneVerified){
-
-    alert("Please verify your mobile number first.");
-
-    return;
-  }
-
-  profile = {
-
-    name:name,
-
-    phone:phone,
-
-    email:
-      document.getElementById("profileEmail").value.trim(),
-
-    address:
-      document.getElementById("profileAddress").value.trim(),
-
-    city:
-      document.getElementById("profileCity").value.trim(),
-
-    pincode:
-      document.getElementById("profilePincode").value.trim()
-
-  };
-
-  localStorage.setItem(
-    "adisaProfile",
-    JSON.stringify(profile)
-  );
-
-  alert("Profile saved successfully ✓");
-
-  closeProfile();
+function verifyOTP(){
+  document.getElementById("otpMessage").textContent =
+    "Real OTP verification must be completed through your SMS provider.";
 }
 
-
-/* ================= CART ================= */
-
-let cart = [];
-
-const products = {
-
-  "Classic Oversized Shirt":{
-    price:1499,
-    image:"https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90"
-  },
-
-  "Premium Street Look":{
-    price:1799,
-    image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90"
-  },
-
-  "Urban Denim Jacket":{
-    price:2299,
-    image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90"
-  },
-
-  "Premium Everyday Look":{
-    price:1999,
-    image:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
-  }
-
-};
-
-
-function addToCart(name,price){
-
-  if(!phoneVerified){
-
-    openProfile();
-
-    alert(
-      "Cart me add karne se pehle mobile number verify karein."
-    );
-
-    return;
-  }
-
-  cart.push({
-    name:name,
-    price:price,
-    image:products[name].image
-  });
-
-  updateCartButton();
-
-  alert(name + " added to cart 🛒");
-}
-
-
-function updateCartButton(){
-
-  document.querySelector(".cartButton").innerHTML =
-    `CART 🛒 (${cart.length})`;
-}
-
-
-function openCart(){
-
-  if(!phoneVerified){
-
-    openProfile();
-
-    alert(
-      "Cart open karne se pehle mobile number verify karein."
-    );
-
-    return;
-  }
-
-  document
-    .getElementById("cartModal")
-    .classList.add("show");
-
-  renderCart();
-}
-
-
-function closeCart(){
-
-  document
-    .getElementById("cartModal")
-    .classList.remove("show");
-}
-
-
-function renderCart(){
-
-  const box =
-    document.getElementById("cartItems");
-
-  let total = 0;
-
-  box.innerHTML = "";
-
-  if(cart.length === 0){
-
-    box.innerHTML =
-      "<p>Your cart is empty.</p>";
-
-    document.getElementById("cartTotal").innerText =
-      "₹0";
-
-    return;
-  }
-
-  cart.forEach((item,index)=>{
-
-    total += item.price;
-
-    box.innerHTML += `
-
-      <div class="cartItem">
-
-        <div>
-          <strong>${item.name}</strong>
-
-          <div style="color:#777;">
-            ₹${item.price.toLocaleString("en-IN")}
-          </div>
-        </div>
-
-        <button
-          class="removeBtn"
-          onclick="removeFromCart(${index})">
-          REMOVE
-        </button>
-
-      </div>
-
-    `;
-
-  });
-
-  document.getElementById("cartTotal").innerText =
-    "₹" + total.toLocaleString("en-IN");
-}
-
-
-function removeFromCart(index){
-
-  cart.splice(index,1);
-
-  updateCartButton();
-
-  renderCart();
-}
-
-
-/* ================= CHECKOUT ================= */
-
-function openCheckout(){
-
-  if(cart.length === 0){
-
-    alert("Your cart is empty.");
-
-    return;
-  }
-
-  if(!phoneVerified){
-
-    closeCart();
-    openProfile();
-
-    alert("Please verify mobile number first.");
-
-    return;
-  }
-
-  loadCheckoutProfile();
-
-  renderCheckout();
-
-  closeCart();
-
-  document
-    .getElementById("checkoutPage")
-    .classList.add("show");
-}
-
-
-function closeCheckout(){
-
-  document
-    .getElementById("checkoutPage")
-    .classList.remove("show");
-}
-
-
-function loadCheckoutProfile(){
-
-  if(!profile) return;
-
-  document.getElementById("checkoutName").value =
-    profile.name || "";
-
-  document.getElementById("checkoutPhone").value =
-    profile.phone || "";
-
-  document.getElementById("checkoutAddress").value =
-    profile.address || "";
-
-  document.getElementById("checkoutCity").value =
-    profile.city || "";
-
-  document.getElementById("checkoutPincode").value =
-    profile.pincode || "";
-}
-
-
-function renderCheckout(){
-
-  const box =
-    document.getElementById("checkoutItems");
-
-  let total = 0;
-
-  box.innerHTML = "";
-
-  cart.forEach(item=>{
-
-    total += item.price;
-
-    box.innerHTML += `
-
-      <div class="checkoutItem">
-
-        <span>${item.name}</span>
-
-        <strong>
-          ₹${item.price.toLocaleString("en-IN")}
-        </strong>
-
-      </div>
-
-    `;
-
-  });
-
-  document.getElementById("checkoutTotal").innerText =
-    "₹" + total.toLocaleString("en-IN");
-}
-
-
-/* ================= PLACE ORDER ================= */
-
-async function placeOrder(){
-
-  const name =
-    document.getElementById("checkoutName").value.trim();
-
-  const phone =
-    document.getElementById("checkoutPhone").value.trim();
-
-  const address =
-    document.getElementById("checkoutAddress").value.trim();
-
-  const city =
-    document.getElementById("checkoutCity").value.trim();
-
-  const pincode =
-    document.getElementById("checkoutPincode").value.trim();
-
-  const payment =
-    document.getElementById("paymentMethod").value;
-
-
-  if(
-    !name ||
-    !phone ||
-    !address ||
-    !city ||
-    !pincode ||
-    !payment
-  ){
-
-    alert("Please fill all details.");
-
-    return;
-  }
-
-
-  if(!phoneVerified){
-
-    alert("Please verify your mobile number.");
-
-    return;
-  }
-
-
-  if(cart.length === 0){
-
-    alert("Your cart is empty.");
-
-    return;
-  }
-
-
-  if(payment === "COD"){
-
-    placeCODOrder(
-      name,
-      phone,
-      address,
-      city,
-      pincode
-    );
-
-    return;
-  }
-
-
-  if(payment === "ONLINE"){
-
-    await startRazorpayPayment(
-      name,
-      phone,
-      address,
-      city,
-      pincode
-    );
-
-  }
-
-}
-
-
-/* ================= COD ================= */
-
-function placeCODOrder(
-  name,
-  phone,
-  address,
-  city,
-  pincode
-){
-
-  let total = 0;
-
-  cart.forEach(item=>{
-    total += item.price;
-  });
-
-  alert(
-    "COD Order placed successfully! 🎉\n\n" +
-    "Customer: " + name + "\n" +
-    "Total: ₹" +
-    total.toLocaleString("en-IN") +
-    "\nPayment: Cash on Delivery"
-  );
-
-  cart = [];
-
-  updateCartButton();
-
-  closeCheckout();
-}
-
-
-/* ================= RAZORPAY ================= */
-
-async function startRazorpayPayment(
-  name,
-  phone,
-  address,
-  city,
-  pincode
-){
-
-  try{
-
-    let total = 0;
-
-    cart.forEach(item=>{
-      total += item.price;
-    });
-
-
-    const response =
-      await fetch("/api/create-order",{
-
-        method:"POST",
-
-        headers:{
-          "Content-Type":"application/json"
-        },
-
-        body:JSON.stringify({
-
-          amount:total,
-
-          customer:{
-            name:name,
-            phone:phone,
-            address:address,
-            city:city,
-            pincode:pincode
-          }
-
-        })
-
-      });
-
-
-    const data =
-      await response.json();
-
-
-    if(!response.ok){
-
-      throw new Error(
-        data.error || "Unable to create payment order."
-      );
-
-    }
-
-
-    const options = {
-
-      key:
-      rzp_live_TRfP6IRcCdQvPk,V6neqsRC4VELmvs8JRYg095s",
-
-      amount:
-        data.amount,
-
-      currency:
-        "INR",
-
-      name:
-        "ADISA OUTFITS",
-
-      description:
-        "Fashion Order",
-
-      order_id:
-        data.orderId,
-
-      prefill:{
-
-        name:name,
-
-        contact:"+91" + phone.replace(/\D/g,"")
-
-      },
-
-      theme:{
-        color:"#d4af37"
-      },
-
-
-      handler:
-        async function(paymentResponse){
-
-          await verifyPayment(
-            paymentResponse,
-            {
-              name,
-              phone,
-              address,
-              city,
-              pincode
-            }
-          );
-
-        },
-
-
-      modal:{
-        confirm_close:true
-      }
-
-    };
-
-
-    const razorpay =
-      new Razorpay(options);
-
-    razorpay.open();
-
-
-  }catch(error){
-
-    console.error(error);
-
-    alert(
-      "Payment start nahi ho paya.\n\n" +
-      error.message
-    );
-
-  }
-
-}
-
-
-/* ================= VERIFY PAYMENT ================= */
-
-async function verifyPayment(
-  paymentResponse,
-  customer
-){
-
-  try{
-
-    const response =
-      await fetch("/api/verify-payment",{
-
-        method:"POST",
-
-        headers:{
-          "Content-Type":"application/json"
-        },
-
-        body:JSON.stringify({
-
-          paymentId:
-            paymentResponse.razorpay_payment_id,
-
-          orderId:
-            paymentResponse.razorpay_order_id,
-
-          signature:
-            paymentResponse.razorpay_signature,
-
-          customer:customer,
-
-          items:cart
-
-        })
-
-      });
-
-
-    const data =
-      await response.json();
-
-
-    if(!response.ok){
-
-      throw new Error(
-        data.error || "Payment verification failed."
-      );
-
-    }
-
-
-    alert(
-      "Payment successful! 🎉\n\n" +
-      "Your order has been confirmed."
-    );
-
-
-    cart = [];
-
-    updateCartButton();
-
-    closeCheckout();
-
-
-  }catch(error){
-
-    console.error(error);
-
-    alert(
-      "Payment verify nahi ho paya.\n\n" +
-      error.message
-    );
-
-  }
-
-}
-
+saveCart();
 </script>
 
 </body>
