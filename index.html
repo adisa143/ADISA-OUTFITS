@@ -217,7 +217,7 @@ nav a:hover{
   margin-top:8px;
 }
 
-/* ================= COLLECTION SLIDER ================= */
+/* ================= COLLECTION ================= */
 
 .collectionSlider{
   overflow:hidden;
@@ -678,6 +678,27 @@ footer a{
   font-size:20px;
 }
 
+/* ================= ORDER SUCCESS ================= */
+
+.successMessage{
+  display:none;
+  text-align:center;
+  padding:30px;
+}
+
+.successMessage.show{
+  display:block;
+}
+
+.successMessage h2{
+  margin-bottom:12px;
+}
+
+.successMessage p{
+  color:#777;
+  line-height:1.7;
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
@@ -898,7 +919,6 @@ footer a{
 
     <div class="collectionTrack" id="collectionTrack">
 
-
       <div class="collectionCard">
 
         <img
@@ -986,7 +1006,6 @@ footer a{
 
       </div>
 
-
     </div>
 
 
@@ -1034,9 +1053,6 @@ footer a{
 
   <div class="productGrid">
 
-
-    <!-- PRODUCT 1 -->
-
     <div class="productCard">
 
       <div class="productImage">
@@ -1068,8 +1084,6 @@ footer a{
 
     </div>
 
-
-    <!-- PRODUCT 2 -->
 
     <div class="productCard">
 
@@ -1103,8 +1117,6 @@ footer a{
     </div>
 
 
-    <!-- PRODUCT 3 -->
-
     <div class="productCard">
 
       <div class="productImage">
@@ -1137,8 +1149,6 @@ footer a{
     </div>
 
 
-    <!-- PRODUCT 4 -->
-
     <div class="productCard">
 
       <div class="productImage">
@@ -1169,7 +1179,6 @@ footer a{
       </div>
 
     </div>
-
 
   </div>
 
@@ -1262,7 +1271,6 @@ footer a{
 
   <div class="footerGrid">
 
-
     <div>
 
       <div class="brand">
@@ -1344,7 +1352,6 @@ footer a{
 
     </div>
 
-
   </div>
 
 
@@ -1401,7 +1408,7 @@ footer a{
 </div>
 
 
-<!-- ================= SEPARATE CHECKOUT PAGE ================= -->
+<!-- ================= CHECKOUT PAGE ================= -->
 
 <div class="checkoutPage" id="checkoutPage">
 
@@ -1427,48 +1434,50 @@ footer a{
 
     <div class="checkoutGrid">
 
-
       <!-- CUSTOMER FORM -->
 
       <div class="checkoutForm">
 
         <h3>Customer Details</h3>
 
-
         <input
           type="text"
           id="customerName"
           placeholder="Full Name"
+          autocomplete="name"
         >
-
 
         <input
           type="tel"
           id="customerPhone"
           placeholder="Mobile Number"
+          inputmode="numeric"
+          maxlength="10"
+          autocomplete="tel"
         >
-
 
         <input
           type="text"
           id="customerAddress"
           placeholder="Full Address"
+          autocomplete="street-address"
         >
-
 
         <input
           type="text"
           id="customerCity"
           placeholder="City"
+          autocomplete="address-level2"
         >
-
 
         <input
           type="text"
           id="customerPincode"
           placeholder="Pincode"
+          inputmode="numeric"
+          maxlength="6"
+          autocomplete="postal-code"
         >
-
 
         <select id="paymentMethod">
 
@@ -1488,6 +1497,7 @@ footer a{
 
 
         <button
+          type="button"
           class="placeOrderBtn"
           onclick="placeOrder()">
           PLACE ORDER →
@@ -1515,7 +1525,6 @@ footer a{
         </div>
 
       </div>
-
 
     </div>
 
@@ -1623,9 +1632,11 @@ setInterval(()=>{
 
 let cart = [];
 
+
 function addToCart(name,price){
 
   const images = {
+
     "Classic Oversized Shirt":
       "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90",
 
@@ -1637,7 +1648,9 @@ function addToCart(name,price){
 
     "Premium Everyday Look":
       "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
+
   };
+
 
   cart.push({
     name:name,
@@ -1645,10 +1658,12 @@ function addToCart(name,price){
     image:images[name]
   });
 
+
   updateCartButton();
 
   alert(name + " added to cart 🛒");
 }
+
 
 function updateCartButton(){
 
@@ -1728,6 +1743,7 @@ function renderCart(){
 
         <button
           class="removeBtn"
+          type="button"
           onclick="removeFromCart(${index})">
           REMOVE
         </button>
@@ -1751,11 +1767,45 @@ function removeFromCart(index){
   updateCartButton();
 
   renderCart();
-
 }
 
 
 /* ================= CHECKOUT ================= */
+
+/*
+  IMPORTANT FIX:
+  Tumhare previous code mein openCheckout()
+  function missing tha.
+
+  Isliye PROCEED TO CHECKOUT button
+  kaam nahi kar raha tha.
+*/
+
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty 🛒");
+
+    return;
+  }
+
+
+  renderCheckout();
+
+
+  closeCart();
+
+
+  document
+    .getElementById("checkoutPage")
+    .classList.add("show");
+
+
+  document.body.style.overflow = "hidden";
+}
+
 
 function renderCheckout(){
 
@@ -1765,13 +1815,28 @@ function renderCheckout(){
   const totalBox =
     document.getElementById("checkoutTotal");
 
+
   let total = 0;
 
   items.innerHTML = "";
 
+
+  if(cart.length === 0){
+
+    items.innerHTML =
+      "<p>Your cart is empty.</p>";
+
+    totalBox.innerText =
+      "₹0";
+
+    return;
+  }
+
+
   cart.forEach(item=>{
 
     total += item.price;
+
 
     items.innerHTML += `
 
@@ -1791,10 +1856,11 @@ function renderCheckout(){
 
   });
 
+
   totalBox.innerText =
     "₹" + total.toLocaleString("en-IN");
-
 }
+
 
 function closeCheckout(){
 
@@ -1802,13 +1868,24 @@ function closeCheckout(){
     .getElementById("checkoutPage")
     .classList.remove("show");
 
+
+  document.body.style.overflow = "";
 }
-  
 
 
 /* ================= PLACE ORDER ================= */
 
 function placeOrder(){
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty 🛒");
+
+    closeCheckout();
+
+    return;
+  }
+
 
   const name =
     document
@@ -1868,20 +1945,20 @@ function placeOrder(){
   }
 
 
-  if(phone.length < 10){
+  if(!/^[0-9]{10}$/.test(phone)){
 
     alert(
-      "Please enter a valid mobile number."
+      "Please enter a valid 10-digit mobile number."
     );
 
     return;
   }
 
 
-  if(pincode.length < 6){
+  if(!/^[0-9]{6}$/.test(pincode)){
 
     alert(
-      "Please enter a valid pincode."
+      "Please enter a valid 6-digit pincode."
     );
 
     return;
@@ -1907,7 +1984,9 @@ function placeOrder(){
 
   cart = [];
 
+
   updateCartButton();
+
 
   closeCheckout();
 
@@ -1916,26 +1995,40 @@ function placeOrder(){
     .getElementById("customerName")
     .value = "";
 
+
   document
     .getElementById("customerPhone")
     .value = "";
+
 
   document
     .getElementById("customerAddress")
     .value = "";
 
+
   document
     .getElementById("customerCity")
     .value = "";
+
 
   document
     .getElementById("customerPincode")
     .value = "";
 
+
   document
     .getElementById("paymentMethod")
     .value = "";
 
+
+  document
+    .getElementById("checkoutItems")
+    .innerHTML = "";
+
+
+  document
+    .getElementById("checkoutTotal")
+    .innerText = "₹0";
 }
 
 
@@ -1944,6 +2037,21 @@ function placeOrder(){
 window.addEventListener("resize",()=>{
 
   moveCollection(collectionIndex);
+
+});
+
+
+/* ================= ESC KEY ================= */
+
+document.addEventListener("keydown",(event)=>{
+
+  if(event.key === "Escape"){
+
+    closeCart();
+
+    closeCheckout();
+
+  }
 
 });
 
