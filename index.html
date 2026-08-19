@@ -7,7 +7,7 @@
 <title>ADISA OUTFITS</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 *{
   margin:0;
@@ -31,21 +31,15 @@ body{
   position:sticky;
   top:0;
   z-index:1000;
-
-  width:100%;
+  padding:16px 5%;
+  background:rgba(10,10,10,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
 
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  padding:16px 5%;
-
-  background:rgba(10,10,10,.94);
-  backdrop-filter:blur(14px);
-
-  border-bottom:1px solid rgba(255,255,255,.12);
-
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 
 .brand{
@@ -53,8 +47,6 @@ body{
   font-size:24px;
   font-weight:900;
   letter-spacing:3px;
-  text-transform:uppercase;
-  white-space:nowrap;
 }
 
 .brand span{
@@ -86,88 +78,98 @@ body{
   background:#d4af37;
   color:#111;
   padding:11px 18px;
-  border-radius:30px;
+  border-radius:25px;
   font-size:12px;
   font-weight:800;
   cursor:pointer;
-  transition:.3s;
 }
 
-.cartButton:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(212,175,55,.3);
+/* ================= SLIDER ================= */
+
+.slider{
+  position:relative;
+  width:100%;
+  height:650px;
+  overflow:hidden;
 }
 
-/* ================= HERO ================= */
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .8s ease, visibility .8s ease;
 
-.hero{
-  min-height:650px;
+  background-position:center;
+  background-size:cover;
 
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
   color:white;
-
-  padding:60px 20px;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,.48),
-      rgba(0,0,0,.72)
-    ),
-    url("https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=90")
-    center/cover no-repeat;
 }
 
-.heroContent{
-  max-width:850px;
+.slide.active{
+  opacity:1;
+  visibility:visible;
 }
 
-.tag{
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.72),
+    rgba(0,0,0,.30),
+    rgba(0,0,0,.65)
+  );
+}
+
+.slideContent{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  padding:30px;
+}
+
+.slideTag{
   color:#d4af37;
   font-size:13px;
   font-weight:800;
   letter-spacing:4px;
+  margin-bottom:18px;
 }
 
-.hero h1{
-  font-size:clamp(48px,9vw,90px);
-  line-height:.95;
-  margin:22px 0;
+.slide h1{
+  font-size:clamp(48px,8vw,90px);
+  line-height:.98;
   font-weight:900;
-  letter-spacing:-2px;
   text-transform:uppercase;
+  margin-bottom:20px;
 }
 
-.hero h1 em,
-.hero h2 em{
+.slide h1 em{
   color:#d4af37;
   font-style:normal;
 }
 
-.heroText{
+.slideText{
   font-size:18px;
-  margin-bottom:30px;
   color:#eee;
-}
-
-.hero h2{
-  font-size:clamp(25px,5vw,42px);
-  margin:20px 0 30px;
+  margin-bottom:30px;
 }
 
 .shopButton{
   display:inline-block;
-  background:#fff;
+  background:white;
   color:#111;
-  padding:16px 28px;
+  padding:16px 30px;
   border-radius:30px;
   text-decoration:none;
   font-weight:800;
   transition:.3s;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 .shopButton:hover{
@@ -175,10 +177,54 @@ body{
   transform:translateY(-3px);
 }
 
+/* PROMO SLIDE */
+
+.slideOne{
+  background-image:url(
+    "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90"
+  );
+}
+
+/* ORIGINAL HERO SLIDE */
+
+.slideTwo{
+  background-image:url(
+    "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=90"
+  );
+}
+
+/* SLIDER DOTS */
+
+.sliderDots{
+  position:absolute;
+  z-index:5;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:1px solid white;
+  background:transparent;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.dot.active{
+  background:#d4af37;
+  border-color:#d4af37;
+  transform:scale(1.2);
+}
+
 /* ================= SECTION ================= */
 
 .section{
-  padding:90px 6%;
+  padding:85px 6%;
 }
 
 .sectionHeading{
@@ -194,137 +240,70 @@ body{
 }
 
 .sectionHeading h2{
-  font-size:42px;
+  font-size:40px;
   margin-top:10px;
-  font-weight:900;
 }
 
-/* ================= CATEGORY ================= */
+/* ================= FEATURED ================= */
 
-.categoryGrid{
+.featured{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:25px;
 }
 
-.categoryCard{
+.featureCard{
   position:relative;
-  min-height:420px;
-  border-radius:22px;
+  height:430px;
   overflow:hidden;
+  border-radius:22px;
   background:#111;
 }
 
-.categoryCard img{
-  position:absolute;
-  inset:0;
-
+.featureCard img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-  display:block;
-
   transition:.5s;
 }
 
-.categoryCard:hover img{
-  transform:scale(1.05);
+.featureCard:hover img{
+  transform:scale(1.06);
 }
 
-.categoryCard::after{
-  content:"";
+.featureOverlay{
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(0,0,0,.85),
-      rgba(0,0,0,.12)
-    );
-}
-
-.categoryOverlay{
-  position:absolute;
-  inset:0;
-  z-index:2;
-
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
-  align-items:flex-start;
-
   padding:35px;
+
+  background:linear-gradient(
+    transparent 25%,
+    rgba(0,0,0,.85)
+  );
+
   color:white;
 }
 
-.categoryOverlay small{
+.featureOverlay small{
   color:#d4af37;
-  font-weight:800;
-  letter-spacing:3px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
-.categoryOverlay h3{
+.featureOverlay h3{
   font-size:30px;
-  line-height:1.05;
-  margin:14px 0 18px;
-  font-weight:900;
+  margin:8px 0;
 }
 
-.categoryOverlay p{
-  color:#ddd;
-  line-height:1.6;
-  margin-bottom:20px;
-}
-
-.categoryOverlay a{
+.featureOverlay a{
   display:inline-block;
-
-  background:#fff;
-  color:#111;
-
-  padding:11px 20px;
-  border-radius:25px;
-
+  color:white;
   text-decoration:none;
-
-  font-size:12px;
-  font-weight:800;
-
-  transition:.3s;
-}
-
-.categoryOverlay a:hover{
-  background:#d4af37;
-}
-
-/* ================= DARK CARDS ================= */
-
-.darkCards .categoryCard{
-  min-height:270px;
-  background:#111;
-}
-
-.darkCards .categoryCard::after{
-  display:none;
-}
-
-.darkCards .categoryOverlay{
-  position:relative;
-  inset:auto;
-  height:100%;
-
-  justify-content:center;
-  padding:35px;
-}
-
-.darkCards .categoryOverlay h3{
-  margin-bottom:12px;
-}
-
-.darkCards .categoryOverlay p{
-  margin:0;
+  font-weight:700;
+  margin-top:8px;
 }
 
 /* ================= PRODUCTS ================= */
@@ -336,13 +315,10 @@ body{
 }
 
 .productCard{
-  background:#111;
-  border-radius:20px;
+  background:white;
+  border-radius:18px;
   overflow:hidden;
-  color:white;
-
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
-
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
   transition:.3s;
 }
 
@@ -352,18 +328,16 @@ body{
 
 .productImage{
   position:relative;
-  height:360px;
+  height:330px;
   overflow:hidden;
+  background:#eee;
 }
 
 .productImage img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-  display:block;
-
-  transition:.5s;
+  transition:.4s;
 }
 
 .productCard:hover .productImage img{
@@ -372,83 +346,97 @@ body{
 
 .productImage span{
   position:absolute;
-
-  top:15px;
-  left:15px;
-
+  top:14px;
+  left:14px;
   background:#d4af37;
   color:#111;
-
-  padding:7px 12px;
-  border-radius:20px;
-
+  padding:6px 10px;
+  border-radius:15px;
   font-size:10px;
-  font-weight:900;
-  letter-spacing:1px;
+  font-weight:800;
 }
 
 .productInfo{
-  padding:20px;
+  padding:18px;
 }
 
 .productInfo p{
-  color:#d4af37;
-
+  color:#999;
   font-size:10px;
-  font-weight:800;
-  letter-spacing:2px;
-
-  margin-bottom:8px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  margin-bottom:7px;
 }
 
 .productInfo h3{
-  font-size:18px;
-  line-height:1.3;
-  margin-bottom:12px;
+  font-size:16px;
+  margin-bottom:10px;
 }
 
 .productInfo strong{
   font-size:18px;
 }
 
+/* ================= WHY ADISA ================= */
+
+.darkGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.darkCard{
+  background:#111;
+  color:white;
+  padding:35px;
+  min-height:250px;
+  border-radius:20px;
+}
+
+.darkCard small{
+  color:#d4af37;
+  letter-spacing:2px;
+  font-weight:700;
+}
+
+.darkCard h3{
+  font-size:24px;
+  margin:20px 0 12px;
+}
+
+.darkCard p{
+  color:#bbb;
+  line-height:1.7;
+}
+
 /* ================= PROMO ================= */
 
 .promo{
-  min-height:550px;
+  min-height:560px;
+  background:
+    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.72)),
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=90")
+    center/cover;
 
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
   color:white;
-
-  padding:60px 20px;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,.55),
-      rgba(0,0,0,.75)
-    ),
-    url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90")
-    center/cover no-repeat;
+  padding:50px 20px;
 }
 
 .promo p{
   color:#d4af37;
-
-  font-size:14px;
-  font-weight:900;
   letter-spacing:5px;
-
-  margin-bottom:25px;
+  font-weight:800;
+  margin-bottom:20px;
 }
 
 .promo h2{
-  font-size:clamp(45px,8vw,80px);
+  font-size:clamp(45px,7vw,75px);
   line-height:1;
-  font-weight:900;
-  margin-bottom:40px;
+  margin-bottom:35px;
 }
 
 /* ================= FOOTER ================= */
@@ -456,38 +444,36 @@ body{
 footer{
   background:#111;
   color:white;
-
   text-align:center;
-
   padding:60px 20px;
 }
 
 footer .brand{
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 footer p{
   color:#aaa;
-  margin-top:10px;
-  font-size:14px;
+  margin-top:8px;
 }
 
-/* ================= TABLET ================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
   .productGrid{
     grid-template-columns:repeat(2,1fr);
   }
 
+  .darkGrid{
+    grid-template-columns:1fr;
+  }
 }
-
-/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
   .topbar{
-    padding:14px 15px;
+    padding:13px 15px;
     flex-wrap:wrap;
     gap:12px;
   }
@@ -499,12 +485,9 @@ footer p{
 
   .topbar nav{
     order:3;
-
     width:100%;
-
     justify-content:center;
-
-    gap:16px;
+    gap:14px;
   }
 
   .topbar nav a{
@@ -512,91 +495,94 @@ footer p{
   }
 
   .cartButton{
-    padding:9px 13px;
+    padding:8px 13px;
     font-size:10px;
   }
 
-  .hero{
-    min-height:570px;
-    padding:40px 18px;
+  .slider{
+    height:560px;
   }
 
-  .hero h1{
-    font-size:43px;
+  .slideContent{
+    padding:20px;
   }
 
-  .heroText{
-    font-size:14px;
-  }
-
-  .hero h2{
-    font-size:27px;
-  }
-
-  .tag{
+  .slideTag{
     font-size:10px;
     letter-spacing:3px;
   }
 
-  .section{
-    padding:65px 20px;
+  .slide h1{
+    font-size:42px;
   }
 
-  .sectionHeading{
-    margin-bottom:30px;
+  .slideText{
+    font-size:14px;
+  }
+
+  .shopButton{
+    padding:14px 24px;
+    font-size:13px;
+  }
+
+  .section{
+    padding:60px 20px;
   }
 
   .sectionHeading h2{
-    font-size:32px;
+    font-size:30px;
   }
 
-  .categoryGrid{
+  .featured{
     grid-template-columns:1fr;
-    gap:18px;
   }
 
-  .categoryCard{
-    min-height:390px;
-    border-radius:18px;
-  }
-
-  .categoryOverlay{
-    padding:25px;
-  }
-
-  .categoryOverlay h3{
-    font-size:26px;
-  }
-
-  .darkCards .categoryCard{
-    min-height:250px;
+  .featureCard{
+    height:350px;
   }
 
   .productGrid{
-    grid-template-columns:1fr;
-    gap:18px;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
   }
 
   .productImage{
-    height:380px;
+    height:230px;
+  }
+
+  .productInfo{
+    padding:13px;
+  }
+
+  .productInfo h3{
+    font-size:14px;
+  }
+
+  .productInfo strong{
+    font-size:16px;
   }
 
   .promo{
-    min-height:520px;
+    min-height:480px;
   }
 
   .promo h2{
-    font-size:45px;
+    font-size:43px;
+  }
+}
+
+@media(max-width:380px){
+
+  .productGrid{
+    grid-template-columns:1fr;
   }
 
-  footer{
-    padding:50px 20px;
+  .productImage{
+    height:300px;
   }
-
 }
 </style>
 </head>
-
 
 <body>
 
@@ -610,7 +596,7 @@ footer p{
 
   <nav>
     <a href="#home">HOME</a>
-    <a href="#collections">COLLECTIONS</a>
+    <a href="#featured">COLLECTIONS</a>
     <a href="#shop">SHOP</a>
   </nav>
 
@@ -621,81 +607,109 @@ footer p{
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- ================= TWO SLIDE HERO ================= -->
 
-<section class="hero" id="home">
+<section class="slider" id="home">
 
-  <div class="heroContent">
+  <!-- SLIDE 1 -->
 
-    <p class="tag">
-      ADISA OUTFITS • NEW COLLECTION 2026
-    </p>
+  <div class="slide slideOne active">
 
-    <h1>
-      STYLE THAT<br>
-      <em>DEFINES YOU.</em>
-    </h1>
+    <div class="slideContent">
 
-    <p class="heroText">
-      Premium fashion designed for boys & girls.
-    </p>
+      <p class="slideTag">
+        ADISA OUTFITS
+      </p>
 
-    <p class="tag">
-      NEW DROP • 2026
-    </p>
+      <h1>
+        YOUR STYLE.<br>
+        YOUR STORY.
+      </h1>
 
-    <h2>
-      WEAR YOUR <em>CONFIDENCE.</em>
-    </h2>
+      <p class="slideText">
+        Discover fashion that speaks your personality.
+      </p>
 
-    <a href="#shop" class="shopButton">
-      SHOP COLLECTION →
-    </a>
+      <a href="#shop" class="shopButton">
+        EXPLORE NOW →
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- SLIDE 2 -->
+
+  <div class="slide slideTwo">
+
+    <div class="slideContent">
+
+      <p class="slideTag">
+        ADISA OUTFITS • NEW COLLECTION 2026
+      </p>
+
+      <h1>
+        STYLE THAT<br>
+        <em>DEFINES YOU.</em>
+      </h1>
+
+      <p class="slideText">
+        Premium fashion designed for boys & girls.
+      </p>
+
+      <a href="#shop" class="shopButton">
+        SHOP COLLECTION →
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- DOTS -->
+
+  <div class="sliderDots">
+
+    <button class="dot active" onclick="showSlide(0)"></button>
+
+    <button class="dot" onclick="showSlide(1)"></button>
 
   </div>
 
 </section>
 
 
-<!-- ================= COLLECTIONS ================= -->
+<!-- ================= FEATURED COLLECTION ================= -->
 
-<section class="section" id="collections">
+<section class="section" id="featured">
 
   <div class="sectionHeading">
 
     <p>THE ADISA EDIT</p>
 
-    <h2>
-      Find Your Signature Style
-    </h2>
+    <h2>Explore Our Collection</h2>
 
   </div>
 
 
-  <div class="categoryGrid">
+  <div class="featured">
 
-    <!-- BOYS -->
-
-    <div class="categoryCard">
+    <div class="featureCard">
 
       <img
-        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85"
-        alt="Boys Fashion"
+        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
+        alt="Men Fashion"
       >
 
-      <div class="categoryOverlay">
+      <div class="featureOverlay">
 
-        <small>
-          01 — BOYS
-        </small>
+        <small>01 — MEN</small>
 
-        <h3>
-          STREET<br>
-          ESSENTIALS
-        </h3>
+        <h3>Street Essentials</h3>
 
         <a href="#shop">
-          SHOP BOYS →
+          DISCOVER COLLECTION →
         </a>
 
       </div>
@@ -703,28 +717,21 @@ footer p{
     </div>
 
 
-    <!-- GIRLS -->
-
-    <div class="categoryCard">
+    <div class="featureCard">
 
       <img
-        src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85"
-        alt="Girls Fashion"
+        src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90"
+        alt="Women Fashion"
       >
 
-      <div class="categoryOverlay">
+      <div class="featureOverlay">
 
-        <small>
-          02 — GIRLS
-        </small>
+        <small>02 — WOMEN</small>
 
-        <h3>
-          MODERN<br>
-          ELEGANCE
-        </h3>
+        <h3>Modern Elegance</h3>
 
         <a href="#shop">
-          SHOP GIRLS →
+          DISCOVER COLLECTION →
         </a>
 
       </div>
@@ -736,101 +743,15 @@ footer p{
 </section>
 
 
-<!-- ================= WHY ADISA ================= -->
-
-<section class="section">
-
-  <div class="sectionHeading">
-
-    <p>WHY ADISA</p>
-
-    <h2>
-      Fashion Made Different
-    </h2>
-
-  </div>
-
-
-  <div class="categoryGrid darkCards">
-
-    <div class="categoryCard">
-
-      <div class="categoryOverlay">
-
-        <small>
-          01 — QUALITY
-        </small>
-
-        <h3>
-          Premium Quality
-        </h3>
-
-        <p>
-          Made with carefully selected fabrics.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="categoryCard">
-
-      <div class="categoryOverlay">
-
-        <small>
-          02 — STYLE
-        </small>
-
-        <h3>
-          Modern Style
-        </h3>
-
-        <p>
-          Designed for your everyday confidence.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="categoryCard">
-
-      <div class="categoryOverlay">
-
-        <small>
-          03 — COLLECTION
-        </small>
-
-        <h3>
-          Fresh Drops
-        </h3>
-
-        <p>
-          New looks for every season.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= SHOP ================= -->
+<!-- ================= PRODUCTS ================= -->
 
 <section class="section" id="shop">
 
   <div class="sectionHeading">
 
-    <p>THE ADISA EDIT</p>
+    <p>ADISA EDIT</p>
 
-    <h2>
-      New Season Essentials
-    </h2>
+    <h2>Latest Arrivals</h2>
 
   </div>
 
@@ -845,29 +766,21 @@ footer p{
       <div class="productImage">
 
         <img
-          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=85"
-          alt="Classic Oversized Shirt"
+          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90"
+          alt="Oversized Shirt"
         >
 
-        <span>
-          NEW
-        </span>
+        <span>NEW</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          MEN'S COLLECTION
-        </p>
+        <p>MEN'S COLLECTION</p>
 
-        <h3>
-          Classic Oversized Shirt
-        </h3>
+        <h3>Classic Oversized Shirt</h3>
 
-        <strong>
-          ₹1,499
-        </strong>
+        <strong>₹1,499</strong>
 
       </div>
 
@@ -881,29 +794,21 @@ footer p{
       <div class="productImage">
 
         <img
-          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85"
-          alt="Premium Street Look"
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90"
+          alt="Women's Fashion"
         >
 
-        <span>
-          NEW
-        </span>
+        <span>NEW</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          WOMEN'S COLLECTION
-        </p>
+        <p>WOMEN'S COLLECTION</p>
 
-        <h3>
-          Premium Street Look
-        </h3>
+        <h3>Premium Street Look</h3>
 
-        <strong>
-          ₹1,799
-        </strong>
+        <strong>₹1,799</strong>
 
       </div>
 
@@ -917,29 +822,21 @@ footer p{
       <div class="productImage">
 
         <img
-          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85"
-          alt="Urban Denim Jacket"
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90"
+          alt="Denim Jacket"
         >
 
-        <span>
-          HOT
-        </span>
+        <span>HOT</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          DENIM EDIT
-        </p>
+        <p>DENIM EDIT</p>
 
-        <h3>
-          Urban Denim Jacket
-        </h3>
+        <h3>Urban Denim Jacket</h3>
 
-        <strong>
-          ₹2,299
-        </strong>
+        <strong>₹2,299</strong>
 
       </div>
 
@@ -953,29 +850,21 @@ footer p{
       <div class="productImage">
 
         <img
-          src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=85"
-          alt="Premium Casual Jacket"
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
+          alt="Fashion Collection"
         >
 
-        <span>
-          LIMITED
-        </span>
+        <span>NEW</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          ADISA PREMIUM
-        </p>
+        <p>ADISA EDIT</p>
 
-        <h3>
-          Signature Casual Jacket
-        </h3>
+        <h3>Premium Everyday Look</h3>
 
-        <strong>
-          ₹2,499
-        </strong>
+        <strong>₹1,999</strong>
 
       </div>
 
@@ -987,99 +876,73 @@ footer p{
 </section>
 
 
-<!-- ================= EXPERIENCE ================= -->
+<!-- ================= WHY ADISA ================= -->
 
 <section class="section">
 
   <div class="sectionHeading">
 
-    <p>ADISA EXPERIENCE</p>
+    <p>WHY ADISA</p>
 
-    <h2>
-      Why You'll Love Us
-    </h2>
+    <h2>Fashion Made Different</h2>
 
   </div>
 
 
-  <div class="categoryGrid darkCards">
+  <div class="darkGrid">
 
-    <div class="categoryCard">
 
-      <div class="categoryOverlay">
+    <div class="darkCard">
 
-        <small>
-          01 — QUALITY
-        </small>
+      <small>01 — QUALITY</small>
 
-        <h3>
-          Premium Fabrics
-        </h3>
+      <h3>Premium Fabrics</h3>
 
-        <p>
-          Comfortable materials made for everyday style.
-        </p>
-
-      </div>
+      <p>
+        Comfortable materials made for everyday style.
+      </p>
 
     </div>
 
 
-    <div class="categoryCard">
+    <div class="darkCard">
 
-      <div class="categoryOverlay">
+      <small>02 — STYLE</small>
 
-        <small>
-          02 — STYLE
-        </small>
+      <h3>Modern Designs</h3>
 
-        <h3>
-          Modern Designs
-        </h3>
-
-        <p>
-          Fresh looks that keep your wardrobe ahead.
-        </p>
-
-      </div>
+      <p>
+        Fresh looks that keep your wardrobe ahead.
+      </p>
 
     </div>
 
 
-    <div class="categoryCard">
+    <div class="darkCard">
 
-      <div class="categoryOverlay">
+      <small>03 — TRUST</small>
 
-        <small>
-          03 — TRUST
-        </small>
+      <h3>Made For You</h3>
 
-        <h3>
-          Made For You
-        </h3>
-
-        <p>
-          Fashion designed to match your confidence.
-        </p>
-
-      </div>
+      <p>
+        Fashion designed to match your confidence.
+      </p>
 
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- ================= PROMO ================= -->
+<!-- ================= BOTTOM PROMO ================= -->
 
 <section class="promo">
 
   <div>
 
-    <p>
-      ADISA OUTFITS
-    </p>
+    <p>ADISA OUTFITS</p>
 
     <h2>
       YOUR STYLE.<br>
@@ -1112,6 +975,49 @@ footer p{
   </p>
 
 </footer>
+
+
+<!-- ================= SLIDER JAVASCRIPT ================= -->
+
+<script>
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index){
+
+  slides.forEach((slide)=>{
+    slide.classList.remove("active");
+  });
+
+  dots.forEach((dot)=>{
+    dot.classList.remove("active");
+  });
+
+  currentSlide = index;
+
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
+}
+
+
+/* AUTO SLIDE */
+
+setInterval(()=>{
+
+  currentSlide++;
+
+  if(currentSlide >= slides.length){
+    currentSlide = 0;
+  }
+
+  showSlide(currentSlide);
+
+},5000);
+
+</script>
 
 </body>
 </html>
