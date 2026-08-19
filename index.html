@@ -1,5 +1,3 @@
-ADISA OUTFITS — Final Website Code
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +36,7 @@ body{
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,.1);
   box-shadow:0 8px 30px rgba(0,0,0,.25);
+
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -100,8 +99,10 @@ body{
   opacity:0;
   visibility:hidden;
   transition:opacity .8s ease, visibility .8s ease;
+
   background-position:center;
   background-size:cover;
+
   display:flex;
   align-items:center;
   justify-content:center;
@@ -176,11 +177,15 @@ body{
   transform:translateY(-3px);
 }
 
+/* PROMO SLIDE */
+
 .slideOne{
   background-image:url(
     "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90"
   );
 }
+
+/* ORIGINAL HERO SLIDE */
 
 .slideTwo{
   background-image:url(
@@ -188,7 +193,7 @@ body{
   );
 }
 
-/* ================= SLIDER DOTS ================= */
+/* SLIDER DOTS */
 
 .sliderDots{
   position:absolute;
@@ -207,6 +212,7 @@ body{
   border:1px solid white;
   background:transparent;
   cursor:pointer;
+  transition:.3s;
 }
 
 .dot.active{
@@ -272,10 +278,12 @@ body{
   flex-direction:column;
   justify-content:flex-end;
   padding:35px;
+
   background:linear-gradient(
     transparent 25%,
     rgba(0,0,0,.85)
   );
+
   color:white;
 }
 
@@ -401,78 +409,93 @@ body{
   line-height:1.7;
 }
 
-/* ================= SELLER / CONTACT ================= */
+/* ================= PROMO ================= */
 
-.sellerSection{
-  background:#111;
+.promo{
+  min-height:560px;
+  background:
+    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.72)),
+    url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=90")
+    center/cover;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
   color:white;
-  padding:65px 6%;
+  padding:50px 20px;
 }
 
-.sellerGrid{
+.promo p{
+  color:#d4af37;
+  letter-spacing:5px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.promo h2{
+  font-size:clamp(45px,7vw,75px);
+  line-height:1;
+  margin-bottom:35px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#111;
+  color:white;
+  padding:55px 6% 25px;
+}
+
+.footerGrid{
   display:grid;
-  grid-template-columns:1.2fr 1fr 1fr 1fr;
+  grid-template-columns:1.2fr 1fr 1fr;
   gap:45px;
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
 }
 
-.sellerColumn h3{
+.footerColumn h3{
+  font-size:16px;
+  margin-bottom:18px;
   color:#d4af37;
-  font-size:13px;
-  letter-spacing:3px;
-  margin-bottom:22px;
+  letter-spacing:1px;
 }
 
-.sellerColumn p{
+.footerColumn p{
   color:#aaa;
   font-size:13px;
-  line-height:1.8;
-  margin-bottom:10px;
+  line-height:1.9;
 }
 
-.sellerBrand{
-  color:white;
-  font-size:24px;
-  font-weight:900;
-  letter-spacing:3px;
-  margin-bottom:18px;
-}
-
-.sellerBrand span{
-  color:#d4af37;
-  font-weight:400;
-}
-
-.sellerDivider{
-  max-width:1200px;
-  margin:45px auto 25px;
-  border-top:1px solid rgba(255,255,255,.1);
-}
-
-.follow{
-  text-align:center;
-}
-
-.follow h3{
-  color:#d4af37;
-  font-size:13px;
-  letter-spacing:3px;
-  margin-bottom:12px;
-}
-
-.follow a{
-  color:white;
+.footerColumn a{
+  color:#aaa;
   text-decoration:none;
-  font-weight:600;
+  font-size:13px;
+  line-height:2;
 }
 
-.bottomInfo{
+.footerColumn a:hover{
+  color:#d4af37;
+}
+
+.footerBottom{
   text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:35px;
+  padding-top:20px;
+}
+
+.footerBottom p{
   color:#777;
   font-size:11px;
-  margin-top:25px;
-  line-height:1.8;
+  margin-top:7px;
+}
+
+.supportText{
+  color:#666 !important;
+  font-size:10px !important;
+  margin-top:12px !important;
 }
 
 /* ================= MOBILE ================= */
@@ -487,9 +510,9 @@ body{
     grid-template-columns:1fr;
   }
 
-  .sellerGrid{
-    grid-template-columns:repeat(2,1fr);
-    gap:35px;
+  .footerGrid{
+    grid-template-columns:1fr 1fr;
+    gap:30px;
   }
 }
 
@@ -585,26 +608,21 @@ body{
     font-size:16px;
   }
 
-  .sellerSection{
-    padding:50px 20px;
+  .promo{
+    min-height:480px;
   }
 
-  .sellerGrid{
-    grid-template-columns:1fr 1fr;
-    gap:30px 20px;
+  .promo h2{
+    font-size:43px;
   }
 
-  .sellerBrand{
-    font-size:20px;
+  .footerGrid{
+    grid-template-columns:1fr;
+    gap:28px;
   }
 
-  .sellerColumn h3{
-    font-size:11px;
-    letter-spacing:2px;
-  }
-
-  .sellerColumn p{
-    font-size:11px;
+  footer{
+    padding:45px 20px 20px;
   }
 }
 
@@ -616,10 +634,6 @@ body{
 
   .productImage{
     height:300px;
-  }
-
-  .sellerGrid{
-    grid-template-columns:1fr;
   }
 }
 </style>
@@ -652,6 +666,8 @@ body{
 
 <section class="slider" id="home">
 
+  <!-- SLIDE 1 -->
+
   <div class="slide slideOne active">
 
     <div class="slideContent">
@@ -678,6 +694,8 @@ body{
   </div>
 
 
+  <!-- SLIDE 2 -->
+
   <div class="slide slideTwo">
 
     <div class="slideContent">
@@ -703,6 +721,8 @@ body{
 
   </div>
 
+
+  <!-- DOTS -->
 
   <div class="sliderDots">
 
@@ -739,7 +759,7 @@ body{
 
       <div class="featureOverlay">
 
-        <small>01 — MEN'S COLLECTION</small>
+        <small>01 — MEN</small>
 
         <h3>Street Essentials</h3>
 
@@ -761,7 +781,7 @@ body{
 
       <div class="featureOverlay">
 
-        <small>02 — WOMEN'S COLLECTION</small>
+        <small>02 — WOMEN</small>
 
         <h3>Modern Elegance</h3>
 
@@ -793,6 +813,9 @@ body{
 
   <div class="productGrid">
 
+
+    <!-- PRODUCT 1 -->
+
     <div class="productCard">
 
       <div class="productImage">
@@ -818,6 +841,8 @@ body{
 
     </div>
 
+
+    <!-- PRODUCT 2 -->
 
     <div class="productCard">
 
@@ -845,6 +870,8 @@ body{
     </div>
 
 
+    <!-- PRODUCT 3 -->
+
     <div class="productCard">
 
       <div class="productImage">
@@ -871,6 +898,8 @@ body{
     </div>
 
 
+    <!-- PRODUCT 4 -->
+
     <div class="productCard">
 
       <div class="productImage">
@@ -896,6 +925,7 @@ body{
 
     </div>
 
+
   </div>
 
 </section>
@@ -915,6 +945,7 @@ body{
 
 
   <div class="darkGrid">
+
 
     <div class="darkCard">
 
@@ -954,139 +985,110 @@ body{
 
     </div>
 
+
   </div>
 
 </section>
 
 
-<!-- ================= SELLER DETAILS ================= -->
+<!-- ================= BOTTOM PROMO ================= -->
 
-<section class="sellerSection">
+<section class="promo">
 
-  <div class="sellerGrid">
+  <div>
 
+    <p>ADISA OUTFITS</p>
 
-    <!-- BRAND -->
+    <h2>
+      YOUR STYLE.<br>
+      YOUR STORY.
+    </h2>
 
-    <div class="sellerColumn">
-
-      <div class="sellerBrand">
-        ADISA <span>OUTFITS</span>
-      </div>
-
-      <p>
-        Premium fashion for men & women.
-      </p>
-
-      <p>
-        Online Fashion Store
-      </p>
-
-      <p>
-        © 2026 ADISA OUTFITS. All Rights Reserved.
-      </p>
-
-    </div>
-
-
-    <!-- CONTACT -->
-
-    <div class="sellerColumn">
-
-      <h3>CONTACT US</h3>
-
-      <p>
-        📧 Email<br>
-        adisha143143@gmail.com
-      </p>
-
-      <p>
-        💬 WhatsApp<br>
-        8677033435
-      </p>
-
-      <p>
-        📍 Rahman Chowk, Noor Akhtar Road,<br>
-        Line Bazar, Purnia – 854301
-      </p>
-
-    </div>
-
-
-    <!-- HELP & SUPPORT -->
-
-    <div class="sellerColumn">
-
-      <h3>HELP & SUPPORT</h3>
-
-      <p>
-        🚚 Shipping & Delivery<br>
-        5–7 business days
-      </p>
-
-      <p>
-        ↩️ Return & Refund<br>
-        ₹100 will be deducted from the payment amount,
-        and the remaining amount will be refunded.
-      </p>
-
-      <p>
-        🕐 Customer Support<br>
-        Available 24/7
-      </p>
-
-    </div>
-
-
-    <!-- QUICK LINKS -->
-
-    <div class="sellerColumn">
-
-      <h3>QUICK LINKS</h3>
-
-      <p><a href="#home" style="color:#aaa;text-decoration:none;">HOME</a></p>
-
-      <p><a href="#featured" style="color:#aaa;text-decoration:none;">COLLECTIONS</a></p>
-
-      <p><a href="#shop" style="color:#aaa;text-decoration:none;">SHOP</a></p>
-
-      <p><a href="#featured" style="color:#aaa;text-decoration:none;">MEN'S COLLECTION</a></p>
-
-      <p><a href="#featured" style="color:#aaa;text-decoration:none;">WOMEN'S COLLECTION</a></p>
-
-    </div>
-
-  </div>
-
-
-  <div class="sellerDivider"></div>
-
-
-  <!-- FOLLOW -->
-
-  <div class="follow">
-
-    <h3>FOLLOW ADISA</h3>
-
-    <a href="#">
-      Instagram
+    <a href="#shop" class="shopButton">
+      EXPLORE NOW →
     </a>
 
   </div>
 
+</section>
 
-  <div class="sellerDivider"></div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="footerGrid">
+
+    <div class="footerColumn">
+
+      <div class="brand">
+        ADISA <span>OUTFITS</span>
+      </div>
+
+      <p>
+        Premium fashion for everyone.
+      </p>
+
+    </div>
 
 
-  <div class="bottomInfo">
+    <div class="footerColumn">
 
-    Secure Shopping • Premium Fashion • Customer Support<br>
+      <h3>CONTACT US</h3>
 
-    © 2026 ADISA OUTFITS
+      <p>
+        📧 Email: adisha143143@gmail.com
+      </p>
+
+      <p>
+        📱 WhatsApp: 8677033435
+      </p>
+
+      <p>
+        📍 Location: Rahman Chowk, Noor Akhtar Road,
+        Line Bazar, Purnia 854301
+      </p>
+
+    </div>
+
+
+    <div class="footerColumn">
+
+      <h3>HELP & SUPPORT</h3>
+
+      <p>
+        🚚 Shipping & Delivery:
+        5–7 business days
+      </p>
+
+      <p>
+        ↩️ Return & Refund:
+        ₹100 payment charge will be deducted
+        and the remaining amount will be refunded.
+      </p>
+
+      <p>
+        Customer Support available 24/7.
+      </p>
+
+    </div>
 
   </div>
 
-</section>
+
+  <div class="footerBottom">
+
+    <p>
+      © 2026 ADISA OUTFITS
+    </p>
+
+    <p class="supportText">
+      24/7 Customer Support
+    </p>
+
+  </div>
+
+</footer>
 
 
 <!-- ================= SLIDER JAVASCRIPT ================= -->
@@ -1113,6 +1115,9 @@ function showSlide(index){
   slides[currentSlide].classList.add("active");
   dots[currentSlide].classList.add("active");
 }
+
+
+/* AUTO SLIDE */
 
 setInterval(()=>{
 
