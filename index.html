@@ -1623,21 +1623,32 @@ setInterval(()=>{
 
 let cart = [];
 
-
 function addToCart(name,price){
+
+  const images = {
+    "Classic Oversized Shirt":
+      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90",
+
+    "Premium Street Look":
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90",
+
+    "Urban Denim Jacket":
+      "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90",
+
+    "Premium Everyday Look":
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
+  };
 
   cart.push({
     name:name,
-    price:price
+    price:price,
+    image:images[name]
   });
 
   updateCartButton();
 
-  alert(
-    name + " added to cart 🛒"
-  );
+  alert(name + " added to cart 🛒");
 }
-
 
 function updateCartButton(){
 
@@ -1746,40 +1757,6 @@ function removeFromCart(index){
 
 /* ================= CHECKOUT ================= */
 
-function openCheckout(){
-
-  if(cart.length === 0){
-
-    alert(
-      "Your cart is empty 🛒"
-    );
-
-    return;
-  }
-
-
-  closeCart();
-
-
-  document
-    .getElementById("checkoutPage")
-    .classList.add("show");
-
-
-  renderCheckout();
-
-}
-
-
-function closeCheckout(){
-
-  document
-    .getElementById("checkoutPage")
-    .classList.remove("show");
-
-}
-
-
 function renderCheckout(){
 
   const items =
@@ -1788,16 +1765,13 @@ function renderCheckout(){
   const totalBox =
     document.getElementById("checkoutTotal");
 
-
   let total = 0;
 
   items.innerHTML = "";
 
-
   cart.forEach(item=>{
 
     total += item.price;
-
 
     items.innerHTML += `
 
@@ -1817,11 +1791,19 @@ function renderCheckout(){
 
   });
 
-
   totalBox.innerText =
     "₹" + total.toLocaleString("en-IN");
 
 }
+
+function closeCheckout(){
+
+  document
+    .getElementById("checkoutPage")
+    .classList.remove("show");
+
+}
+  
 
 
 /* ================= PLACE ORDER ================= */
