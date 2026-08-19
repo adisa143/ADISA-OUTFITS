@@ -1,36 +1,976 @@
-<!-- ================= BOTTOM PROMO ================= -->
+ADISA OUTFITS — Final Website Code
 
-<section class="promo">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div>
+<title>ADISA OUTFITS</title>
 
-    <p>ADISA OUTFITS</p>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-    <h2>
-      FASHION THAT<br>
-      FITS YOUR STYLE.
-    </h2>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    <a href="#shop" class="shopButton">
-      EXPLORE NOW →
-    </a>
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f7f5f2;
+  color:#111;
+  font-family:'Poppins',sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:16px 5%;
+  background:rgba(10,10,10,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  color:#fff;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.brand span{
+  color:#d4af37;
+  font-weight:400;
+}
+
+.topbar nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.topbar nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.topbar nav a:hover{
+  color:#d4af37;
+}
+
+.cartButton{
+  border:0;
+  background:#d4af37;
+  color:#111;
+  padding:11px 18px;
+  border-radius:25px;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* ================= SLIDER ================= */
+
+.slider{
+  position:relative;
+  width:100%;
+  height:650px;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .8s ease, visibility .8s ease;
+  background-position:center;
+  background-size:cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.slide.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.72),
+    rgba(0,0,0,.30),
+    rgba(0,0,0,.65)
+  );
+}
+
+.slideContent{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  padding:30px;
+}
+
+.slideTag{
+  color:#d4af37;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:4px;
+  margin-bottom:18px;
+}
+
+.slide h1{
+  font-size:clamp(48px,8vw,90px);
+  line-height:.98;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.slide h1 em{
+  color:#d4af37;
+  font-style:normal;
+}
+
+.slideText{
+  font-size:18px;
+  color:#eee;
+  margin-bottom:30px;
+}
+
+.shopButton{
+  display:inline-block;
+  background:white;
+  color:#111;
+  padding:16px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:800;
+  transition:.3s;
+}
+
+.shopButton:hover{
+  background:#d4af37;
+  transform:translateY(-3px);
+}
+
+.slideOne{
+  background-image:url(
+    "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90"
+  );
+}
+
+.slideTwo{
+  background-image:url(
+    "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=90"
+  );
+}
+
+/* ================= SLIDER DOTS ================= */
+
+.sliderDots{
+  position:absolute;
+  z-index:5;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:1px solid white;
+  background:transparent;
+  cursor:pointer;
+}
+
+.dot.active{
+  background:#d4af37;
+  border-color:#d4af37;
+  transform:scale(1.2);
+}
+
+/* ================= SECTION ================= */
+
+.section{
+  padding:85px 6%;
+}
+
+.sectionHeading{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.sectionHeading p{
+  color:#d4af37;
+  font-weight:800;
+  letter-spacing:4px;
+  font-size:13px;
+}
+
+.sectionHeading h2{
+  font-size:40px;
+  margin-top:10px;
+}
+
+/* ================= FEATURED ================= */
+
+.featured{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.featureCard{
+  position:relative;
+  height:430px;
+  overflow:hidden;
+  border-radius:22px;
+  background:#111;
+}
+
+.featureCard img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.featureCard:hover img{
+  transform:scale(1.06);
+}
+
+.featureOverlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:35px;
+  background:linear-gradient(
+    transparent 25%,
+    rgba(0,0,0,.85)
+  );
+  color:white;
+}
+
+.featureOverlay small{
+  color:#d4af37;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.featureOverlay h3{
+  font-size:30px;
+  margin:8px 0;
+}
+
+.featureOverlay a{
+  display:inline-block;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  margin-top:8px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.productGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.productCard{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.productCard:hover{
+  transform:translateY(-6px);
+}
+
+.productImage{
+  position:relative;
+  height:330px;
+  overflow:hidden;
+  background:#eee;
+}
+
+.productImage img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.productCard:hover .productImage img{
+  transform:scale(1.05);
+}
+
+.productImage span{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#d4af37;
+  color:#111;
+  padding:6px 10px;
+  border-radius:15px;
+  font-size:10px;
+  font-weight:800;
+}
+
+.productInfo{
+  padding:18px;
+}
+
+.productInfo p{
+  color:#999;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  margin-bottom:7px;
+}
+
+.productInfo h3{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.productInfo strong{
+  font-size:18px;
+}
+
+/* ================= WHY ADISA ================= */
+
+.darkGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.darkCard{
+  background:#111;
+  color:white;
+  padding:35px;
+  min-height:250px;
+  border-radius:20px;
+}
+
+.darkCard small{
+  color:#d4af37;
+  letter-spacing:2px;
+  font-weight:700;
+}
+
+.darkCard h3{
+  font-size:24px;
+  margin:20px 0 12px;
+}
+
+.darkCard p{
+  color:#bbb;
+  line-height:1.7;
+}
+
+/* ================= SELLER / CONTACT ================= */
+
+.sellerSection{
+  background:#111;
+  color:white;
+  padding:65px 6%;
+}
+
+.sellerGrid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr 1fr;
+  gap:45px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.sellerColumn h3{
+  color:#d4af37;
+  font-size:13px;
+  letter-spacing:3px;
+  margin-bottom:22px;
+}
+
+.sellerColumn p{
+  color:#aaa;
+  font-size:13px;
+  line-height:1.8;
+  margin-bottom:10px;
+}
+
+.sellerBrand{
+  color:white;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:3px;
+  margin-bottom:18px;
+}
+
+.sellerBrand span{
+  color:#d4af37;
+  font-weight:400;
+}
+
+.sellerDivider{
+  max-width:1200px;
+  margin:45px auto 25px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+.follow{
+  text-align:center;
+}
+
+.follow h3{
+  color:#d4af37;
+  font-size:13px;
+  letter-spacing:3px;
+  margin-bottom:12px;
+}
+
+.follow a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.bottomInfo{
+  text-align:center;
+  color:#777;
+  font-size:11px;
+  margin-top:25px;
+  line-height:1.8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .productGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .darkGrid{
+    grid-template-columns:1fr;
+  }
+
+  .sellerGrid{
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+  }
+}
+
+@media(max-width:600px){
+
+  .topbar{
+    padding:13px 15px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .brand{
+    font-size:18px;
+    letter-spacing:2px;
+  }
+
+  .topbar nav{
+    order:3;
+    width:100%;
+    justify-content:center;
+    gap:14px;
+  }
+
+  .topbar nav a{
+    font-size:10px;
+  }
+
+  .cartButton{
+    padding:8px 13px;
+    font-size:10px;
+  }
+
+  .slider{
+    height:560px;
+  }
+
+  .slideContent{
+    padding:20px;
+  }
+
+  .slideTag{
+    font-size:10px;
+    letter-spacing:3px;
+  }
+
+  .slide h1{
+    font-size:42px;
+  }
+
+  .slideText{
+    font-size:14px;
+  }
+
+  .shopButton{
+    padding:14px 24px;
+    font-size:13px;
+  }
+
+  .section{
+    padding:60px 20px;
+  }
+
+  .sectionHeading h2{
+    font-size:30px;
+  }
+
+  .featured{
+    grid-template-columns:1fr;
+  }
+
+  .featureCard{
+    height:350px;
+  }
+
+  .productGrid{
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+
+  .productImage{
+    height:230px;
+  }
+
+  .productInfo{
+    padding:13px;
+  }
+
+  .productInfo h3{
+    font-size:14px;
+  }
+
+  .productInfo strong{
+    font-size:16px;
+  }
+
+  .sellerSection{
+    padding:50px 20px;
+  }
+
+  .sellerGrid{
+    grid-template-columns:1fr 1fr;
+    gap:30px 20px;
+  }
+
+  .sellerBrand{
+    font-size:20px;
+  }
+
+  .sellerColumn h3{
+    font-size:11px;
+    letter-spacing:2px;
+  }
+
+  .sellerColumn p{
+    font-size:11px;
+  }
+}
+
+@media(max-width:380px){
+
+  .productGrid{
+    grid-template-columns:1fr;
+  }
+
+  .productImage{
+    height:300px;
+  }
+
+  .sellerGrid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="topbar">
+
+  <div class="brand">
+    ADISA <span>OUTFITS</span>
+  </div>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#featured">COLLECTIONS</a>
+    <a href="#shop">SHOP</a>
+  </nav>
+
+  <button class="cartButton">
+    CART 🛒
+  </button>
+
+</header>
+
+
+<!-- ================= TWO SLIDE HERO ================= -->
+
+<section class="slider" id="home">
+
+  <div class="slide slideOne active">
+
+    <div class="slideContent">
+
+      <p class="slideTag">
+        ADISA OUTFITS
+      </p>
+
+      <h1>
+        YOUR STYLE.<br>
+        YOUR STORY.
+      </h1>
+
+      <p class="slideText">
+        Discover fashion that speaks your personality.
+      </p>
+
+      <a href="#shop" class="shopButton">
+        EXPLORE NOW →
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="slide slideTwo">
+
+    <div class="slideContent">
+
+      <p class="slideTag">
+        ADISA OUTFITS • NEW COLLECTION 2026
+      </p>
+
+      <h1>
+        STYLE THAT<br>
+        <em>DEFINES YOU.</em>
+      </h1>
+
+      <p class="slideText">
+        Premium fashion designed for Men & Women.
+      </p>
+
+      <a href="#shop" class="shopButton">
+        SHOP COLLECTION →
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="sliderDots">
+
+    <button class="dot active" onclick="showSlide(0)"></button>
+
+    <button class="dot" onclick="showSlide(1)"></button>
 
   </div>
 
 </section>
 
 
-<!-- ================= PREMIUM FOOTER ================= -->
+<!-- ================= FEATURED COLLECTION ================= -->
 
-<footer>
+<section class="section" id="featured">
 
-  <div class="footerGrid">
+  <div class="sectionHeading">
 
-    <!-- SELLER DETAILS -->
+    <p>THE ADISA EDIT</p>
 
-    <div class="footerColumn">
+    <h2>Explore Our Collection</h2>
 
-      <div class="brand">
+  </div>
+
+
+  <div class="featured">
+
+    <div class="featureCard">
+
+      <img
+        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
+        alt="Men Fashion"
+      >
+
+      <div class="featureOverlay">
+
+        <small>01 — MEN'S COLLECTION</small>
+
+        <h3>Street Essentials</h3>
+
+        <a href="#shop">
+          DISCOVER COLLECTION →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="featureCard">
+
+      <img
+        src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90"
+        alt="Women Fashion"
+      >
+
+      <div class="featureOverlay">
+
+        <small>02 — WOMEN'S COLLECTION</small>
+
+        <h3>Modern Elegance</h3>
+
+        <a href="#shop">
+          DISCOVER COLLECTION →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="shop">
+
+  <div class="sectionHeading">
+
+    <p>ADISA EDIT</p>
+
+    <h2>Latest Arrivals</h2>
+
+  </div>
+
+
+  <div class="productGrid">
+
+    <div class="productCard">
+
+      <div class="productImage">
+
+        <img
+          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90"
+          alt="Oversized Shirt"
+        >
+
+        <span>NEW</span>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p>MEN'S COLLECTION</p>
+
+        <h3>Classic Oversized Shirt</h3>
+
+        <strong>₹1,499</strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="productCard">
+
+      <div class="productImage">
+
+        <img
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90"
+          alt="Women's Fashion"
+        >
+
+        <span>NEW</span>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p>WOMEN'S COLLECTION</p>
+
+        <h3>Premium Street Look</h3>
+
+        <strong>₹1,799</strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="productCard">
+
+      <div class="productImage">
+
+        <img
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90"
+          alt="Denim Jacket"
+        >
+
+        <span>HOT</span>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p>DENIM EDIT</p>
+
+        <h3>Urban Denim Jacket</h3>
+
+        <strong>₹2,299</strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="productCard">
+
+      <div class="productImage">
+
+        <img
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
+          alt="Fashion Collection"
+        >
+
+        <span>NEW</span>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p>ADISA EDIT</p>
+
+        <h3>Premium Everyday Look</h3>
+
+        <strong>₹1,999</strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WHY ADISA ================= -->
+
+<section class="section">
+
+  <div class="sectionHeading">
+
+    <p>WHY ADISA</p>
+
+    <h2>Fashion Made Different</h2>
+
+  </div>
+
+
+  <div class="darkGrid">
+
+    <div class="darkCard">
+
+      <small>01 — QUALITY</small>
+
+      <h3>Premium Fabrics</h3>
+
+      <p>
+        Comfortable materials made for everyday style.
+      </p>
+
+    </div>
+
+
+    <div class="darkCard">
+
+      <small>02 — STYLE</small>
+
+      <h3>Modern Designs</h3>
+
+      <p>
+        Fresh looks that keep your wardrobe ahead.
+      </p>
+
+    </div>
+
+
+    <div class="darkCard">
+
+      <small>03 — TRUST</small>
+
+      <h3>Made For You</h3>
+
+      <p>
+        Fashion designed to match your confidence.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SELLER DETAILS ================= -->
+
+<section class="sellerSection">
+
+  <div class="sellerGrid">
+
+
+    <!-- BRAND -->
+
+    <div class="sellerColumn">
+
+      <div class="sellerBrand">
         ADISA <span>OUTFITS</span>
       </div>
 
@@ -51,17 +991,19 @@
 
     <!-- CONTACT -->
 
-    <div class="footerColumn">
+    <div class="sellerColumn">
 
-      <h3>CONTACT</h3>
+      <h3>CONTACT US</h3>
 
-      <a href="mailto:adisha143143@gmail.com">
-        📧 adisha143143@gmail.com
-      </a>
+      <p>
+        📧 Email<br>
+        adisha143143@gmail.com
+      </p>
 
-      <a href="https://wa.me/918677033435">
-        💬 WhatsApp: 8677033435
-      </a>
+      <p>
+        💬 WhatsApp<br>
+        8677033435
+      </p>
 
       <p>
         📍 Rahman Chowk, Noor Akhtar Road,<br>
@@ -73,7 +1015,7 @@
 
     <!-- HELP & SUPPORT -->
 
-    <div class="footerColumn">
+    <div class="sellerColumn">
 
       <h3>HELP & SUPPORT</h3>
 
@@ -88,182 +1030,63 @@
         and the remaining amount will be refunded.
       </p>
 
+      <p>
+        🕐 Customer Support<br>
+        Available 24/7
+      </p>
+
     </div>
 
 
     <!-- QUICK LINKS -->
 
-    <div class="footerColumn">
+    <div class="sellerColumn">
 
       <h3>QUICK LINKS</h3>
 
-      <a href="#home">HOME</a>
+      <p><a href="#home" style="color:#aaa;text-decoration:none;">HOME</a></p>
 
-      <a href="#featured">COLLECTIONS</a>
+      <p><a href="#featured" style="color:#aaa;text-decoration:none;">COLLECTIONS</a></p>
 
-      <a href="#shop">SHOP</a>
+      <p><a href="#shop" style="color:#aaa;text-decoration:none;">SHOP</a></p>
 
-      <a href="#featured">MEN'S COLLECTION</a>
+      <p><a href="#featured" style="color:#aaa;text-decoration:none;">MEN'S COLLECTION</a></p>
 
-      <a href="#featured">WOMEN'S COLLECTION</a>
+      <p><a href="#featured" style="color:#aaa;text-decoration:none;">WOMEN'S COLLECTION</a></p>
 
     </div>
-
 
   </div>
 
 
-  <!-- SOCIAL -->
+  <div class="sellerDivider"></div>
 
-  <div class="footerSocial">
+
+  <!-- FOLLOW -->
+
+  <div class="follow">
 
     <h3>FOLLOW ADISA</h3>
 
-    <a href="#" target="_blank">
+    <a href="#">
       Instagram
     </a>
 
   </div>
 
 
-  <div class="footerBottom">
+  <div class="sellerDivider"></div>
 
-    <p>
-      Secure Shopping • Premium Fashion • Customer Support
-    </p>
 
-    <p>
-      © 2026 ADISA OUTFITS
-    </p>
+  <div class="bottomInfo">
+
+    Secure Shopping • Premium Fashion • Customer Support<br>
+
+    © 2026 ADISA OUTFITS
 
   </div>
 
-</footer>
-
-
-<!-- ================= FOOTER STYLE ================= -->
-
-<style>
-
-footer{
-  background:#0b0b0b;
-  color:white;
-  padding:70px 6% 25px;
-}
-
-.footerGrid{
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1.2fr 1fr;
-  gap:45px;
-  max-width:1300px;
-  margin:auto;
-}
-
-.footerColumn .brand{
-  margin-bottom:18px;
-}
-
-.footerColumn h3{
-  color:#d4af37;
-  font-size:13px;
-  letter-spacing:2px;
-  margin-bottom:20px;
-}
-
-.footerColumn p{
-  color:#aaa;
-  font-size:13px;
-  line-height:1.8;
-  margin-bottom:12px;
-}
-
-.footerColumn a{
-  display:block;
-  color:#aaa;
-  text-decoration:none;
-  font-size:13px;
-  margin-bottom:13px;
-  transition:.3s;
-}
-
-.footerColumn a:hover{
-  color:#d4af37;
-}
-
-.footerSocial{
-  text-align:center;
-  margin-top:55px;
-  padding-top:30px;
-  border-top:1px solid rgba(255,255,255,.1);
-}
-
-.footerSocial h3{
-  color:#d4af37;
-  font-size:12px;
-  letter-spacing:2px;
-  margin-bottom:15px;
-}
-
-.footerSocial a{
-  color:white;
-  text-decoration:none;
-  font-size:14px;
-}
-
-.footerSocial a:hover{
-  color:#d4af37;
-}
-
-.footerBottom{
-  margin-top:30px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.08);
-  text-align:center;
-}
-
-.footerBottom p{
-  color:#777;
-  font-size:11px;
-  margin:7px 0;
-}
-
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  footer{
-    padding:55px 20px 25px;
-  }
-
-  .footerGrid{
-    grid-template-columns:1fr;
-    gap:35px;
-  }
-
-  .footerColumn{
-    text-align:center;
-  }
-
-  .footerColumn .brand{
-    justify-content:center;
-  }
-
-  .footerColumn p{
-    font-size:12px;
-  }
-
-  .footerColumn a{
-    font-size:12px;
-  }
-
-  .footerSocial{
-    margin-top:35px;
-  }
-
-}
-
-</style>
+</section>
 
 
 <!-- ================= SLIDER JAVASCRIPT ================= -->
@@ -290,7 +1113,6 @@ function showSlide(index){
   slides[currentSlide].classList.add("active");
   dots[currentSlide].classList.add("active");
 }
-
 
 setInterval(()=>{
 
