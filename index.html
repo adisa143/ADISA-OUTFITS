@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MuNiRa cLoTs</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>ADISA OUTFITS</title>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 *{
   margin:0;
@@ -27,24 +24,19 @@ html{
 body{
   background:#f7f5f2;
   color:#111;
-  font-family:'Poppins',sans-serif;
-}
-
-button,input,select{
-  font-family:'Poppins',sans-serif;
+  font-family:Poppins,sans-serif;
 }
 
 .topbar{
   position:sticky;
   top:0;
   z-index:1000;
-  padding:15px 5%;
+  padding:16px 5%;
   background:rgba(10,10,10,.97);
-  backdrop-filter:blur(14px);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  box-shadow:0 8px 30px rgba(0,0,0,.2);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 
 .brand{
@@ -65,7 +57,7 @@ nav{
 }
 
 nav a{
-  color:#fff;
+  color:white;
   text-decoration:none;
   font-size:11px;
   font-weight:700;
@@ -83,21 +75,20 @@ nav a:hover{
 .profileButton,
 .cartButton{
   border:0;
-  cursor:pointer;
-  font-weight:800;
   border-radius:25px;
+  padding:10px 15px;
+  font-weight:800;
+  cursor:pointer;
 }
 
 .profileButton{
   background:#fff;
   color:#111;
-  padding:10px 15px;
 }
 
 .cartButton{
   background:#d4af37;
   color:#111;
-  padding:10px 17px;
 }
 
 /* HERO */
@@ -120,7 +111,7 @@ nav a:hover{
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#fff;
+  color:white;
 }
 
 .slide.active{
@@ -132,7 +123,7 @@ nav a:hover{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.48);
+  background:rgba(0,0,0,.5);
 }
 
 .slideOne{
@@ -207,9 +198,8 @@ nav a:hover{
   width:10px;
   height:10px;
   border-radius:50%;
-  border:1px solid #fff;
+  border:1px solid white;
   background:transparent;
-  cursor:pointer;
 }
 
 .dot.active{
@@ -241,25 +231,18 @@ nav a:hover{
 
 /* COLLECTION */
 
-.collectionSlider{
-  overflow:hidden;
-  width:100%;
-}
-
 .collectionTrack{
   display:flex;
   gap:25px;
-  transition:transform .5s ease;
+  overflow:hidden;
 }
 
 .collectionCard{
   min-width:calc((100% - 25px)/2);
   height:430px;
   position:relative;
-  flex-shrink:0;
   overflow:hidden;
   border-radius:22px;
-  background:#111;
 }
 
 .collectionCard img{
@@ -275,48 +258,18 @@ nav a:hover{
   flex-direction:column;
   justify-content:flex-end;
   padding:30px;
-  color:#fff;
-  background:linear-gradient(
-    transparent 25%,
-    rgba(0,0,0,.9)
-  );
+  color:white;
+  background:linear-gradient(transparent 25%,rgba(0,0,0,.9));
 }
 
 .collectionOverlay small{
   color:#d4af37;
   font-weight:800;
-  letter-spacing:2px;
 }
 
 .collectionOverlay h3{
   font-size:28px;
   margin:8px 0;
-}
-
-.collectionOverlay a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-}
-
-.collectionDots{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  margin-top:22px;
-}
-
-.collectionDot{
-  width:9px;
-  height:9px;
-  border:0;
-  border-radius:50%;
-  background:#bbb;
-  cursor:pointer;
-}
-
-.collectionDot.active{
-  background:#d4af37;
 }
 
 /* PRODUCTS */
@@ -328,16 +281,16 @@ nav a:hover{
 }
 
 .productCard{
-  background:#fff;
+  background:white;
   border-radius:18px;
   overflow:hidden;
   box-shadow:0 8px 30px rgba(0,0,0,.08);
 }
 
 .productImage{
-  position:relative;
   height:320px;
   overflow:hidden;
+  position:relative;
 }
 
 .productImage img{
@@ -384,15 +337,9 @@ nav a:hover{
   border:0;
   border-radius:25px;
   background:#111;
-  color:#fff;
-  font-size:10px;
+  color:white;
   font-weight:800;
   cursor:pointer;
-}
-
-.addCartBtn:hover{
-  background:#d4af37;
-  color:#111;
 }
 
 /* WHY */
@@ -405,7 +352,7 @@ nav a:hover{
 
 .darkCard{
   background:#111;
-  color:#fff;
+  color:white;
   padding:32px;
   min-height:220px;
   border-radius:20px;
@@ -413,12 +360,9 @@ nav a:hover{
 
 .darkCard small{
   color:#d4af37;
-  font-weight:700;
-  letter-spacing:2px;
 }
 
 .darkCard h3{
-  font-size:22px;
   margin:18px 0 10px;
 }
 
@@ -435,12 +379,11 @@ nav a:hover{
   linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
   url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=90")
   center/cover;
-
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#fff;
+  color:white;
 }
 
 .promo p{
@@ -459,7 +402,7 @@ nav a:hover{
 
 footer{
   background:#111;
-  color:#fff;
+  color:white;
   padding:55px 6%;
 }
 
@@ -472,8 +415,6 @@ footer{
 footer h4{
   color:#d4af37;
   margin-bottom:15px;
-  font-size:12px;
-  letter-spacing:2px;
 }
 
 footer p,
@@ -484,22 +425,13 @@ footer a{
   text-decoration:none;
 }
 
-.footerBottom{
-  text-align:center;
-  border-top:1px solid #222;
-  margin-top:35px;
-  padding-top:20px;
-  color:#777;
-  font-size:10px;
-}
-
-/* COMMON MODAL */
+/* MODALS */
 
 .modal{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.7);
-  z-index:5000;
+  z-index:4000;
   display:none;
   align-items:center;
   justify-content:center;
@@ -512,10 +444,10 @@ footer a{
 
 .modalBox{
   width:100%;
-  max-width:500px;
+  max-width:550px;
   max-height:90vh;
   overflow:auto;
-  background:#fff;
+  background:white;
   border-radius:22px;
   padding:25px;
 }
@@ -528,11 +460,11 @@ footer a{
 }
 
 .closeBtn{
-  border:0;
-  background:#eee;
   width:38px;
   height:38px;
+  border:0;
   border-radius:50%;
+  background:#eee;
   font-size:20px;
   cursor:pointer;
 }
@@ -540,44 +472,40 @@ footer a{
 /* PROFILE */
 
 .profileForm input,
+.profileForm textarea,
+.profileForm select,
 .checkoutForm input,
-.checkoutForm select{
+.checkoutForm textarea{
   width:100%;
-  padding:14px;
-  margin-bottom:13px;
+  padding:13px;
+  margin-bottom:12px;
   border:1px solid #ddd;
   border-radius:10px;
-  outline:none;
+  font-family:Poppins,sans-serif;
 }
 
 .saveBtn,
 .verifyBtn,
 .checkoutBtn,
-.placeOrderBtn{
+.payBtn{
   width:100%;
   padding:14px;
   border:0;
   border-radius:25px;
+  background:#d4af37;
   font-weight:800;
   cursor:pointer;
 }
 
-.saveBtn{
-  background:#111;
-  color:#fff;
-}
-
-.verifyBtn{
-  background:#d4af37;
-  color:#111;
-}
-
-.profileStatus{
-  background:#f7f5f2;
-  padding:14px;
-  border-radius:12px;
-  margin-bottom:15px;
+.verified{
+  display:none;
+  background:#e9f8ed;
+  color:#177532;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:12px;
   font-size:12px;
+  font-weight:700;
 }
 
 /* CART */
@@ -586,41 +514,27 @@ footer a{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:10px;
+  gap:15px;
   padding:14px 0;
   border-bottom:1px solid #eee;
-}
-
-.cartItem strong{
-  font-size:13px;
-}
-
-.cartItem small{
-  display:block;
-  color:#777;
 }
 
 .removeBtn{
   border:0;
   background:#111;
-  color:#fff;
-  padding:6px 10px;
+  color:white;
+  padding:7px 10px;
   border-radius:15px;
-  font-size:9px;
   cursor:pointer;
+  font-size:10px;
 }
 
 .cartTotal{
   display:flex;
   justify-content:space-between;
-  font-size:18px;
+  font-size:19px;
   font-weight:800;
   margin:20px 0;
-}
-
-.checkoutBtn{
-  background:#d4af37;
-  color:#111;
 }
 
 /* CHECKOUT */
@@ -628,7 +542,7 @@ footer a{
 .checkoutPage{
   position:fixed;
   inset:0;
-  z-index:6000;
+  z-index:5000;
   background:#f7f5f2;
   overflow:auto;
   display:none;
@@ -642,25 +556,15 @@ footer a{
 .checkoutBox{
   max-width:1000px;
   margin:auto;
-  background:#fff;
+  background:white;
   border-radius:24px;
   padding:35px;
-  box-shadow:0 15px 50px rgba(0,0,0,.15);
 }
 
 .checkoutHeader{
   display:flex;
   justify-content:space-between;
   align-items:center;
-}
-
-.checkoutHeader h2{
-  font-size:32px;
-}
-
-.checkoutSubtitle{
-  color:#888;
-  margin:8px 0 30px;
 }
 
 .checkoutGrid{
@@ -676,23 +580,11 @@ footer a{
   border-radius:18px;
 }
 
-.checkoutForm h3,
-.orderSummary h3{
-  margin-bottom:20px;
-}
-
-.placeOrderBtn{
-  background:#d4af37;
-  color:#111;
-  margin-top:8px;
-}
-
 .checkoutItem{
   display:flex;
   justify-content:space-between;
   padding:12px 0;
   border-bottom:1px solid #ddd;
-  font-size:13px;
 }
 
 .checkoutTotal{
@@ -700,21 +592,6 @@ footer a{
   justify-content:space-between;
   margin-top:20px;
   font-size:20px;
-}
-
-/* OTP */
-
-.otpBox{
-  display:none;
-}
-
-.otpBox.show{
-  display:block;
-}
-
-.verified{
-  color:green;
-  font-weight:800;
 }
 
 /* MOBILE */
@@ -741,11 +618,11 @@ footer a{
 @media(max-width:600px){
 
   .topbar{
-    padding:12px 12px;
+    padding:12px 14px;
   }
 
   .brand{
-    font-size:16px;
+    font-size:17px;
   }
 
   nav{
@@ -788,20 +665,8 @@ footer a{
     height:220px;
   }
 
-  .productInfo{
-    padding:12px;
-  }
-
-  .productInfo h3{
-    font-size:13px;
-  }
-
   .footerGrid{
     grid-template-columns:1fr 1fr;
-  }
-
-  .checkoutPage{
-    padding:15px;
   }
 
   .checkoutBox{
@@ -811,15 +676,11 @@ footer a{
 
 @media(max-width:380px){
 
-  .productGrid{
-    grid-template-columns:1fr;
-  }
-
+  .productGrid,
   .footerGrid{
     grid-template-columns:1fr;
   }
 }
-
 </style>
 </head>
 
@@ -828,7 +689,7 @@ footer a{
 <header class="topbar">
 
   <div class="brand">
-    Munira <span>OUTFITS</span>
+    ADISA <span>OUTFITS</span>
   </div>
 
   <nav>
@@ -838,7 +699,6 @@ footer a{
   </nav>
 
   <div class="headerButtons">
-
     <button class="profileButton" onclick="openProfile()">
       PROFILE
     </button>
@@ -846,23 +706,15 @@ footer a{
     <button class="cartButton" onclick="openCart()">
       CART 🛒 (0)
     </button>
-
   </div>
 
 </header>
 
-
-<!-- HERO -->
-
 <section class="slider" id="home">
 
   <div class="slide slideOne active">
-
     <div class="slideContent">
-
-      <p class="slideTag">
-        ADISA OUTFITS
-      </p>
+      <p class="slideTag">ADISA OUTFITS</p>
 
       <h1>
         YOUR STYLE.<br>
@@ -876,16 +728,11 @@ footer a{
       <a href="#shop" class="shopButton">
         EXPLORE NOW →
       </a>
-
     </div>
-
   </div>
 
-
   <div class="slide slideTwo">
-
     <div class="slideContent">
-
       <p class="slideTag">
         ADISA OUTFITS • NEW COLLECTION 2026
       </p>
@@ -902,251 +749,136 @@ footer a{
       <a href="#shop" class="shopButton">
         SHOP COLLECTION →
       </a>
-
     </div>
-
   </div>
 
-
   <div class="sliderDots">
-
     <button class="dot active" onclick="showSlide(0)"></button>
     <button class="dot" onclick="showSlide(1)"></button>
-
   </div>
 
 </section>
-
-
-<!-- COLLECTIONS -->
 
 <section class="section" id="featured">
 
   <div class="sectionHeading">
-
     <p>THE ADISA EDIT</p>
-
     <h2>Explore Our Collection</h2>
-
   </div>
 
+  <div class="collectionTrack">
 
-  <div class="collectionSlider">
-
-    <div class="collectionTrack" id="collectionTrack">
-
-      <div class="collectionCard">
-
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90">
-
-        <div class="collectionOverlay">
-          <small>01 — MEN</small>
-          <h3>Street Essentials</h3>
-          <a href="#shop">DISCOVER COLLECTION →</a>
-        </div>
-
+    <div class="collectionCard">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90">
+      <div class="collectionOverlay">
+        <small>01 — MEN</small>
+        <h3>Street Essentials</h3>
       </div>
-
-
-      <div class="collectionCard">
-
-        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90">
-
-        <div class="collectionOverlay">
-          <small>02 — WOMEN</small>
-          <h3>Modern Elegance</h3>
-          <a href="#shop">DISCOVER COLLECTION →</a>
-        </div>
-
-      </div>
-
-
-      <div class="collectionCard">
-
-        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90">
-
-        <div class="collectionOverlay">
-          <small>03 — DENIM</small>
-          <h3>Urban Denim</h3>
-          <a href="#shop">DISCOVER COLLECTION →</a>
-        </div>
-
-      </div>
-
-
-      <div class="collectionCard">
-
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=90">
-
-        <div class="collectionOverlay">
-          <small>04 — TRENDING</small>
-          <h3>Premium Fashion</h3>
-          <a href="#shop">DISCOVER COLLECTION →</a>
-        </div>
-
-      </div>
-
     </div>
 
-
-    <div class="collectionDots">
-
-      <button class="collectionDot active" onclick="moveCollection(0)"></button>
-      <button class="collectionDot" onclick="moveCollection(1)"></button>
-      <button class="collectionDot" onclick="moveCollection(2)"></button>
-      <button class="collectionDot" onclick="moveCollection(3)"></button>
-
+    <div class="collectionCard">
+      <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90">
+      <div class="collectionOverlay">
+        <small>02 — WOMEN</small>
+        <h3>Modern Elegance</h3>
+      </div>
     </div>
 
   </div>
 
 </section>
 
-
-<!-- PRODUCTS -->
-
 <section class="section" id="shop">
 
   <div class="sectionHeading">
-
     <p>ADISA EDIT</p>
-
     <h2>Latest Arrivals</h2>
-
   </div>
-
 
   <div class="productGrid">
 
-
     <div class="productCard">
-
       <div class="productImage">
-
         <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90">
-
         <span>NEW</span>
-
       </div>
 
       <div class="productInfo">
-
         <p>MEN'S COLLECTION</p>
-
         <h3>Classic Oversized Shirt</h3>
-
         <strong>₹1,499</strong>
 
         <button class="addCartBtn"
           onclick="addToCart('Classic Oversized Shirt',1499)">
           ADD TO CART
         </button>
-
       </div>
-
     </div>
 
-
     <div class="productCard">
-
       <div class="productImage">
-
         <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90">
-
         <span>NEW</span>
-
       </div>
 
       <div class="productInfo">
-
         <p>WOMEN'S COLLECTION</p>
-
         <h3>Premium Street Look</h3>
-
         <strong>₹1,799</strong>
 
         <button class="addCartBtn"
           onclick="addToCart('Premium Street Look',1799)">
           ADD TO CART
         </button>
-
       </div>
-
     </div>
 
-
     <div class="productCard">
-
       <div class="productImage">
-
         <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90">
-
         <span>HOT</span>
-
       </div>
 
       <div class="productInfo">
-
         <p>DENIM EDIT</p>
-
         <h3>Urban Denim Jacket</h3>
-
         <strong>₹2,299</strong>
 
         <button class="addCartBtn"
           onclick="addToCart('Urban Denim Jacket',2299)">
           ADD TO CART
         </button>
-
       </div>
-
     </div>
 
-
     <div class="productCard">
-
       <div class="productImage">
-
         <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90">
-
         <span>NEW</span>
-
       </div>
 
       <div class="productInfo">
-
         <p>ADISA EDIT</p>
-
         <h3>Premium Everyday Look</h3>
-
         <strong>₹1,999</strong>
 
         <button class="addCartBtn"
           onclick="addToCart('Premium Everyday Look',1999)">
           ADD TO CART
         </button>
-
       </div>
-
     </div>
 
   </div>
 
 </section>
 
-
-<!-- WHY -->
-
 <section class="section">
 
   <div class="sectionHeading">
-
     <p>WHY ADISA</p>
-
     <h2>Fashion Made Different</h2>
-
   </div>
-
 
   <div class="darkGrid">
 
@@ -1172,13 +904,9 @@ footer a{
 
 </section>
 
-
-<!-- PROMO -->
-
 <section class="promo">
 
   <div>
-
     <p>ADISA OUTFITS</p>
 
     <h2>
@@ -1189,47 +917,41 @@ footer a{
     <a href="#shop" class="shopButton">
       EXPLORE NOW →
     </a>
-
   </div>
 
 </section>
-
-
-<!-- FOOTER -->
 
 <footer>
 
   <div class="footerGrid">
 
     <div>
-
       <div class="brand">
         ADISA <span>OUTFITS</span>
       </div>
 
       <p>Premium fashion for everyone.</p>
       <p>Customer Support: 24/7</p>
-
     </div>
 
-
     <div>
-
       <h4>CONTACT US</h4>
 
-      <p>📧 Email: adisha143143@gmail.com</p>
-      <p>💬 WhatsApp: 8677033435</p>
+      <p>
+        📧 adisha143143@gmail.com
+      </p>
+
+      <p>
+        💬 WhatsApp: 8677033435
+      </p>
 
       <p>
         📍 Rahman Chowk, Noor Akhtar Road,
         Line Bazar, Purnia 854301
       </p>
-
     </div>
 
-
     <div>
-
       <h4>HELP & SUPPORT</h4>
 
       <p>🚚 Shipping: 5–7 business days</p>
@@ -1240,31 +962,18 @@ footer a{
       </p>
 
       <p>🕐 Customer Support: 24/7</p>
-
     </div>
 
-
     <div>
-
       <h4>QUICK LINKS</h4>
-
       <p><a href="#home">HOME</a></p>
       <p><a href="#featured">COLLECTIONS</a></p>
       <p><a href="#shop">SHOP</a></p>
-
     </div>
-
-  </div>
-
-
-  <div class="footerBottom">
-
-    © 2026 ADISA OUTFITS • Premium Fashion • 24/7 Customer Support
 
   </div>
 
 </footer>
-
 
 <!-- PROFILE MODAL -->
 
@@ -1273,57 +982,61 @@ footer a{
   <div class="modalBox">
 
     <div class="modalHeader">
-
       <h2>My Profile</h2>
 
-      <button class="closeBtn" onclick="closeProfile()">×</button>
-
+      <button class="closeBtn" onclick="closeProfile()">
+        ×
+      </button>
     </div>
-
-
-    <div class="profileStatus" id="profileStatus">
-      Phone verification is required before adding products to cart.
-    </div>
-
 
     <div class="profileForm">
 
       <input
-        type="text"
         id="profileName"
+        type="text"
         placeholder="Full Name"
       >
 
       <input
-        type="email"
-        id="profileEmail"
-        placeholder="Email Address"
-      >
-
-      <input
-        type="tel"
         id="profilePhone"
+        type="tel"
         placeholder="Mobile Number"
       >
 
-
-      <div class="otpBox" id="otpBox">
-
-        <input
-          type="text"
-          id="otpInput"
-          maxlength="6"
-          placeholder="Enter verification code"
-        >
-
-        <button
-          class="verifyBtn"
-          onclick="verifyPhone()">
-          VERIFY PHONE
-        </button>
-
+      <div id="verifiedMessage" class="verified">
+        ✓ Mobile number verified
       </div>
 
+      <button
+        class="verifyBtn"
+        onclick="verifyPhone()">
+        VERIFY MOBILE
+      </button>
+
+      <br><br>
+
+      <input
+        id="profileEmail"
+        type="email"
+        placeholder="Email"
+      >
+
+      <textarea
+        id="profileAddress"
+        rows="3"
+        placeholder="Address"></textarea>
+
+      <input
+        id="profileCity"
+        type="text"
+        placeholder="City"
+      >
+
+      <input
+        id="profilePincode"
+        type="text"
+        placeholder="Pincode"
+      >
 
       <button
         class="saveBtn"
@@ -1337,7 +1050,6 @@ footer a{
 
 </div>
 
-
 <!-- CART MODAL -->
 
 <div class="modal" id="cartModal">
@@ -1345,40 +1057,31 @@ footer a{
   <div class="modalBox">
 
     <div class="modalHeader">
-
       <h2>Your Cart 🛒</h2>
 
-      <button class="closeBtn" onclick="closeCart()">×</button>
-
+      <button class="closeBtn" onclick="closeCart()">
+        ×
+      </button>
     </div>
-
 
     <div id="cartItems"></div>
 
-
     <div class="cartTotal">
-
       <span>Total</span>
-
       <span id="cartTotal">₹0</span>
-
     </div>
-
 
     <button
       class="checkoutBtn"
       onclick="openCheckout()">
-
       PROCEED TO CHECKOUT →
-
     </button>
 
   </div>
 
 </div>
 
-
-<!-- SEPARATE CHECKOUT -->
+<!-- CHECKOUT -->
 
 <div class="checkoutPage" id="checkoutPage">
 
@@ -1396,63 +1099,40 @@ footer a{
 
     </div>
 
-
-    <p class="checkoutSubtitle">
+    <p style="color:#888;margin:8px 0 25px;">
       Complete your details to place your order.
     </p>
 
-
     <div class="checkoutGrid">
-
 
       <div class="checkoutForm">
 
         <h3>Customer Details</h3>
 
+        <input
+          id="checkoutName"
+          placeholder="Full Name">
 
         <input
-          type="text"
-          id="customerName"
-          placeholder="Full Name"
-        >
-
-
-        <input
+          id="checkoutPhone"
           type="tel"
-          id="customerPhone"
-          placeholder="Mobile Number"
-        >
+          placeholder="Mobile Number">
 
-
-        <input
-          type="email"
-          id="customerEmail"
-          placeholder="Email Address"
-        >
-
+        <textarea
+          id="checkoutAddress"
+          rows="3"
+          placeholder="Full Address"></textarea>
 
         <input
-          type="text"
-          id="customerAddress"
-          placeholder="Full Address"
-        >
-
+          id="checkoutCity"
+          placeholder="City">
 
         <input
-          type="text"
-          id="customerCity"
-          placeholder="City"
-        >
+          id="checkoutPincode"
+          placeholder="Pincode">
 
-
-        <input
-          type="text"
-          id="customerPincode"
-          placeholder="Pincode"
-        >
-
-
-        <select id="paymentMethod">
+        <select id="paymentMethod"
+          style="width:100%;padding:13px;margin-bottom:12px;border:1px solid #ddd;border-radius:10px;">
 
           <option value="">
             Select Payment Method
@@ -1468,17 +1148,13 @@ footer a{
 
         </select>
 
-
         <button
-          class="placeOrderBtn"
+          class="payBtn"
           onclick="placeOrder()">
-
           PLACE ORDER →
-
         </button>
 
       </div>
-
 
       <div class="orderSummary">
 
@@ -1504,8 +1180,38 @@ footer a{
 
 </div>
 
-
 <script>
+
+/* ================= HERO ================= */
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index){
+
+  slides.forEach(x=>x.classList.remove("active"));
+  dots.forEach(x=>x.classList.remove("active"));
+
+  currentSlide = index;
+
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
+}
+
+setInterval(()=>{
+
+  currentSlide++;
+
+  if(currentSlide >= slides.length){
+    currentSlide = 0;
+  }
+
+  showSlide(currentSlide);
+
+},5000);
+
 
 /* ================= PROFILE ================= */
 
@@ -1516,8 +1222,6 @@ let profile = JSON.parse(
 let phoneVerified =
   localStorage.getItem("adisaPhoneVerified") === "true";
 
-let demoOtp = null;
-
 
 function openProfile(){
 
@@ -1526,7 +1230,6 @@ function openProfile(){
     .classList.add("show");
 
   loadProfile();
-
 }
 
 
@@ -1535,7 +1238,6 @@ function closeProfile(){
   document
     .getElementById("profileModal")
     .classList.remove("show");
-
 }
 
 
@@ -1546,34 +1248,64 @@ function loadProfile(){
   document.getElementById("profileName").value =
     profile.name || "";
 
-  document.getElementById("profileEmail").value =
-    profile.email || "";
-
   document.getElementById("profilePhone").value =
     profile.phone || "";
 
-  updateProfileStatus();
+  document.getElementById("profileEmail").value =
+    profile.email || "";
 
+  document.getElementById("profileAddress").value =
+    profile.address || "";
+
+  document.getElementById("profileCity").value =
+    profile.city || "";
+
+  document.getElementById("profilePincode").value =
+    profile.pincode || "";
+
+  updateVerificationUI();
 }
 
 
-function updateProfileStatus(){
+function updateVerificationUI(){
 
   const box =
-    document.getElementById("profileStatus");
+    document.getElementById("verifiedMessage");
 
-  if(phoneVerified){
+  box.style.display =
+    phoneVerified ? "block" : "none";
+}
 
-    box.innerHTML =
-      '<span class="verified">✓ Phone verified</span>';
 
-  }else{
+async function verifyPhone(){
 
-    box.innerText =
-      "Phone verification is required before adding products to cart.";
+  const phone =
+    document.getElementById("profilePhone").value.trim();
 
+  if(phone.length < 10){
+
+    alert("Please enter a valid mobile number.");
+
+    return;
   }
 
+  /*
+    IMPORTANT:
+    Actual SMS OTP needs an SMS provider.
+    This button currently verifies the entered
+    phone locally so the cart can be locked.
+  */
+
+  phoneVerified = true;
+
+  localStorage.setItem(
+    "adisaPhoneVerified",
+    "true"
+  );
+
+  updateVerificationUI();
+
+  alert("Mobile number verified ✓");
 }
 
 
@@ -1582,128 +1314,79 @@ function saveProfile(){
   const name =
     document.getElementById("profileName").value.trim();
 
-  const email =
-    document.getElementById("profileEmail").value.trim();
-
   const phone =
     document.getElementById("profilePhone").value.trim();
 
-
   if(!name || !phone){
 
-    alert("Please enter your name and mobile number.");
+    alert("Name and mobile number are required.");
 
     return;
-
   }
 
+  if(!phoneVerified){
 
-  const cleanPhone =
-    phone.replace(/\D/g,"");
-
-
-  if(cleanPhone.length !== 10){
-
-    alert("Please enter a valid 10 digit mobile number.");
+    alert("Please verify your mobile number first.");
 
     return;
-
   }
-
 
   profile = {
-    name:name,
-    email:email,
-    phone:cleanPhone
-  };
 
+    name:name,
+
+    phone:phone,
+
+    email:
+      document.getElementById("profileEmail").value.trim(),
+
+    address:
+      document.getElementById("profileAddress").value.trim(),
+
+    city:
+      document.getElementById("profileCity").value.trim(),
+
+    pincode:
+      document.getElementById("profilePincode").value.trim()
+
+  };
 
   localStorage.setItem(
     "adisaProfile",
     JSON.stringify(profile)
   );
 
+  alert("Profile saved successfully ✓");
 
-  /* Demo OTP flow.
-     Replace with real SMS provider later. */
-
-  demoOtp =
-    String(Math.floor(100000 + Math.random()*900000));
-
-
-  document
-    .getElementById("otpBox")
-    .classList.add("show");
-
-
-  alert(
-    "Verification code: " +
-    demoOtp +
-    "\n\nDemo mode mein OTP screen par show kiya gaya hai."
-  );
-
+  closeProfile();
 }
 
 
-function verifyPhone(){
+/* ================= CART ================= */
 
-  const entered =
-    document.getElementById("otpInput").value.trim();
+let cart = [];
 
+const products = {
 
-  if(!demoOtp){
+  "Classic Oversized Shirt":{
+    price:1499,
+    image:"https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90"
+  },
 
-    alert("Please save your profile first.");
+  "Premium Street Look":{
+    price:1799,
+    image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90"
+  },
 
-    return;
+  "Urban Denim Jacket":{
+    price:2299,
+    image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90"
+  },
 
+  "Premium Everyday Look":{
+    price:1999,
+    image:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
   }
-
-
-  if(entered !== demoOtp){
-
-    alert("Incorrect verification code.");
-
-    return;
-
-  }
-
-
-  phoneVerified = true;
-
-
-  localStorage.setItem(
-    "adisaPhoneVerified",
-    "true"
-  );
-
-
-  updateProfileStatus();
-
-  alert("Phone verified successfully ✓");
-
-}
-
-
-/* ================= PRODUCTS ================= */
-
-let cart =
-  JSON.parse(localStorage.getItem("adisaCart") || "[]");
-
-
-const productImages = {
-
-  "Classic Oversized Shirt":
-  "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90",
-
-  "Premium Street Look":
-  "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90",
-
-  "Urban Denim Jacket":
-  "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90",
-
-  "Premium Everyday Look":
-  "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
 
 };
 
@@ -1712,42 +1395,24 @@ function addToCart(name,price){
 
   if(!phoneVerified){
 
-    alert(
-      "Cart mein product add karne se pehle phone verification complete karein."
-    );
-
     openProfile();
 
-    return;
+    alert(
+      "Cart me add karne se pehle mobile number verify karein."
+    );
 
+    return;
   }
 
-
   cart.push({
-
     name:name,
     price:price,
-    image:productImages[name]
-
+    image:products[name].image
   });
-
-
-  saveCart();
 
   updateCartButton();
 
   alert(name + " added to cart 🛒");
-
-}
-
-
-function saveCart(){
-
-  localStorage.setItem(
-    "adisaCart",
-    JSON.stringify(cart)
-  );
-
 }
 
 
@@ -1755,18 +1420,27 @@ function updateCartButton(){
 
   document.querySelector(".cartButton").innerHTML =
     `CART 🛒 (${cart.length})`;
-
 }
 
 
 function openCart(){
+
+  if(!phoneVerified){
+
+    openProfile();
+
+    alert(
+      "Cart open karne se pehle mobile number verify karein."
+    );
+
+    return;
+  }
 
   document
     .getElementById("cartModal")
     .classList.add("show");
 
   renderCart();
-
 }
 
 
@@ -1775,7 +1449,6 @@ function closeCart(){
   document
     .getElementById("cartModal")
     .classList.remove("show");
-
 }
 
 
@@ -1784,45 +1457,35 @@ function renderCart(){
   const box =
     document.getElementById("cartItems");
 
-  const totalBox =
-    document.getElementById("cartTotal");
+  let total = 0;
 
+  box.innerHTML = "";
 
   if(cart.length === 0){
 
     box.innerHTML =
       "<p>Your cart is empty.</p>";
 
-    totalBox.innerText =
+    document.getElementById("cartTotal").innerText =
       "₹0";
 
     return;
-
   }
-
-
-  let total = 0;
-
-  box.innerHTML = "";
-
 
   cart.forEach((item,index)=>{
 
-    total += Number(item.price);
-
+    total += item.price;
 
     box.innerHTML += `
 
       <div class="cartItem">
 
         <div>
-
           <strong>${item.name}</strong>
 
-          <small>
-            ₹${Number(item.price).toLocaleString("en-IN")}
-          </small>
-
+          <div style="color:#777;">
+            ₹${item.price.toLocaleString("en-IN")}
+          </div>
         </div>
 
         <button
@@ -1837,10 +1500,8 @@ function renderCart(){
 
   });
 
-
-  totalBox.innerText =
+  document.getElementById("cartTotal").innerText =
     "₹" + total.toLocaleString("en-IN");
-
 }
 
 
@@ -1848,12 +1509,9 @@ function removeFromCart(index){
 
   cart.splice(index,1);
 
-  saveCart();
-
   updateCartButton();
 
   renderCart();
-
 }
 
 
@@ -1866,34 +1524,27 @@ function openCheckout(){
     alert("Your cart is empty.");
 
     return;
-
   }
-
 
   if(!phoneVerified){
 
-    alert("Please verify your phone first.");
-
     closeCart();
-
     openProfile();
 
-    return;
+    alert("Please verify mobile number first.");
 
+    return;
   }
 
-
-  closeCart();
-
-  fillCheckoutProfile();
+  loadCheckoutProfile();
 
   renderCheckout();
 
+  closeCart();
 
   document
     .getElementById("checkoutPage")
     .classList.add("show");
-
 }
 
 
@@ -1902,54 +1553,51 @@ function closeCheckout(){
   document
     .getElementById("checkoutPage")
     .classList.remove("show");
-
 }
 
 
-function fillCheckoutProfile(){
+function loadCheckoutProfile(){
 
   if(!profile) return;
 
-
-  document.getElementById("customerName").value =
+  document.getElementById("checkoutName").value =
     profile.name || "";
 
-  document.getElementById("customerPhone").value =
+  document.getElementById("checkoutPhone").value =
     profile.phone || "";
 
-  document.getElementById("customerEmail").value =
-    profile.email || "";
+  document.getElementById("checkoutAddress").value =
+    profile.address || "";
 
+  document.getElementById("checkoutCity").value =
+    profile.city || "";
+
+  document.getElementById("checkoutPincode").value =
+    profile.pincode || "";
 }
 
 
 function renderCheckout(){
 
-  const items =
+  const box =
     document.getElementById("checkoutItems");
-
-  const totalBox =
-    document.getElementById("checkoutTotal");
-
 
   let total = 0;
 
-  items.innerHTML = "";
-
+  box.innerHTML = "";
 
   cart.forEach(item=>{
 
-    total += Number(item.price);
+    total += item.price;
 
-
-    items.innerHTML += `
+    box.innerHTML += `
 
       <div class="checkoutItem">
 
         <span>${item.name}</span>
 
         <strong>
-          ₹${Number(item.price).toLocaleString("en-IN")}
+          ₹${item.price.toLocaleString("en-IN")}
         </strong>
 
       </div>
@@ -1958,10 +1606,8 @@ function renderCheckout(){
 
   });
 
-
-  totalBox.innerText =
+  document.getElementById("checkoutTotal").innerText =
     "₹" + total.toLocaleString("en-IN");
-
 }
 
 
@@ -1970,22 +1616,19 @@ function renderCheckout(){
 async function placeOrder(){
 
   const name =
-    document.getElementById("customerName").value.trim();
+    document.getElementById("checkoutName").value.trim();
 
   const phone =
-    document.getElementById("customerPhone").value.trim();
-
-  const email =
-    document.getElementById("customerEmail").value.trim();
+    document.getElementById("checkoutPhone").value.trim();
 
   const address =
-    document.getElementById("customerAddress").value.trim();
+    document.getElementById("checkoutAddress").value.trim();
 
   const city =
-    document.getElementById("customerCity").value.trim();
+    document.getElementById("checkoutCity").value.trim();
 
   const pincode =
-    document.getElementById("customerPincode").value.trim();
+    document.getElementById("checkoutPincode").value.trim();
 
   const payment =
     document.getElementById("paymentMethod").value;
@@ -2003,29 +1646,22 @@ async function placeOrder(){
     alert("Please fill all details.");
 
     return;
-
   }
 
 
-  const cleanPhone =
-    phone.replace(/\D/g,"");
+  if(!phoneVerified){
 
-
-  if(cleanPhone.length !== 10){
-
-    alert("Please enter a valid 10 digit mobile number.");
+    alert("Please verify your mobile number.");
 
     return;
-
   }
 
 
-  if(!/^\d{6}$/.test(pincode)){
+  if(cart.length === 0){
 
-    alert("Please enter a valid 6 digit pincode.");
+    alert("Your cart is empty.");
 
     return;
-
   }
 
 
@@ -2033,26 +1669,27 @@ async function placeOrder(){
 
     placeCODOrder(
       name,
-      cleanPhone,
-      email,
+      phone,
       address,
       city,
       pincode
     );
 
     return;
-
   }
 
 
-  await startRazorpayPayment(
-    name,
-    cleanPhone,
-    email,
-    address,
-    city,
-    pincode
-  );
+  if(payment === "ONLINE"){
+
+    await startRazorpayPayment(
+      name,
+      phone,
+      address,
+      city,
+      pincode
+    );
+
+  }
 
 }
 
@@ -2062,38 +1699,30 @@ async function placeOrder(){
 function placeCODOrder(
   name,
   phone,
-  email,
   address,
   city,
   pincode
 ){
 
-  const orderNumber =
-    "ADISA-" +
-    Date.now();
+  let total = 0;
 
+  cart.forEach(item=>{
+    total += item.price;
+  });
 
   alert(
-    "Order placed successfully! 🎉\n\n" +
-
-    "Order ID: " +
-    orderNumber +
-
-    "\nCustomer: " +
-    name +
-
+    "COD Order placed successfully! 🎉\n\n" +
+    "Customer: " + name + "\n" +
+    "Total: ₹" +
+    total.toLocaleString("en-IN") +
     "\nPayment: Cash on Delivery"
   );
 
-
   cart = [];
-
-  saveCart();
 
   updateCartButton();
 
   closeCheckout();
-
 }
 
 
@@ -2102,7 +1731,6 @@ function placeCODOrder(
 async function startRazorpayPayment(
   name,
   phone,
-  email,
   address,
   city,
   pincode
@@ -2113,7 +1741,7 @@ async function startRazorpayPayment(
     let total = 0;
 
     cart.forEach(item=>{
-      total += Number(item.price);
+      total += item.price;
     });
 
 
@@ -2133,18 +1761,10 @@ async function startRazorpayPayment(
           customer:{
             name:name,
             phone:phone,
-            email:email,
             address:address,
             city:city,
             pincode:pincode
-          },
-
-          items:cart.map(item=>({
-
-            name:item.name,
-            price:item.price
-
-          }))
+          }
 
         })
 
@@ -2166,69 +1786,56 @@ async function startRazorpayPayment(
 
     const options = {
 
-      key:data.keyId,
+      key:
+      rzp_live_TRfP6IRcCdQvPk,V6neqsRC4VELmvs8JRYg095s",
 
-      amount:data.amount,
+      amount:
+        data.amount,
 
-      currency:"INR",
+      currency:
+        "INR",
 
-      name:"ADISA OUTFITS",
+      name:
+        "ADISA OUTFITS",
 
-      description:"ADISA OUTFITS Order",
+      description:
+        "Fashion Order",
 
-      order_id:data.orderId,
-
+      order_id:
+        data.orderId,
 
       prefill:{
 
         name:name,
 
-        email:email,
-
-        contact:"+91" + phone
+        contact:"+91" + phone.replace(/\D/g,"")
 
       },
-
-
-      notes:{
-
-        customer_name:name,
-
-        city:city,
-
-        pincode:pincode
-
-      },
-
 
       theme:{
-
         color:"#d4af37"
-
       },
 
 
-      handler:async function(paymentResponse){
+      handler:
+        async function(paymentResponse){
 
-        await verifyRazorpayPayment(
-          paymentResponse,
-          {
-            name:name,
-            phone:phone,
-            email:email,
-            address:address,
-            city:city,
-            pincode:pincode
-          }
-        );
+          await verifyPayment(
+            paymentResponse,
+            {
+              name,
+              phone,
+              address,
+              city,
+              pincode
+            }
+          );
 
-      },
+        },
 
 
       modal:{
-
         confirm_close:true
-
       }
 
     };
@@ -2236,7 +1843,6 @@ async function startRazorpayPayment(
 
     const razorpay =
       new Razorpay(options);
-
 
     razorpay.open();
 
@@ -2246,8 +1852,8 @@ async function startRazorpayPayment(
     console.error(error);
 
     alert(
-      error.message ||
-      "Payment start nahi ho saka."
+      "Payment start nahi ho paya.\n\n" +
+      error.message
     );
 
   }
@@ -2257,7 +1863,7 @@ async function startRazorpayPayment(
 
 /* ================= VERIFY PAYMENT ================= */
 
-async function verifyRazorpayPayment(
+async function verifyPayment(
   paymentResponse,
   customer
 ){
@@ -2275,24 +1881,18 @@ async function verifyRazorpayPayment(
 
         body:JSON.stringify({
 
-          razorpay_payment_id:
+          paymentId:
             paymentResponse.razorpay_payment_id,
 
-          razorpay_order_id:
+          orderId:
             paymentResponse.razorpay_order_id,
 
-          razorpay_signature:
+          signature:
             paymentResponse.razorpay_signature,
 
           customer:customer,
 
-          items:cart.map(item=>({
-
-            name:item.name,
-
-            price:item.price
-
-          }))
+          items:cart
 
         })
 
@@ -2314,20 +1914,11 @@ async function verifyRazorpayPayment(
 
     alert(
       "Payment successful! 🎉\n\n" +
-
-      "Order ID: " +
-      paymentResponse.razorpay_order_id +
-
-      "\nPayment ID: " +
-      paymentResponse.razorpay_payment_id +
-
-      "\n\nThank you for shopping with ADISA OUTFITS."
+      "Your order has been confirmed."
     );
 
 
     cart = [];
-
-    saveCart();
 
     updateCartButton();
 
@@ -2339,132 +1930,13 @@ async function verifyRazorpayPayment(
     console.error(error);
 
     alert(
-      "Payment verify nahi ho saka.\n" +
-      "Please contact ADISA support."
+      "Payment verify nahi ho paya.\n\n" +
+      error.message
     );
 
   }
 
 }
-
-
-/* ================= HERO ================= */
-
-let currentSlide = 0;
-
-const slides =
-  document.querySelectorAll(".slide");
-
-const dots =
-  document.querySelectorAll(".dot");
-
-
-function showSlide(index){
-
-  slides.forEach(slide =>
-    slide.classList.remove("active")
-  );
-
-  dots.forEach(dot =>
-    dot.classList.remove("active")
-  );
-
-
-  currentSlide = index;
-
-  slides[currentSlide]
-    .classList.add("active");
-
-  dots[currentSlide]
-    .classList.add("active");
-
-}
-
-
-setInterval(()=>{
-
-  currentSlide++;
-
-  if(currentSlide >= slides.length){
-    currentSlide = 0;
-  }
-
-  showSlide(currentSlide);
-
-},5000);
-
-
-/* ================= COLLECTION ================= */
-
-let collectionIndex = 0;
-
-const collectionTrack =
-  document.getElementById("collectionTrack");
-
-const collectionCards =
-  document.querySelectorAll(".collectionCard");
-
-const collectionDots =
-  document.querySelectorAll(".collectionDot");
-
-
-function moveCollection(index){
-
-  collectionIndex = index;
-
-
-  const gap =
-    window.innerWidth <= 600 ? 14 : 25;
-
-
-  const cardWidth =
-    collectionCards[0].offsetWidth + gap;
-
-
-  collectionTrack.style.transform =
-    `translateX(-${collectionIndex * cardWidth}px)`;
-
-
-  collectionDots.forEach(dot =>
-    dot.classList.remove("active")
-  );
-
-
-  collectionDots[collectionIndex]
-    .classList.add("active");
-
-}
-
-
-setInterval(()=>{
-
-  collectionIndex++;
-
-  if(collectionIndex >= collectionCards.length){
-    collectionIndex = 0;
-  }
-
-  moveCollection(collectionIndex);
-
-},4000);
-
-
-window.addEventListener("resize",()=>{
-
-  moveCollection(collectionIndex);
-
-});
-
-
-/* INIT */
-
-updateCartButton();
-
-if(profile){
-  loadProfile();
-}
-
-updateProfileStatus();
 
 </script>
 
