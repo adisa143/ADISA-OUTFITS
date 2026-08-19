@@ -25,7 +25,7 @@ body{
   font-family:'Poppins',sans-serif;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .topbar{
   position:sticky;
@@ -78,7 +78,7 @@ nav a:hover{
   cursor:pointer;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .slider{
   position:relative;
@@ -183,13 +183,14 @@ nav a:hover{
   border-radius:50%;
   border:1px solid #fff;
   background:transparent;
+  cursor:pointer;
 }
 
 .dot.active{
   background:#d4af37;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
 
 .section{
   padding:80px 6%;
@@ -212,7 +213,7 @@ nav a:hover{
   margin-top:8px;
 }
 
-/* COLLECTION SLIDER */
+/* ================= COLLECTION SLIDER ================= */
 
 .collectionSlider{
   overflow:hidden;
@@ -254,7 +255,10 @@ nav a:hover{
   justify-content:flex-end;
   padding:30px;
   color:#fff;
-  background:linear-gradient(transparent 25%,rgba(0,0,0,.9));
+  background:linear-gradient(
+    transparent 25%,
+    rgba(0,0,0,.9)
+  );
 }
 
 .collectionOverlay small{
@@ -295,7 +299,7 @@ nav a:hover{
   transform:scale(1.2);
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
 
 .productGrid{
   display:grid;
@@ -376,7 +380,7 @@ nav a:hover{
   color:#111;
 }
 
-/* WHY */
+/* ================= WHY ADISA ================= */
 
 .darkGrid{
   display:grid;
@@ -408,7 +412,7 @@ nav a:hover{
   line-height:1.6;
 }
 
-/* PROMO */
+/* ================= PROMO ================= */
 
 .promo{
   min-height:500px;
@@ -436,7 +440,7 @@ nav a:hover{
   margin:20px 0 30px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
   background:#111;
@@ -465,6 +469,10 @@ footer a{
   text-decoration:none;
 }
 
+footer a:hover{
+  color:#d4af37;
+}
+
 .footerBottom{
   text-align:center;
   border-top:1px solid #222;
@@ -474,7 +482,7 @@ footer a{
   font-size:10px;
 }
 
-/* CART POPUP */
+/* ================= CART MODAL ================= */
 
 .cartModal{
   position:fixed;
@@ -524,6 +532,7 @@ footer a{
   align-items:center;
   padding:13px 0;
   border-bottom:1px solid #eee;
+  gap:15px;
 }
 
 .cartItem strong{
@@ -533,6 +542,7 @@ footer a{
 .cartItem small{
   display:block;
   color:#777;
+  margin-top:4px;
 }
 
 .removeBtn{
@@ -543,6 +553,11 @@ footer a{
   border-radius:15px;
   font-size:9px;
   cursor:pointer;
+}
+
+.removeBtn:hover{
+  background:#d4af37;
+  color:#111;
 }
 
 .cartTotal{
@@ -563,7 +578,7 @@ footer a{
   cursor:pointer;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -658,6 +673,8 @@ footer a{
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header class="topbar">
 
   <div class="brand">
@@ -677,7 +694,7 @@ footer a{
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="slider" id="home">
 
@@ -685,7 +702,9 @@ footer a{
 
     <div class="slideContent">
 
-      <p class="slideTag">ADISA OUTFITS</p>
+      <p class="slideTag">
+        ADISA OUTFITS
+      </p>
 
       <h1>
         YOUR STYLE.<br>
@@ -742,7 +761,7 @@ footer a{
 </section>
 
 
-<!-- COLLECTIONS -->
+<!-- ================= COLLECTIONS ================= -->
 
 <section class="section" id="featured">
 
@@ -762,7 +781,10 @@ footer a{
 
       <div class="collectionCard">
 
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
+          alt="Men Fashion"
+        >
 
         <div class="collectionOverlay">
 
@@ -781,7 +803,10 @@ footer a{
 
       <div class="collectionCard">
 
-        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90"
+          alt="Women Fashion"
+        >
 
         <div class="collectionOverlay">
 
@@ -800,7 +825,10 @@ footer a{
 
       <div class="collectionCard">
 
-        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90"
+          alt="Denim Collection"
+        >
 
         <div class="collectionOverlay">
 
@@ -819,7 +847,10 @@ footer a{
 
       <div class="collectionCard">
 
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=90"
+          alt="Trending Fashion"
+        >
 
         <div class="collectionOverlay">
 
@@ -841,20 +872,24 @@ footer a{
 
     <div class="collectionDots">
 
-      <button class="collectionDot active"
-              onclick="moveCollection(0)">
+      <button
+        class="collectionDot active"
+        onclick="moveCollection(0)">
       </button>
 
-      <button class="collectionDot"
-              onclick="moveCollection(1)">
+      <button
+        class="collectionDot"
+        onclick="moveCollection(1)">
       </button>
 
-      <button class="collectionDot"
-              onclick="moveCollection(2)">
+      <button
+        class="collectionDot"
+        onclick="moveCollection(2)">
       </button>
 
-      <button class="collectionDot"
-              onclick="moveCollection(3)">
+      <button
+        class="collectionDot"
+        onclick="moveCollection(3)">
       </button>
 
     </div>
@@ -864,7 +899,7 @@ footer a{
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- ================= PRODUCTS ================= -->
 
 <section class="section" id="shop">
 
@@ -880,11 +915,16 @@ footer a{
   <div class="productGrid">
 
 
+    <!-- PRODUCT 1 -->
+
     <div class="productCard">
 
       <div class="productImage">
 
-        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90"
+          alt="Classic Oversized Shirt"
+        >
 
         <span>NEW</span>
 
@@ -898,7 +938,8 @@ footer a{
 
         <strong>₹1,499</strong>
 
-        <button class="addCartBtn"
+        <button
+          class="addCartBtn"
           onclick="addToCart('Classic Oversized Shirt',1499)">
           ADD TO CART
         </button>
@@ -908,11 +949,16 @@ footer a{
     </div>
 
 
+    <!-- PRODUCT 2 -->
+
     <div class="productCard">
 
       <div class="productImage">
 
-        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90"
+          alt="Premium Street Look"
+        >
 
         <span>NEW</span>
 
@@ -926,7 +972,8 @@ footer a{
 
         <strong>₹1,799</strong>
 
-        <button class="addCartBtn"
+        <button
+          class="addCartBtn"
           onclick="addToCart('Premium Street Look',1799)">
           ADD TO CART
         </button>
@@ -936,11 +983,16 @@ footer a{
     </div>
 
 
+    <!-- PRODUCT 3 -->
+
     <div class="productCard">
 
       <div class="productImage">
 
-        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90"
+          alt="Urban Denim Jacket"
+        >
 
         <span>HOT</span>
 
@@ -954,7 +1006,8 @@ footer a{
 
         <strong>₹2,299</strong>
 
-        <button class="addCartBtn"
+        <button
+          class="addCartBtn"
           onclick="addToCart('Urban Denim Jacket',2299)">
           ADD TO CART
         </button>
@@ -964,11 +1017,16 @@ footer a{
     </div>
 
 
+    <!-- PRODUCT 4 -->
+
     <div class="productCard">
 
       <div class="productImage">
 
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90">
+        <img
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
+          alt="Premium Everyday Look"
+        >
 
         <span>NEW</span>
 
@@ -982,7 +1040,8 @@ footer a{
 
         <strong>₹1,999</strong>
 
-        <button class="addCartBtn"
+        <button
+          class="addCartBtn"
           onclick="addToCart('Premium Everyday Look',1999)">
           ADD TO CART
         </button>
@@ -997,7 +1056,7 @@ footer a{
 </section>
 
 
-<!-- WHY ADISA -->
+<!-- ================= WHY ADISA ================= -->
 
 <section class="section">
 
@@ -1011,6 +1070,7 @@ footer a{
 
 
   <div class="darkGrid">
+
 
     <div class="darkCard">
 
@@ -1050,12 +1110,13 @@ footer a{
 
     </div>
 
+
   </div>
 
 </section>
 
 
-<!-- PROMO -->
+<!-- ================= PROMO ================= -->
 
 <section class="promo">
 
@@ -1077,11 +1138,12 @@ footer a{
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
   <div class="footerGrid">
+
 
     <div>
 
@@ -1098,13 +1160,23 @@ footer a{
 
     <div>
 
-      <h4>CONTACT</h4>
+      <h4>CONTACT US</h4>
 
-      <p>📧 adisa143143@gmail.com</p>
+      <p>
+        📧 Email:
+        adisha143143@gmail.com
+      </p>
 
-      <p>💬 WhatsApp: 8677033435</p>
+      <p>
+        💬 WhatsApp:
+        8677033435
+      </p>
 
-      <p>📍 Rahman Chowk, Noor Akhtar Road, Purnia</p>
+      <p>
+        📍 Location:
+        Rahman Chowk, Noor Akhtar Road,
+        Line Bazar, Purnia 854301
+      </p>
 
     </div>
 
@@ -1113,11 +1185,26 @@ footer a{
 
       <h4>HELP & SUPPORT</h4>
 
-      <p>🚚 Shipping & Delivery</p>
+      <p>
+        🚚 Shipping & Delivery
+      </p>
 
-      <p>3–5 business days</p>
+      <p>
+        5–7 business days
+      </p>
 
-      <p>↩️ Return & Refund</p>
+      <p>
+        ↩️ Return & Refund
+      </p>
+
+      <p>
+        Payment में ₹100 कटने के बाद
+        बाकी amount refund होगा.
+      </p>
+
+      <p>
+        🕐 Customer Support: 24/7
+      </p>
 
     </div>
 
@@ -1126,27 +1213,38 @@ footer a{
 
       <h4>QUICK LINKS</h4>
 
-      <p><a href="#home">HOME</a></p>
+      <p>
+        <a href="#home">HOME</a>
+      </p>
 
-      <p><a href="#featured">COLLECTIONS</a></p>
+      <p>
+        <a href="#featured">COLLECTIONS</a>
+      </p>
 
-      <p><a href="#shop">SHOP</a></p>
+      <p>
+        <a href="#shop">SHOP</a>
+      </p>
+
+      <p>
+        <a href="#shop">LATEST ARRIVALS</a>
+      </p>
 
     </div>
+
 
   </div>
 
 
   <div class="footerBottom">
 
-    © 2026 ADISA OUTFITS • Premium Fashion • Customer Support
+    © 2026 ADISA OUTFITS • Premium Fashion • Customer Support 24/7
 
   </div>
 
 </footer>
 
 
-<!-- CART MODAL -->
+<!-- ================= CART MODAL ================= -->
 
 <div class="cartModal" id="cartModal">
 
@@ -1156,7 +1254,9 @@ footer a{
 
       <h2>Your Cart 🛒</h2>
 
-      <button class="closeCart" onclick="closeCart()">
+      <button
+        class="closeCart"
+        onclick="closeCart()">
         ×
       </button>
 
@@ -1177,9 +1277,12 @@ footer a{
     </div>
 
 
-    <button class="checkoutBtn"
+    <button
+      class="checkoutBtn"
       onclick="checkout()">
+
       PROCEED TO CHECKOUT →
+
     </button>
 
   </div>
@@ -1187,9 +1290,11 @@ footer a{
 </div>
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-/* HERO SLIDER */
+/* ================= HERO SLIDER ================= */
 
 let currentSlide = 0;
 
@@ -1231,7 +1336,7 @@ setInterval(()=>{
 },5000);
 
 
-/* COLLECTION SLIDER */
+/* ================= COLLECTION SLIDER ================= */
 
 let collectionIndex = 0;
 
@@ -1281,10 +1386,12 @@ setInterval(()=>{
 },4000);
 
 
-/* CART */
+/* ================= CART SYSTEM ================= */
 
 let cart = [];
 
+
+/* ADD TO CART */
 
 function addToCart(name,price){
 
@@ -1295,9 +1402,14 @@ function addToCart(name,price){
 
   updateCartButton();
 
-  alert(name + " added to cart 🛒");
+  alert(
+    name +
+    " added to cart 🛒"
+  );
 }
 
+
+/* UPDATE CART BUTTON */
 
 function updateCartButton(){
 
@@ -1309,6 +1421,8 @@ function updateCartButton(){
 }
 
 
+/* OPEN CART */
+
 function openCart(){
 
   document
@@ -1319,6 +1433,8 @@ function openCart(){
 }
 
 
+/* CLOSE CART */
+
 function closeCart(){
 
   document
@@ -1326,6 +1442,8 @@ function closeCart(){
     .classList.remove("show");
 }
 
+
+/* RENDER CART */
 
 function renderCart(){
 
@@ -1335,12 +1453,14 @@ function renderCart(){
   const cartTotal =
     document.getElementById("cartTotal");
 
+
   if(cart.length === 0){
 
     cartItems.innerHTML =
-      "<p>Your cart is empty.</p>";
+      "<p>Your cart is empty 🛒</p>";
 
-    cartTotal.innerText = "₹0";
+    cartTotal.innerText =
+      "₹0";
 
     return;
   }
@@ -1354,6 +1474,7 @@ function renderCart(){
   cart.forEach((item,index)=>{
 
     total += item.price;
+
 
     cartItems.innerHTML += `
 
@@ -1374,7 +1495,9 @@ function renderCart(){
         <button
           class="removeBtn"
           onclick="removeFromCart(${index})">
+
           REMOVE
+
         </button>
 
       </div>
@@ -1385,8 +1508,74 @@ function renderCart(){
 
 
   cartTotal.innerText =
-    "₹" + total.toLocaleString("en-IN");
+    "₹" +
+    total.toLocaleString("en-IN");
 }
 
 
-function removeFro
+/* REMOVE FROM CART */
+
+function removeFromCart(index){
+
+  cart.splice(index,1);
+
+  updateCartButton();
+
+  renderCart();
+}
+
+
+/* ================= CHECKOUT ================= */
+
+function checkout(){
+
+  if(cart.length === 0){
+
+    alert(
+      "Your cart is empty 🛒"
+    );
+
+    return;
+  }
+
+
+  let total = 0;
+
+  cart.forEach(item=>{
+    total += item.price;
+  });
+
+
+  alert(
+    "Order Total: ₹" +
+    total.toLocaleString("en-IN") +
+    "\n\nCheckout system will be connected next."
+  );
+}
+
+
+/* ================= CLOSE CART OUTSIDE ================= */
+
+document
+  .getElementById("cartModal")
+  .addEventListener("click",function(e){
+
+    if(e.target === this){
+      closeCart();
+    }
+
+  });
+
+
+/* ================= RESIZE ================= */
+
+window.addEventListener("resize",()=>{
+
+  moveCollection(collectionIndex);
+
+});
+
+</script>
+
+</body>
+</html>
