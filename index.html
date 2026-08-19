@@ -1,293 +1,305 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+import "./globals.css";
 
-  <title>ADISA OUTFITS - Fashion Store</title>
+const products = [
+  {
+    name: "Premium Oversized Tee",
+    price: 799,
+    category: "BOYS",
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    name: "Classic Premium Shirt",
+    price: 1299,
+    category: "BOYS",
+    image:
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    name: "Elegant Fashion Dress",
+    price: 1599,
+    category: "GIRLS",
+    image:
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    name: "Modern Denim Look",
+    price: 1899,
+    category: "GIRLS",
+    image:
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=85",
+  },
+];
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+export default function Home() {
+  return (
+    <main>
 
-    body {
-      background: #f7f7f7;
-      color: #222;
-    }
+      {/* NAVBAR */}
+      <header className="navbar">
 
-    header {
-      background: #111;
-      color: white;
-      padding: 16px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #111, #444);
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #111;
-      padding: 13px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 45px 5%;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 30px;
-      margin-bottom: 30px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .category {
-      background: white;
-      padding: 35px 20px;
-      text-align: center;
-      border-radius: 15px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .category span {
-      font-size: 55px;
-    }
-
-    .category h3 {
-      margin: 15px 0;
-      font-size: 23px;
-    }
-
-    .shop-btn {
-      background: #111;
-      color: white;
-      border: none;
-      padding: 11px 22px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .product {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .product-img {
-      height: 180px;
-      background: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-    }
-
-    .product-info {
-      padding: 15px;
-    }
-
-    .product h3 {
-      margin-bottom: 8px;
-    }
-
-    .price {
-      font-weight: bold;
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .cart-btn {
-      width: 100%;
-      padding: 10px;
-      background: #111;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 20px;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      nav a {
-        margin-left: 8px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <div class="logo">ADISA OUTFITS</div>
-
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#cart">🛒 Cart</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="home">
-    <h1>ADISA OUTFITS</h1>
-    <p>Fashion for Boys & Girls</p>
-    <a href="#shop" class="btn">Shop Now</a>
-  </section>
-
-  <section>
-    <h2 class="title">Shop By Category</h2>
-
-    <div class="categories">
-
-      <div class="category">
-        <span>👕</span>
-        <h3>Boys Collection</h3>
-        <p>Trendy outfits for boys</p>
-        <br>
-        <button class="shop-btn">Shop Boys</button>
-      </div>
-
-      <div class="category">
-        <span>👗</span>
-        <h3>Girls Collection</h3>
-        <p>Beautiful outfits for girls</p>
-        <br>
-        <button class="shop-btn">Shop Girls</button>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="shop">
-
-    <h2 class="title">Featured Products</h2>
-
-    <div class="products">
-
-      <div class="product">
-        <div class="product-img">👕</div>
-
-        <div class="product-info">
-          <h3>Classic Boys T-Shirt</h3>
-          <div class="price">₹499</div>
-          <button class="cart-btn" onclick="addToCart('Classic Boys T-Shirt')">
-            Add to Cart
-          </button>
+        <div className="logo">
+          ADISA <span>OUTFITS</span>
         </div>
-      </div>
 
-      <div class="product">
-        <div class="product-img">👔</div>
+        <nav>
+          <a href="#home">HOME</a>
+          <a href="#shop">SHOP</a>
+          <a href="#collections">COLLECTIONS</a>
+          <a href="#about">ABOUT</a>
+        </nav>
 
-        <div class="product-info">
-          <h3>Boys Casual Shirt</h3>
-          <div class="price">₹799</div>
-          <button class="cart-btn" onclick="addToCart('Boys Casual Shirt')">
-            Add to Cart
-          </button>
+        <button className="cartButton">
+          🛒 CART
+        </button>
+
+      </header>
+
+
+      {/* HERO */}
+      <section id="home" className="hero">
+
+        <div className="heroContent">
+
+          <p className="eyebrow">
+            NEW COLLECTION 2026
+          </p>
+
+          <h1>
+            STYLE THAT
+            <br />
+            <i>DEFINES YOU.</i>
+          </h1>
+
+          <p className="heroDescription">
+            Discover premium fashion for boys and girls.
+            Modern styles. Everyday confidence.
+          </p>
+
+          <a href="#shop" className="primaryButton">
+            SHOP NOW →
+          </a>
+
         </div>
-      </div>
 
-      <div class="product">
-        <div class="product-img">👗</div>
+      </section>
 
-        <div class="product-info">
-          <h3>Girls Stylish Dress</h3>
-          <div class="price">₹999</div>
-          <button class="cart-btn" onclick="addToCart('Girls Stylish Dress')">
-            Add to Cart
-          </button>
+
+      {/* COLLECTIONS */}
+      <section id="collections" className="section">
+
+        <div className="sectionTitle">
+
+          <div>
+            <p className="eyebrow dark">
+              EXPLORE
+            </p>
+
+            <h2>
+              Shop By Category
+            </h2>
+          </div>
+
+          <p>
+            Find your perfect style.
+          </p>
+
         </div>
-      </div>
 
-      <div class="product">
-        <div class="product-img">👚</div>
 
-        <div class="product-info">
-          <h3>Girls Fashion Top</h3>
-          <div class="price">₹599</div>
-          <button class="cart-btn" onclick="addToCart('Girls Fashion Top')">
-            Add to Cart
-          </button>
+        <div className="categories">
+
+          <a
+            href="#shop"
+            className="categoryCard boys"
+          >
+
+            <div>
+              <small>01 — BOYS</small>
+
+              <h3>
+                Street
+                <br />
+                Essentials
+              </h3>
+
+              <span>
+                SHOP BOYS →
+              </span>
+            </div>
+
+          </a>
+
+
+          <a
+            href="#shop"
+            className="categoryCard girls"
+          >
+
+            <div>
+              <small>02 — GIRLS</small>
+
+              <h3>
+                Modern
+                <br />
+                Elegance
+              </h3>
+
+              <span>
+                SHOP GIRLS →
+              </span>
+            </div>
+
+          </a>
+
         </div>
-      </div>
 
-    </div>
-  </section>
+      </section>
 
-  <footer id="cart">
-    <p>© 2026 ADISA OUTFITS</p>
-    <p>Fashion • Quality • Style</p>
-  </footer>
 
-  <script>
-    function addToCart(product) {
-      alert(product + " added to cart!");
-    }
-  </script>
+      {/* PRODUCTS */}
+      <section id="shop" className="section">
 
-</body>
-</html>
+        <div className="sectionTitle">
+
+          <div>
+
+            <p className="eyebrow dark">
+              BEST SELLERS
+            </p>
+
+            <h2>
+              Featured Products
+            </h2>
+
+          </div>
+
+          <a href="#shop">
+            VIEW ALL →
+          </a>
+
+        </div>
+
+
+        <div className="products">
+
+          {products.map((product, index) => (
+
+            <article
+              className="productCard"
+              key={product.name}
+            >
+
+              <div className="productImage">
+
+                <img
+                  src={product.image}
+                  alt={product.name}
+                />
+
+                {index < 2 && (
+                  <span className="newBadge">
+                    NEW
+                  </span>
+                )}
+
+                <button className="heart">
+                  ♡
+                </button>
+
+              </div>
+
+
+              <div className="productInfo">
+
+                <small>
+                  {product.category}
+                </small>
+
+                <h3>
+                  {product.name}
+                </h3>
+
+                <strong>
+                  ₹{product.price}
+                </strong>
+
+                <button className="addButton">
+                  ADD TO CART +
+                </button>
+
+              </div>
+
+            </article>
+
+          ))}
+
+        </div>
+
+      </section>
+
+
+      {/* PROMO */}
+      <section className="promo">
+
+        <div>
+
+          <p className="eyebrow">
+            ADISA OUTFITS
+          </p>
+
+          <h2>
+            WEAR YOUR
+            <br />
+            <i>CONFIDENCE.</i>
+          </h2>
+
+          <a
+            href="#shop"
+            className="lightButton"
+          >
+            EXPLORE COLLECTION →
+          </a>
+
+        </div>
+
+      </section>
+
+
+      {/* ABOUT */}
+      <section id="about" className="about">
+
+        <p className="eyebrow dark">
+          WHY ADISA?
+        </p>
+
+        <h2>
+          Fashion made
+          <br />
+          <i>for everyone.</i>
+        </h2>
+
+        <p>
+          Clean designs, comfortable styles and
+          modern fashion — all in one place.
+        </p>
+
+      </section>
+
+
+      {/* FOOTER */}
+      <footer>
+
+        <div className="logo">
+          ADISA <span>OUTFITS</span>
+        </div>
+
+        <p>
+          © 2026 ADISA OUTFITS
+        </p>
+
+      </footer>
+
+    </main>
+  );
+}
