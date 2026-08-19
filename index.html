@@ -68,14 +68,29 @@ nav a:hover{
   color:#d4af37;
 }
 
+.headerButtons{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.profileButton,
 .cartButton{
   border:0;
-  background:#d4af37;
-  color:#111;
-  padding:10px 17px;
+  padding:10px 15px;
   border-radius:25px;
   font-weight:800;
   cursor:pointer;
+}
+
+.profileButton{
+  background:#fff;
+  color:#111;
+}
+
+.cartButton{
+  background:#d4af37;
+  color:#111;
 }
 
 /* ================= HERO ================= */
@@ -194,7 +209,7 @@ nav a:hover{
   background:#d4af37;
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTIONS ================= */
 
 .section{
   padding:80px 6%;
@@ -244,11 +259,6 @@ nav a:hover{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:.5s;
-}
-
-.collectionCard:hover img{
-  transform:scale(1.05);
 }
 
 .collectionOverlay{
@@ -316,11 +326,6 @@ nav a:hover{
   border-radius:18px;
   overflow:hidden;
   box-shadow:0 8px 30px rgba(0,0,0,.08);
-  transition:.3s;
-}
-
-.productCard:hover{
-  transform:translateY(-5px);
 }
 
 .productImage{
@@ -482,7 +487,110 @@ footer a{
   font-size:10px;
 }
 
-/* ================= CART POPUP ================= */
+/* ================= OVERLAY PAGES ================= */
+
+.pageOverlay{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:#f7f5f2;
+  overflow:auto;
+  display:none;
+  padding:35px 20px;
+}
+
+.pageOverlay.show{
+  display:block;
+}
+
+.pageBox{
+  max-width:1000px;
+  margin:auto;
+  background:#fff;
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 15px 50px rgba(0,0,0,.15);
+}
+
+.pageHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.pageHeader h2{
+  font-size:32px;
+}
+
+.closePage{
+  border:0;
+  background:#eee;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* ================= PROFILE ================= */
+
+.profileGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-top:30px;
+}
+
+.profileCard{
+  background:#f7f5f2;
+  padding:25px;
+  border-radius:18px;
+}
+
+.profileCard h3{
+  margin-bottom:20px;
+}
+
+.profileInput{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:none;
+  font-family:Poppins,sans-serif;
+}
+
+.saveProfileBtn{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:25px;
+  background:#d4af37;
+  color:#111;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.profileInfo{
+  background:#111;
+  color:#fff;
+  padding:25px;
+  border-radius:18px;
+}
+
+.profileInfo h3{
+  color:#d4af37;
+  margin-bottom:20px;
+}
+
+.profileInfo p{
+  color:#ccc;
+  margin-bottom:12px;
+  line-height:1.6;
+}
+
+/* ================= CART ================= */
 
 .cartModal{
   position:fixed;
@@ -571,60 +679,13 @@ footer a{
   cursor:pointer;
 }
 
-/* ================= CHECKOUT PAGE ================= */
-
-.checkoutPage{
-  position:fixed;
-  inset:0;
-  z-index:5000;
-  background:#f7f5f2;
-  overflow:auto;
-  display:none;
-  padding:40px 20px;
-}
-
-.checkoutPage.show{
-  display:block;
-}
-
-.checkoutBox{
-  max-width:1000px;
-  margin:auto;
-  background:#fff;
-  border-radius:24px;
-  padding:35px;
-  box-shadow:0 15px 50px rgba(0,0,0,.15);
-}
-
-.checkoutHeader{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.checkoutHeader h2{
-  font-size:32px;
-}
-
-.closeCheckout{
-  border:0;
-  background:#eee;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  font-size:22px;
-  cursor:pointer;
-}
-
-.checkoutSubtitle{
-  color:#888;
-  margin:8px 0 30px;
-}
+/* ================= CHECKOUT ================= */
 
 .checkoutGrid{
   display:grid;
   grid-template-columns:1.2fr .8fr;
   gap:30px;
+  margin-top:25px;
 }
 
 .checkoutForm,
@@ -648,6 +709,25 @@ footer a{
   border-radius:10px;
   outline:none;
   font-family:Poppins,sans-serif;
+}
+
+.profileNotice{
+  background:#111;
+  color:#fff;
+  padding:12px 15px;
+  border-radius:10px;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+.profileNotice button{
+  border:0;
+  background:#d4af37;
+  padding:7px 12px;
+  border-radius:15px;
+  font-weight:700;
+  cursor:pointer;
+  margin-left:5px;
 }
 
 .placeOrderBtn{
@@ -678,27 +758,6 @@ footer a{
   font-size:20px;
 }
 
-/* ================= ORDER SUCCESS ================= */
-
-.successMessage{
-  display:none;
-  text-align:center;
-  padding:30px;
-}
-
-.successMessage.show{
-  display:block;
-}
-
-.successMessage h2{
-  margin-bottom:12px;
-}
-
-.successMessage p{
-  color:#777;
-  line-height:1.7;
-}
-
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
@@ -715,6 +774,7 @@ footer a{
     grid-template-columns:repeat(2,1fr);
   }
 
+  .profileGrid,
   .checkoutGrid{
     grid-template-columns:1fr;
   }
@@ -735,9 +795,14 @@ footer a{
     display:none;
   }
 
+  .headerButtons{
+    gap:5px;
+  }
+
+  .profileButton,
   .cartButton{
-    padding:8px 12px;
-    font-size:10px;
+    padding:8px 10px;
+    font-size:9px;
   }
 
   .slider{
@@ -782,15 +847,15 @@ footer a{
     grid-template-columns:1fr 1fr;
   }
 
-  .checkoutPage{
+  .pageOverlay{
     padding:15px;
   }
 
-  .checkoutBox{
+  .pageBox{
     padding:20px;
   }
 
-  .checkoutHeader h2{
+  .pageHeader h2{
     font-size:26px;
   }
 }
@@ -828,9 +893,21 @@ footer a{
     <a href="#shop">SHOP</a>
   </nav>
 
-  <button class="cartButton" onclick="openCart()">
-    CART 🛒 (0)
-  </button>
+  <div class="headerButtons">
+
+    <button
+      class="profileButton"
+      onclick="openProfile()">
+      PROFILE 👤
+    </button>
+
+    <button
+      class="cartButton"
+      onclick="openCart()">
+      CART 🛒 (0)
+    </button>
+
+  </div>
 
 </header>
 
@@ -894,7 +971,6 @@ footer a{
   <div class="sliderDots">
 
     <button class="dot active" onclick="showSlide(0)"></button>
-
     <button class="dot" onclick="showSlide(1)"></button>
 
   </div>
@@ -913,7 +989,6 @@ footer a{
     <h2>Explore Our Collection</h2>
 
   </div>
-
 
   <div class="collectionSlider">
 
@@ -1049,7 +1124,6 @@ footer a{
     <h2>Latest Arrivals</h2>
 
   </div>
-
 
   <div class="productGrid">
 
@@ -1196,7 +1270,6 @@ footer a{
     <h2>Fashion Made Different</h2>
 
   </div>
-
 
   <div class="darkGrid">
 
@@ -1408,76 +1481,186 @@ footer a{
 </div>
 
 
-<!-- ================= CHECKOUT PAGE ================= -->
+<!-- ================= PROFILE PAGE ================= -->
 
-<div class="checkoutPage" id="checkoutPage">
+<div
+  class="pageOverlay"
+  id="profilePage">
 
-  <div class="checkoutBox">
+  <div class="pageBox">
 
-    <div class="checkoutHeader">
+    <div class="pageHeader">
 
-      <h2>Checkout</h2>
+      <h2>My Profile 👤</h2>
 
       <button
-        onclick="closeCheckout()"
-        class="closeCheckout">
+        class="closePage"
+        onclick="closeProfile()">
         ×
       </button>
 
     </div>
 
 
-    <p class="checkoutSubtitle">
+    <p style="color:#888;margin-top:8px;">
+      Save your customer details once. Checkout will use them automatically.
+    </p>
+
+
+    <div class="profileGrid">
+
+      <div class="profileCard">
+
+        <h3>Customer Details</h3>
+
+        <input
+          class="profileInput"
+          id="profileName"
+          type="text"
+          placeholder="Full Name"
+        >
+
+        <input
+          class="profileInput"
+          id="profilePhone"
+          type="tel"
+          placeholder="Mobile Number"
+        >
+
+        <input
+          class="profileInput"
+          id="profileAddress"
+          type="text"
+          placeholder="Full Address"
+        >
+
+        <input
+          class="profileInput"
+          id="profileCity"
+          type="text"
+          placeholder="City"
+        >
+
+        <input
+          class="profileInput"
+          id="profilePincode"
+          type="text"
+          placeholder="Pincode"
+        >
+
+        <button
+          class="saveProfileBtn"
+          onclick="saveProfile()">
+          SAVE PROFILE
+        </button>
+
+      </div>
+
+
+      <div class="profileInfo">
+
+        <h3>Saved Profile</h3>
+
+        <div id="savedProfile">
+
+          <p>No profile saved yet.</p>
+
+          <p>
+            Add your details on the left and save them.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CHECKOUT PAGE ================= -->
+
+<div
+  class="pageOverlay"
+  id="checkoutPage">
+
+  <div class="pageBox">
+
+    <div class="pageHeader">
+
+      <h2>Checkout</h2>
+
+      <button
+        class="closePage"
+        onclick="closeCheckout()">
+        ×
+      </button>
+
+    </div>
+
+
+    <p style="color:#888;margin-top:8px;">
       Complete your details to place your order.
     </p>
 
 
     <div class="checkoutGrid">
 
-      <!-- CUSTOMER FORM -->
+
+      <!-- CHECKOUT FORM -->
 
       <div class="checkoutForm">
 
-        <h3>Customer Details</h3>
+        <h3>Delivery Details</h3>
+
+
+        <div class="profileNotice">
+
+          Profile details are connected.
+
+          <button onclick="openProfileFromCheckout()">
+            EDIT PROFILE
+          </button>
+
+        </div>
+
 
         <input
           type="text"
           id="customerName"
           placeholder="Full Name"
-          autocomplete="name"
         >
+
 
         <input
           type="tel"
           id="customerPhone"
           placeholder="Mobile Number"
-          inputmode="numeric"
-          maxlength="10"
-          autocomplete="tel"
         >
+
 
         <input
           type="text"
           id="customerAddress"
           placeholder="Full Address"
-          autocomplete="street-address"
         >
+
 
         <input
           type="text"
           id="customerCity"
           placeholder="City"
-          autocomplete="address-level2"
         >
+
 
         <input
           type="text"
           id="customerPincode"
           placeholder="Pincode"
-          inputmode="numeric"
-          maxlength="6"
-          autocomplete="postal-code"
         >
+
 
         <select id="paymentMethod">
 
@@ -1497,7 +1680,6 @@ footer a{
 
 
         <button
-          type="button"
           class="placeOrderBtn"
           onclick="placeOrder()">
           PLACE ORDER →
@@ -1525,6 +1707,7 @@ footer a{
         </div>
 
       </div>
+
 
     </div>
 
@@ -1558,11 +1741,8 @@ function showSlide(index){
 
   currentSlide = index;
 
-  slides[currentSlide]
-    .classList.add("active");
-
-  dots[currentSlide]
-    .classList.add("active");
+  slides[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
 }
 
 
@@ -1610,8 +1790,7 @@ function moveCollection(index){
     dot.classList.remove("active");
   });
 
-  collectionDots[collectionIndex]
-    .classList.add("active");
+  collectionDots[collectionIndex].classList.add("active");
 }
 
 
@@ -1653,9 +1832,11 @@ function addToCart(name,price){
 
 
   cart.push({
+
     name:name,
     price:price,
     image:images[name]
+
   });
 
 
@@ -1743,7 +1924,6 @@ function renderCart(){
 
         <button
           class="removeBtn"
-          type="button"
           onclick="removeFromCart(${index})">
           REMOVE
         </button>
@@ -1770,40 +1950,254 @@ function removeFromCart(index){
 }
 
 
-/* ================= CHECKOUT ================= */
+/* ================= PROFILE ================= */
 
-/*
-  IMPORTANT FIX:
-  Tumhare previous code mein openCheckout()
-  function missing tha.
+function openProfile(){
 
-  Isliye PROCEED TO CHECKOUT button
-  kaam nahi kar raha tha.
-*/
+  loadProfile();
+
+  document
+    .getElementById("profilePage")
+    .classList.add("show");
+}
 
 
-function openCheckout(){
+function closeProfile(){
 
-  if(cart.length === 0){
+  document
+    .getElementById("profilePage")
+    .classList.remove("show");
+}
 
-    alert("Your cart is empty 🛒");
+
+function saveProfile(){
+
+  const profile = {
+
+    name:
+      document.getElementById("profileName").value.trim(),
+
+    phone:
+      document.getElementById("profilePhone").value.trim(),
+
+    address:
+      document.getElementById("profileAddress").value.trim(),
+
+    city:
+      document.getElementById("profileCity").value.trim(),
+
+    pincode:
+      document.getElementById("profilePincode").value.trim()
+
+  };
+
+
+  if(
+    !profile.name ||
+    !profile.phone ||
+    !profile.address ||
+    !profile.city ||
+    !profile.pincode
+  ){
+
+    alert("Please fill all profile details.");
 
     return;
   }
 
 
-  renderCheckout();
+  if(profile.phone.length < 10){
+
+    alert("Please enter a valid mobile number.");
+
+    return;
+  }
+
+
+  if(profile.pincode.length < 6){
+
+    alert("Please enter a valid pincode.");
+
+    return;
+  }
+
+
+  localStorage.setItem(
+    "adisaProfile",
+    JSON.stringify(profile)
+  );
+
+
+  showSavedProfile(profile);
+
+  alert("Profile saved successfully! ✅");
+}
+
+
+function loadProfile(){
+
+  const saved =
+    localStorage.getItem("adisaProfile");
+
+
+  if(!saved){
+
+    document.getElementById("profileName").value = "";
+    document.getElementById("profilePhone").value = "";
+    document.getElementById("profileAddress").value = "";
+    document.getElementById("profileCity").value = "";
+    document.getElementById("profilePincode").value = "";
+
+    document.getElementById("savedProfile").innerHTML = `
+
+      <p>No profile saved yet.</p>
+
+      <p>
+        Add your details and save them.
+      </p>
+
+    `;
+
+    return;
+  }
+
+
+  const profile =
+    JSON.parse(saved);
+
+
+  document.getElementById("profileName").value =
+    profile.name || "";
+
+  document.getElementById("profilePhone").value =
+    profile.phone || "";
+
+  document.getElementById("profileAddress").value =
+    profile.address || "";
+
+  document.getElementById("profileCity").value =
+    profile.city || "";
+
+  document.getElementById("profilePincode").value =
+    profile.pincode || "";
+
+
+  showSavedProfile(profile);
+}
+
+
+function showSavedProfile(profile){
+
+  document.getElementById("savedProfile").innerHTML = `
+
+    <p>
+      <strong>Name:</strong><br>
+      ${profile.name}
+    </p>
+
+    <p>
+      <strong>Mobile:</strong><br>
+      ${profile.phone}
+    </p>
+
+    <p>
+      <strong>Address:</strong><br>
+      ${profile.address}
+    </p>
+
+    <p>
+      <strong>City:</strong><br>
+      ${profile.city}
+    </p>
+
+    <p>
+      <strong>Pincode:</strong><br>
+      ${profile.pincode}
+    </p>
+
+  `;
+}
+
+
+/* ================= CHECKOUT ================= */
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    alert(
+      "Your cart is empty. Please add a product first."
+    );
+
+    return;
+  }
 
 
   closeCart();
+
+  loadProfileIntoCheckout();
+
+  renderCheckout();
 
 
   document
     .getElementById("checkoutPage")
     .classList.add("show");
+}
 
 
-  document.body.style.overflow = "hidden";
+function closeCheckout(){
+
+  document
+    .getElementById("checkoutPage")
+    .classList.remove("show");
+}
+
+
+function loadProfileIntoCheckout(){
+
+  const saved =
+    localStorage.getItem("adisaProfile");
+
+
+  if(!saved){
+
+    document.getElementById("customerName").value = "";
+    document.getElementById("customerPhone").value = "";
+    document.getElementById("customerAddress").value = "";
+    document.getElementById("customerCity").value = "";
+    document.getElementById("customerPincode").value = "";
+
+    return;
+  }
+
+
+  const profile =
+    JSON.parse(saved);
+
+
+  document.getElementById("customerName").value =
+    profile.name || "";
+
+  document.getElementById("customerPhone").value =
+    profile.phone || "";
+
+  document.getElementById("customerAddress").value =
+    profile.address || "";
+
+  document.getElementById("customerCity").value =
+    profile.city || "";
+
+  document.getElementById("customerPincode").value =
+    profile.pincode || "";
+}
+
+
+function openProfileFromCheckout(){
+
+  closeCheckout();
+
+  openProfile();
 }
 
 
@@ -1819,18 +2213,6 @@ function renderCheckout(){
   let total = 0;
 
   items.innerHTML = "";
-
-
-  if(cart.length === 0){
-
-    items.innerHTML =
-      "<p>Your cart is empty.</p>";
-
-    totalBox.innerText =
-      "₹0";
-
-    return;
-  }
 
 
   cart.forEach(item=>{
@@ -1862,30 +2244,9 @@ function renderCheckout(){
 }
 
 
-function closeCheckout(){
-
-  document
-    .getElementById("checkoutPage")
-    .classList.remove("show");
-
-
-  document.body.style.overflow = "";
-}
-
-
 /* ================= PLACE ORDER ================= */
 
 function placeOrder(){
-
-  if(cart.length === 0){
-
-    alert("Your cart is empty 🛒");
-
-    closeCheckout();
-
-    return;
-  }
-
 
   const name =
     document
@@ -1938,32 +2299,65 @@ function placeOrder(){
   ){
 
     alert(
-      "Please fill all details."
+      "Please fill all delivery and payment details."
     );
 
     return;
   }
 
 
-  if(!/^[0-9]{10}$/.test(phone)){
+  if(phone.length < 10){
 
     alert(
-      "Please enter a valid 10-digit mobile number."
+      "Please enter a valid mobile number."
     );
 
     return;
   }
 
 
-  if(!/^[0-9]{6}$/.test(pincode)){
+  if(pincode.length < 6){
 
     alert(
-      "Please enter a valid 6-digit pincode."
+      "Please enter a valid pincode."
     );
 
     return;
   }
 
+
+  if(cart.length === 0){
+
+    alert(
+      "Your cart is empty."
+    );
+
+    closeCheckout();
+
+    return;
+  }
+
+
+  /* SAVE/UPDATE PROFILE */
+
+  const profile = {
+
+    name:name,
+    phone:phone,
+    address:address,
+    city:city,
+    pincode:pincode
+
+  };
+
+
+  localStorage.setItem(
+    "adisaProfile",
+    JSON.stringify(profile)
+  );
+
+
+  /* CALCULATE TOTAL */
 
   let total = 0;
 
@@ -1972,67 +2366,47 @@ function placeOrder(){
   });
 
 
+  /* ORDER SUCCESS */
+
   alert(
+
     "Order placed successfully! 🎉\n\n" +
-    "Thank you, " + name + "!\n" +
+
+    "Thank you, " + name + "!\n\n" +
+
     "Order Total: ₹" +
     total.toLocaleString("en-IN") +
+
     "\nPayment: " +
     payment
+
   );
 
 
-  cart = [];
+  /* CLEAR CART */
 
+  cart = [];
 
   updateCartButton();
 
-
   closeCheckout();
 
-
-  document
-    .getElementById("customerName")
-    .value = "";
+  renderCart();
 
 
-  document
-    .getElementById("customerPhone")
-    .value = "";
+  /* RESET CHECKOUT */
 
+  document.getElementById("customerName").value = "";
+  document.getElementById("customerPhone").value = "";
+  document.getElementById("customerAddress").value = "";
+  document.getElementById("customerCity").value = "";
+  document.getElementById("customerPincode").value = "";
+  document.getElementById("paymentMethod").value = "";
 
-  document
-    .getElementById("customerAddress")
-    .value = "";
-
-
-  document
-    .getElementById("customerCity")
-    .value = "";
-
-
-  document
-    .getElementById("customerPincode")
-    .value = "";
-
-
-  document
-    .getElementById("paymentMethod")
-    .value = "";
-
-
-  document
-    .getElementById("checkoutItems")
-    .innerHTML = "";
-
-
-  document
-    .getElementById("checkoutTotal")
-    .innerText = "₹0";
 }
 
 
-/* ================= WINDOW RESIZE ================= */
+/* ================= RESIZE ================= */
 
 window.addEventListener("resize",()=>{
 
@@ -2041,19 +2415,9 @@ window.addEventListener("resize",()=>{
 });
 
 
-/* ================= ESC KEY ================= */
+/* ================= INITIAL PROFILE LOAD ================= */
 
-document.addEventListener("keydown",(event)=>{
-
-  if(event.key === "Escape"){
-
-    closeCart();
-
-    closeCheckout();
-
-  }
-
-});
+loadProfile();
 
 </script>
 
