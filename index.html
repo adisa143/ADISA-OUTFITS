@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ADISA OUTFITS</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 *{
@@ -27,31 +25,24 @@ body{
   font-family:'Poppins',sans-serif;
 }
 
-
-/* ================= HEADER ================= */
+/* HEADER */
 
 .topbar{
   position:sticky;
   top:0;
   z-index:1000;
-
-  padding:16px 5%;
-
-  background:rgba(10,10,10,.94);
+  padding:15px 5%;
+  background:rgba(10,10,10,.96);
   backdrop-filter:blur(14px);
-
-  border-bottom:1px solid rgba(255,255,255,.1);
-
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
-
   display:flex;
   align-items:center;
   justify-content:space-between;
+  box-shadow:0 8px 30px rgba(0,0,0,.2);
 }
 
 .brand{
   color:#fff;
-  font-size:24px;
+  font-size:23px;
   font-weight:900;
   letter-spacing:3px;
 }
@@ -61,24 +52,19 @@ body{
   font-weight:400;
 }
 
-.topbar nav{
+nav{
   display:flex;
-  align-items:center;
-  gap:28px;
+  gap:25px;
 }
 
-.topbar nav a{
+nav a{
   color:#fff;
   text-decoration:none;
-
-  font-size:12px;
+  font-size:11px;
   font-weight:700;
-  letter-spacing:1px;
-
-  transition:.3s;
 }
 
-.topbar nav a:hover{
+nav a:hover{
   color:#d4af37;
 }
 
@@ -86,47 +72,33 @@ body{
   border:0;
   background:#d4af37;
   color:#111;
-
-  padding:11px 18px;
+  padding:10px 17px;
   border-radius:25px;
-
-  font-size:12px;
   font-weight:800;
-
   cursor:pointer;
 }
 
-
-/* ================= HERO SLIDER ================= */
+/* HERO */
 
 .slider{
   position:relative;
-  width:100%;
-  height:650px;
+  height:620px;
   overflow:hidden;
 }
 
 .slide{
   position:absolute;
   inset:0;
-
   opacity:0;
   visibility:hidden;
-
-  transition:
-    opacity .8s ease,
-    visibility .8s ease;
-
+  transition:.7s;
   background-position:center;
   background-size:cover;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
-
-  color:white;
+  color:#fff;
 }
 
 .slide.active{
@@ -134,47 +106,40 @@ body{
   visibility:visible;
 }
 
-.slide::before{
+.slide:before{
   content:"";
   position:absolute;
   inset:0;
+  background:rgba(0,0,0,.48);
+}
 
-  background:linear-gradient(
-    90deg,
-    rgba(0,0,0,.72),
-    rgba(0,0,0,.30),
-    rgba(0,0,0,.65)
-  );
+.slideOne{
+  background-image:url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90");
+}
+
+.slideTwo{
+  background-image:url("https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=90");
 }
 
 .slideContent{
   position:relative;
   z-index:2;
-
-  max-width:900px;
-  padding:30px;
+  max-width:850px;
+  padding:25px;
 }
 
 .slideTag{
   color:#d4af37;
-
-  font-size:13px;
+  font-size:12px;
   font-weight:800;
-
   letter-spacing:4px;
-
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
 .slide h1{
-  font-size:clamp(48px,8vw,90px);
-
-  line-height:.98;
-
+  font-size:clamp(45px,8vw,85px);
+  line-height:1;
   font-weight:900;
-
-  text-transform:uppercase;
-
   margin-bottom:20px;
 }
 
@@ -184,683 +149,499 @@ body{
 }
 
 .slideText{
-  font-size:18px;
   color:#eee;
-
-  margin-bottom:30px;
+  margin-bottom:28px;
 }
 
 .shopButton{
   display:inline-block;
-
-  background:white;
+  background:#fff;
   color:#111;
-
-  padding:16px 30px;
-
+  padding:14px 27px;
   border-radius:30px;
-
   text-decoration:none;
-
   font-weight:800;
-
-  transition:.3s;
 }
 
 .shopButton:hover{
   background:#d4af37;
-  transform:translateY(-3px);
 }
-
-
-/* HERO IMAGES */
-
-.slideOne{
-  background-image:url(
-    "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=90"
-  );
-}
-
-.slideTwo{
-  background-image:url(
-    "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=90"
-  );
-}
-
-
-/* HERO DOTS */
 
 .sliderDots{
   position:absolute;
-
-  z-index:5;
-
-  bottom:25px;
+  bottom:20px;
   left:50%;
-
   transform:translateX(-50%);
-
+  z-index:5;
   display:flex;
-  gap:10px;
+  gap:8px;
 }
 
 .dot{
   width:10px;
   height:10px;
-
   border-radius:50%;
-
-  border:1px solid white;
-
+  border:1px solid #fff;
   background:transparent;
-
-  cursor:pointer;
-
-  transition:.3s;
 }
 
 .dot.active{
   background:#d4af37;
-  border-color:#d4af37;
-
-  transform:scale(1.2);
 }
 
-
-/* ================= SECTION ================= */
+/* SECTION */
 
 .section{
-  padding:85px 6%;
+  padding:80px 6%;
 }
 
 .sectionHeading{
   text-align:center;
-  margin-bottom:45px;
+  margin-bottom:40px;
 }
 
 .sectionHeading p{
   color:#d4af37;
-
+  font-size:12px;
   font-weight:800;
-
   letter-spacing:4px;
-
-  font-size:13px;
 }
 
 .sectionHeading h2{
   font-size:40px;
-  margin-top:10px;
+  margin-top:8px;
 }
 
-
-/* ================= COLLECTION SLIDER ================= */
+/* COLLECTION SLIDER */
 
 .collectionSlider{
-  position:relative;
-  width:100%;
-
   overflow:hidden;
-
-  padding:0 5px;
+  width:100%;
 }
 
 .collectionTrack{
   display:flex;
-
   gap:25px;
-
-  transition:
-    transform .6s ease;
+  transition:transform .5s ease;
 }
 
 .collectionCard{
-  position:relative;
-
-  flex:0 0 calc(50% - 12.5px);
-
+  min-width:calc((100% - 25px)/2);
   height:430px;
-
+  position:relative;
+  flex-shrink:0;
   overflow:hidden;
-
   border-radius:22px;
-
   background:#111;
 }
 
 .collectionCard img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   transition:.5s;
 }
 
 .collectionCard:hover img{
-  transform:scale(1.06);
+  transform:scale(1.05);
 }
 
 .collectionOverlay{
   position:absolute;
-
   inset:0;
-
   display:flex;
-
   flex-direction:column;
-
   justify-content:flex-end;
-
-  padding:35px;
-
-  color:white;
-
-  background:linear-gradient(
-    transparent 25%,
-    rgba(0,0,0,.88)
-  );
+  padding:30px;
+  color:#fff;
+  background:linear-gradient(transparent 25%,rgba(0,0,0,.9));
 }
 
 .collectionOverlay small{
   color:#d4af37;
-
-  font-weight:700;
-
+  font-weight:800;
   letter-spacing:2px;
 }
 
 .collectionOverlay h3{
-  font-size:30px;
-
+  font-size:28px;
   margin:8px 0;
 }
 
 .collectionOverlay a{
-  display:inline-block;
-
-  color:white;
-
+  color:#fff;
   text-decoration:none;
-
   font-weight:700;
-
-  margin-top:8px;
 }
-
-
-/* COLLECTION ARROWS */
-
-.collectionArrow{
-  position:absolute;
-
-  top:50%;
-
-  transform:translateY(-50%);
-
-  z-index:10;
-
-  width:45px;
-  height:45px;
-
-  border:none;
-
-  border-radius:50%;
-
-  background:#d4af37;
-
-  color:#111;
-
-  font-size:30px;
-
-  font-weight:700;
-
-  cursor:pointer;
-
-  box-shadow:0 5px 20px rgba(0,0,0,.3);
-
-  transition:.3s;
-}
-
-.collectionArrow:hover{
-  transform:
-    translateY(-50%)
-    scale(1.1);
-}
-
-.collectionArrow.prev{
-  left:15px;
-}
-
-.collectionArrow.next{
-  right:15px;
-}
-
-
-/* COLLECTION DOTS */
 
 .collectionDots{
   display:flex;
-
   justify-content:center;
-
-  align-items:center;
-
-  gap:9px;
-
+  gap:8px;
   margin-top:22px;
 }
 
 .collectionDot{
   width:9px;
   height:9px;
-
+  border:0;
   border-radius:50%;
-
-  background:#ccc;
-
+  background:#bbb;
   cursor:pointer;
-
-  transition:.3s;
 }
 
 .collectionDot.active{
-  width:25px;
-
-  border-radius:10px;
-
   background:#d4af37;
+  transform:scale(1.2);
 }
 
-
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .productGrid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:22px;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
 .productCard{
-  background:white;
-
+  background:#fff;
   border-radius:18px;
-
   overflow:hidden;
-
-  box-shadow:
-    0 8px 30px rgba(0,0,0,.08);
-
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
   transition:.3s;
 }
 
 .productCard:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 }
 
 .productImage{
   position:relative;
-
-  height:330px;
-
+  height:320px;
   overflow:hidden;
-
-  background:#eee;
 }
 
 .productImage img{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
-  transition:.4s;
-}
-
-.productCard:hover
-.productImage img{
-  transform:scale(1.05);
 }
 
 .productImage span{
   position:absolute;
-
-  top:14px;
-  left:14px;
-
+  top:12px;
+  left:12px;
   background:#d4af37;
-
-  color:#111;
-
-  padding:6px 10px;
-
+  padding:5px 9px;
   border-radius:15px;
-
-  font-size:10px;
-
+  font-size:9px;
   font-weight:800;
 }
 
 .productInfo{
-  padding:18px;
+  padding:16px;
 }
 
 .productInfo p{
   color:#999;
-
-  font-size:10px;
-
+  font-size:9px;
   font-weight:700;
-
   letter-spacing:1.5px;
-
-  margin-bottom:7px;
 }
 
 .productInfo h3{
-  font-size:16px;
-
-  margin-bottom:10px;
+  font-size:15px;
+  margin:7px 0;
 }
 
 .productInfo strong{
-  font-size:18px;
+  font-size:17px;
 }
 
+.addCartBtn{
+  width:100%;
+  margin-top:13px;
+  padding:11px;
+  border:0;
+  border-radius:25px;
+  background:#111;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  cursor:pointer;
+}
 
-/* ================= WHY ADISA ================= */
+.addCartBtn:hover{
+  background:#d4af37;
+  color:#111;
+}
+
+/* WHY */
 
 .darkGrid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:22px;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .darkCard{
   background:#111;
-
-  color:white;
-
-  padding:35px;
-
-  min-height:250px;
-
+  color:#fff;
+  padding:32px;
+  min-height:220px;
   border-radius:20px;
 }
 
 .darkCard small{
   color:#d4af37;
-
-  letter-spacing:2px;
-
   font-weight:700;
+  letter-spacing:2px;
 }
 
 .darkCard h3{
-  font-size:24px;
-
-  margin:20px 0 12px;
+  font-size:22px;
+  margin:18px 0 10px;
 }
 
 .darkCard p{
-  color:#bbb;
-
-  line-height:1.7;
+  color:#aaa;
+  line-height:1.6;
 }
 
-
-/* ================= PROMO ================= */
+/* PROMO */
 
 .promo{
-  min-height:560px;
-
+  min-height:500px;
   background:
-    linear-gradient(
-      rgba(0,0,0,.58),
-      rgba(0,0,0,.72)
-    ),
-
-    url(
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=90"
-    )
-
-    center/cover;
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+  url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=90")
+  center/cover;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   text-align:center;
-
-  color:white;
-
-  padding:50px 20px;
+  color:#fff;
 }
 
 .promo p{
   color:#d4af37;
-
-  letter-spacing:5px;
-
+  letter-spacing:4px;
   font-weight:800;
-
-  margin-bottom:20px;
 }
 
 .promo h2{
-  font-size:
-    clamp(45px,7vw,75px);
-
+  font-size:clamp(42px,7vw,72px);
   line-height:1;
-
-  margin-bottom:35px;
+  margin:20px 0 30px;
 }
 
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   background:#111;
-
-  color:white;
-
-  text-align:center;
-
-  padding:60px 20px;
+  color:#fff;
+  padding:55px 6%;
 }
 
-footer .brand{
-  margin-bottom:18px;
+.footerGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
 }
 
-footer p{
+footer h4{
+  color:#d4af37;
+  margin-bottom:15px;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+footer p,
+footer a{
   color:#aaa;
-
-  margin-top:8px;
+  font-size:11px;
+  line-height:1.8;
+  text-decoration:none;
 }
 
+.footerBottom{
+  text-align:center;
+  border-top:1px solid #222;
+  margin-top:35px;
+  padding-top:20px;
+  color:#777;
+  font-size:10px;
+}
 
-/* ================= MOBILE ================= */
+/* CART POPUP */
+
+.cartModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:3000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.cartModal.show{
+  display:flex;
+}
+
+.cartBox{
+  width:100%;
+  max-width:500px;
+  max-height:85vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:20px;
+  padding:25px;
+}
+
+.cartHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.closeCart{
+  border:0;
+  background:#eee;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.cartItem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cartItem strong{
+  font-size:13px;
+}
+
+.cartItem small{
+  display:block;
+  color:#777;
+}
+
+.removeBtn{
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:15px;
+  font-size:9px;
+  cursor:pointer;
+}
+
+.cartTotal{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:800;
+  margin:20px 0;
+}
+
+.checkoutBtn{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:25px;
+  background:#d4af37;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* MOBILE */
 
 @media(max-width:900px){
 
   .productGrid{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .darkGrid{
     grid-template-columns:1fr;
   }
 
+  .footerGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
-
-
-/* ================= MOBILE 600 ================= */
 
 @media(max-width:600px){
 
   .topbar{
-    padding:13px 15px;
-
-    flex-wrap:wrap;
-
-    gap:12px;
+    padding:12px 15px;
   }
 
   .brand{
-    font-size:18px;
-
+    font-size:17px;
     letter-spacing:2px;
   }
 
-  .topbar nav{
-    order:3;
-
-    width:100%;
-
-    justify-content:center;
-
-    gap:14px;
-  }
-
-  .topbar nav a{
-    font-size:10px;
+  nav{
+    display:none;
   }
 
   .cartButton{
-    padding:8px 13px;
-
+    padding:8px 12px;
     font-size:10px;
   }
-
-
-  /* HERO */
 
   .slider{
-    height:560px;
-  }
-
-  .slideContent{
-    padding:20px;
-  }
-
-  .slideTag{
-    font-size:10px;
-
-    letter-spacing:3px;
+    height:550px;
   }
 
   .slide h1{
     font-size:42px;
   }
 
-  .slideText{
-    font-size:14px;
-  }
-
-  .shopButton{
-    padding:14px 24px;
-
-    font-size:13px;
-  }
-
-
-  /* SECTION */
-
   .section{
     padding:60px 20px;
   }
 
   .sectionHeading h2{
-    font-size:30px;
-  }
-
-
-  /* COLLECTION */
-
-  .collectionTrack{
-    gap:14px;
+    font-size:29px;
   }
 
   .collectionCard{
-    flex:0 0 100%;
-
-    height:350px;
+    min-width:100%;
+    height:380px;
   }
-
-  .collectionOverlay{
-    padding:25px;
-  }
-
-  .collectionOverlay h3{
-    font-size:24px;
-  }
-
-  .collectionArrow{
-    width:38px;
-    height:38px;
-
-    font-size:25px;
-  }
-
-  .collectionArrow.prev{
-    left:8px;
-  }
-
-  .collectionArrow.next{
-    right:8px;
-  }
-
-
-  /* PRODUCTS */
 
   .productGrid{
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:14px;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
   }
 
   .productImage{
-    height:230px;
+    height:220px;
   }
 
   .productInfo{
-    padding:13px;
+    padding:12px;
   }
 
   .productInfo h3{
-    font-size:14px;
+    font-size:13px;
   }
 
-  .productInfo strong{
-    font-size:16px;
+  .footerGrid{
+    grid-template-columns:1fr 1fr;
   }
-
-
-  /* PROMO */
-
-  .promo{
-    min-height:480px;
-  }
-
-  .promo h2{
-    font-size:43px;
-  }
-
 }
-
-
-/* ================= VERY SMALL MOBILE ================= */
 
 @media(max-width:380px){
 
@@ -871,18 +652,11 @@ footer p{
   .productImage{
     height:300px;
   }
-
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- ================= HEADER ================= -->
 
 <header class="topbar">
 
@@ -891,42 +665,27 @@ footer p{
   </div>
 
   <nav>
-
-    <a href="#home">
-      HOME
-    </a>
-
-    <a href="#featured">
-      COLLECTIONS
-    </a>
-
-    <a href="#shop">
-      SHOP
-    </a>
-
+    <a href="#home">HOME</a>
+    <a href="#featured">COLLECTIONS</a>
+    <a href="#shop">SHOP</a>
   </nav>
 
-  <button class="cartButton">
-    CART 🛒
+  <button class="cartButton" onclick="openCart()">
+    CART 🛒 (0)
   </button>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="slider" id="home">
-
-
-  <!-- HERO SLIDE 1 -->
 
   <div class="slide slideOne active">
 
     <div class="slideContent">
 
-      <p class="slideTag">
-        ADISA OUTFITS
-      </p>
+      <p class="slideTag">ADISA OUTFITS</p>
 
       <h1>
         YOUR STYLE.<br>
@@ -937,10 +696,7 @@ footer p{
         Discover fashion that speaks your personality.
       </p>
 
-      <a
-        href="#shop"
-        class="shopButton"
-      >
+      <a href="#shop" class="shopButton">
         EXPLORE NOW →
       </a>
 
@@ -948,8 +704,6 @@ footer p{
 
   </div>
 
-
-  <!-- HERO SLIDE 2 -->
 
   <div class="slide slideTwo">
 
@@ -965,13 +719,10 @@ footer p{
       </h1>
 
       <p class="slideText">
-        Premium fashion designed for boys & girls.
+        Premium fashion designed for everyone.
       </p>
 
-      <a
-        href="#shop"
-        class="shopButton"
-      >
+      <a href="#shop" class="shopButton">
         SHOP COLLECTION →
       </a>
 
@@ -980,82 +731,44 @@ footer p{
   </div>
 
 
-  <!-- HERO DOTS -->
-
   <div class="sliderDots">
 
-    <button
-      class="dot active"
-      onclick="showSlide(0)"
-    ></button>
+    <button class="dot active" onclick="showSlide(0)"></button>
 
-    <button
-      class="dot"
-      onclick="showSlide(1)"
-    ></button>
+    <button class="dot" onclick="showSlide(1)"></button>
 
   </div>
 
 </section>
 
 
+<!-- COLLECTIONS -->
 
-<!-- ================= COLLECTION SLIDER ================= -->
-
-<section
-  class="section"
-  id="featured"
->
-
+<section class="section" id="featured">
 
   <div class="sectionHeading">
 
-    <p>
-      THE ADISA EDIT
-    </p>
+    <p>THE ADISA EDIT</p>
 
-    <h2>
-      Explore Our Collection
-    </h2>
+    <h2>Explore Our Collection</h2>
 
   </div>
 
 
   <div class="collectionSlider">
 
+    <div class="collectionTrack" id="collectionTrack">
 
-    <button
-      class="collectionArrow prev"
-      onclick="moveCollection(-1)"
-    >
-      ‹
-    </button>
-
-
-    <div
-      class="collectionTrack"
-      id="collectionTrack"
-    >
-
-
-      <!-- COLLECTION 1 -->
 
       <div class="collectionCard">
 
-        <img
-          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90"
-          alt="Men Fashion"
-        >
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=90">
 
         <div class="collectionOverlay">
 
-          <small>
-            01 — MEN
-          </small>
+          <small>01 — MEN</small>
 
-          <h3>
-            Street Essentials
-          </h3>
+          <h3>Street Essentials</h3>
 
           <a href="#shop">
             DISCOVER COLLECTION →
@@ -1066,24 +779,15 @@ footer p{
       </div>
 
 
-      <!-- COLLECTION 2 -->
-
       <div class="collectionCard">
 
-        <img
-          src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90"
-          alt="Women Fashion"
-        >
+        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=90">
 
         <div class="collectionOverlay">
 
-          <small>
-            02 — WOMEN
-          </small>
+          <small>02 — WOMEN</small>
 
-          <h3>
-            Modern Elegance
-          </h3>
+          <h3>Modern Elegance</h3>
 
           <a href="#shop">
             DISCOVER COLLECTION →
@@ -1094,24 +798,15 @@ footer p{
       </div>
 
 
-      <!-- COLLECTION 3 -->
-
       <div class="collectionCard">
 
-        <img
-          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90"
-          alt="Denim Collection"
-        >
+        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=90">
 
         <div class="collectionOverlay">
 
-          <small>
-            03 — DENIM
-          </small>
+          <small>03 — DENIM</small>
 
-          <h3>
-            Urban Denim
-          </h3>
+          <h3>Urban Denim</h3>
 
           <a href="#shop">
             DISCOVER COLLECTION →
@@ -1122,24 +817,15 @@ footer p{
       </div>
 
 
-      <!-- COLLECTION 4 -->
-
       <div class="collectionCard">
 
-        <img
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=90"
-          alt="Premium Fashion"
-        >
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=90">
 
         <div class="collectionOverlay">
 
-          <small>
-            04 — ADISA
-          </small>
+          <small>04 — TRENDING</small>
 
-          <h3>
-            Everyday Premium
-          </h3>
+          <h3>Premium Fashion</h3>
 
           <a href="#shop">
             DISCOVER COLLECTION →
@@ -1153,64 +839,40 @@ footer p{
     </div>
 
 
-    <button
-      class="collectionArrow next"
-      onclick="moveCollection(1)"
-    >
-      ›
-    </button>
+    <div class="collectionDots">
 
+      <button class="collectionDot active"
+              onclick="moveCollection(0)">
+      </button>
 
-  </div>
+      <button class="collectionDot"
+              onclick="moveCollection(1)">
+      </button>
 
+      <button class="collectionDot"
+              onclick="moveCollection(2)">
+      </button>
 
-  <!-- COLLECTION DOTS -->
+      <button class="collectionDot"
+              onclick="moveCollection(3)">
+      </button>
 
-  <div class="collectionDots">
-
-    <span
-      class="collectionDot active"
-      onclick="goCollection(0)"
-    ></span>
-
-    <span
-      class="collectionDot"
-      onclick="goCollection(1)"
-    ></span>
-
-    <span
-      class="collectionDot"
-      onclick="goCollection(2)"
-    ></span>
-
-    <span
-      class="collectionDot"
-      onclick="goCollection(3)"
-    ></span>
+    </div>
 
   </div>
 
 </section>
 
 
+<!-- PRODUCTS -->
 
-<!-- ================= PRODUCTS ================= -->
-
-<section
-  class="section"
-  id="shop"
->
-
+<section class="section" id="shop">
 
   <div class="sectionHeading">
 
-    <p>
-      ADISA EDIT
-    </p>
+    <p>ADISA EDIT</p>
 
-    <h2>
-      Latest Arrivals
-    </h2>
+    <h2>Latest Arrivals</h2>
 
   </div>
 
@@ -1218,144 +880,112 @@ footer p{
   <div class="productGrid">
 
 
-    <!-- PRODUCT 1 -->
-
     <div class="productCard">
 
       <div class="productImage">
 
-        <img
-          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90"
-          alt="Oversized Shirt"
-        >
+        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=90">
 
-        <span>
-          NEW
-        </span>
+        <span>NEW</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          MEN'S COLLECTION
-        </p>
+        <p>MEN'S COLLECTION</p>
 
-        <h3>
-          Classic Oversized Shirt
-        </h3>
+        <h3>Classic Oversized Shirt</h3>
 
-        <strong>
-          ₹1,499
-        </strong>
+        <strong>₹1,499</strong>
+
+        <button class="addCartBtn"
+          onclick="addToCart('Classic Oversized Shirt',1499)">
+          ADD TO CART
+        </button>
 
       </div>
 
     </div>
 
 
-    <!-- PRODUCT 2 -->
-
     <div class="productCard">
 
       <div class="productImage">
 
-        <img
-          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90"
-          alt="Women's Fashion"
-        >
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=90">
 
-        <span>
-          NEW
-        </span>
+        <span>NEW</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          WOMEN'S COLLECTION
-        </p>
+        <p>WOMEN'S COLLECTION</p>
 
-        <h3>
-          Premium Street Look
-        </h3>
+        <h3>Premium Street Look</h3>
 
-        <strong>
-          ₹1,799
-        </strong>
+        <strong>₹1,799</strong>
+
+        <button class="addCartBtn"
+          onclick="addToCart('Premium Street Look',1799)">
+          ADD TO CART
+        </button>
 
       </div>
 
     </div>
 
 
-    <!-- PRODUCT 3 -->
-
     <div class="productCard">
 
       <div class="productImage">
 
-        <img
-          src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90"
-          alt="Denim Jacket"
-        >
+        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=90">
 
-        <span>
-          HOT
-        </span>
+        <span>HOT</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          DENIM EDIT
-        </p>
+        <p>DENIM EDIT</p>
 
-        <h3>
-          Urban Denim Jacket
-        </h3>
+        <h3>Urban Denim Jacket</h3>
 
-        <strong>
-          ₹2,299
-        </strong>
+        <strong>₹2,299</strong>
+
+        <button class="addCartBtn"
+          onclick="addToCart('Urban Denim Jacket',2299)">
+          ADD TO CART
+        </button>
 
       </div>
 
     </div>
 
 
-    <!-- PRODUCT 4 -->
-
     <div class="productCard">
 
       <div class="productImage">
 
-        <img
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90"
-          alt="Fashion Collection"
-        >
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=90">
 
-        <span>
-          NEW
-        </span>
+        <span>NEW</span>
 
       </div>
 
       <div class="productInfo">
 
-        <p>
-          ADISA EDIT
-        </p>
+        <p>ADISA EDIT</p>
 
-        <h3>
-          Premium Everyday Look
-        </h3>
+        <h3>Premium Everyday Look</h3>
 
-        <strong>
-          ₹1,999
-        </strong>
+        <strong>₹1,999</strong>
+
+        <button class="addCartBtn"
+          onclick="addToCart('Premium Everyday Look',1999)">
+          ADD TO CART
+        </button>
 
       </div>
 
@@ -1367,37 +997,26 @@ footer p{
 </section>
 
 
-
-<!-- ================= WHY ADISA ================= -->
+<!-- WHY ADISA -->
 
 <section class="section">
 
-
   <div class="sectionHeading">
 
-    <p>
-      WHY ADISA
-    </p>
+    <p>WHY ADISA</p>
 
-    <h2>
-      Fashion Made Different
-    </h2>
+    <h2>Fashion Made Different</h2>
 
   </div>
 
 
   <div class="darkGrid">
 
-
     <div class="darkCard">
 
-      <small>
-        01 — QUALITY
-      </small>
+      <small>01 — QUALITY</small>
 
-      <h3>
-        Premium Fabrics
-      </h3>
+      <h3>Premium Fabrics</h3>
 
       <p>
         Comfortable materials made for everyday style.
@@ -1408,13 +1027,9 @@ footer p{
 
     <div class="darkCard">
 
-      <small>
-        02 — STYLE
-      </small>
+      <small>02 — STYLE</small>
 
-      <h3>
-        Modern Designs
-      </h3>
+      <h3>Modern Designs</h3>
 
       <p>
         Fresh looks that keep your wardrobe ahead.
@@ -1425,13 +1040,9 @@ footer p{
 
     <div class="darkCard">
 
-      <small>
-        03 — TRUST
-      </small>
+      <small>03 — TRUST</small>
 
-      <h3>
-        Made For You
-      </h3>
+      <h3>Made For You</h3>
 
       <p>
         Fashion designed to match your confidence.
@@ -1439,32 +1050,25 @@ footer p{
 
     </div>
 
-
   </div>
 
 </section>
 
 
-
-<!-- ================= PROMO ================= -->
+<!-- PROMO -->
 
 <section class="promo">
 
   <div>
 
-    <p>
-      ADISA OUTFITS
-    </p>
+    <p>ADISA OUTFITS</p>
 
     <h2>
       YOUR STYLE.<br>
       YOUR STORY.
     </h2>
 
-    <a
-      href="#shop"
-      class="shopButton"
-    >
+    <a href="#shop" class="shopButton">
       EXPLORE NOW →
     </a>
 
@@ -1473,33 +1077,119 @@ footer p{
 </section>
 
 
-
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
-  <div class="brand">
-    ADISA <span>OUTFITS</span>
+  <div class="footerGrid">
+
+    <div>
+
+      <div class="brand">
+        ADISA <span>OUTFITS</span>
+      </div>
+
+      <p>
+        Premium fashion for everyone.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h4>CONTACT</h4>
+
+      <p>📧 adisa143143@gmail.com</p>
+
+      <p>💬 WhatsApp: 8677033435</p>
+
+      <p>📍 Rahman Chowk, Noor Akhtar Road, Purnia</p>
+
+    </div>
+
+
+    <div>
+
+      <h4>HELP & SUPPORT</h4>
+
+      <p>🚚 Shipping & Delivery</p>
+
+      <p>3–5 business days</p>
+
+      <p>↩️ Return & Refund</p>
+
+    </div>
+
+
+    <div>
+
+      <h4>QUICK LINKS</h4>
+
+      <p><a href="#home">HOME</a></p>
+
+      <p><a href="#featured">COLLECTIONS</a></p>
+
+      <p><a href="#shop">SHOP</a></p>
+
+    </div>
+
   </div>
 
-  <p>
-    Premium fashion for everyone.
-  </p>
 
-  <p>
-    © 2026 ADISA OUTFITS
-  </p>
+  <div class="footerBottom">
+
+    © 2026 ADISA OUTFITS • Premium Fashion • Customer Support
+
+  </div>
 
 </footer>
 
 
+<!-- CART MODAL -->
 
-<!-- ================= JAVASCRIPT ================= -->
+<div class="cartModal" id="cartModal">
+
+  <div class="cartBox">
+
+    <div class="cartHeader">
+
+      <h2>Your Cart 🛒</h2>
+
+      <button class="closeCart" onclick="closeCart()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div id="cartItems"></div>
+
+
+    <div class="cartTotal">
+
+      <span>Total</span>
+
+      <span id="cartTotal">
+        ₹0
+      </span>
+
+    </div>
+
+
+    <button class="checkoutBtn"
+      onclick="checkout()">
+      PROCEED TO CHECKOUT →
+    </button>
+
+  </div>
+
+</div>
+
 
 <script>
 
-
-/* ================= HERO SLIDER ================= */
+/* HERO SLIDER */
 
 let currentSlide = 0;
 
@@ -1509,14 +1199,13 @@ const slides =
 const dots =
   document.querySelectorAll(".dot");
 
-
 function showSlide(index){
 
-  slides.forEach((slide)=>{
+  slides.forEach(slide=>{
     slide.classList.remove("active");
   });
 
-  dots.forEach((dot)=>{
+  dots.forEach(dot=>{
     dot.classList.remove("active");
   });
 
@@ -1528,7 +1217,6 @@ function showSlide(index){
   dots[currentSlide]
     .classList.add("active");
 }
-
 
 setInterval(()=>{
 
@@ -1543,47 +1231,33 @@ setInterval(()=>{
 },5000);
 
 
-
-/* ================= COLLECTION SLIDER ================= */
+/* COLLECTION SLIDER */
 
 let collectionIndex = 0;
 
 const collectionTrack =
-  document.getElementById(
-    "collectionTrack"
-  );
+  document.getElementById("collectionTrack");
 
 const collectionCards =
-  document.querySelectorAll(
-    ".collectionCard"
-  );
+  document.querySelectorAll(".collectionCard");
 
 const collectionDots =
-  document.querySelectorAll(
-    ".collectionDot"
-  );
+  document.querySelectorAll(".collectionDot");
 
+function moveCollection(index){
 
-function updateCollection(){
-
-  if(!collectionCards.length){
-    return;
-  }
+  collectionIndex = index;
 
   const gap =
-    window.innerWidth <= 600
-      ? 14
-      : 25;
+    window.innerWidth <= 600 ? 14 : 25;
 
   const cardWidth =
-    collectionCards[0].offsetWidth
-    + gap;
+    collectionCards[0].offsetWidth + gap;
 
   collectionTrack.style.transform =
     `translateX(-${collectionIndex * cardWidth}px)`;
 
-
-  collectionDots.forEach((dot)=>{
+  collectionDots.forEach(dot=>{
     dot.classList.remove("active");
   });
 
@@ -1592,12 +1266,127 @@ function updateCollection(){
 }
 
 
-function moveCollection(direction){
+/* AUTO COLLECTION SLIDER */
 
-  collectionIndex += direction;
+setInterval(()=>{
 
-  if(
-    collectionIndex <
-    0
-  ){
-   
+  collectionIndex++;
+
+  if(collectionIndex >= collectionCards.length){
+    collectionIndex = 0;
+  }
+
+  moveCollection(collectionIndex);
+
+},4000);
+
+
+/* CART */
+
+let cart = [];
+
+
+function addToCart(name,price){
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  updateCartButton();
+
+  alert(name + " added to cart 🛒");
+}
+
+
+function updateCartButton(){
+
+  const button =
+    document.querySelector(".cartButton");
+
+  button.innerHTML =
+    `CART 🛒 (${cart.length})`;
+}
+
+
+function openCart(){
+
+  document
+    .getElementById("cartModal")
+    .classList.add("show");
+
+  renderCart();
+}
+
+
+function closeCart(){
+
+  document
+    .getElementById("cartModal")
+    .classList.remove("show");
+}
+
+
+function renderCart(){
+
+  const cartItems =
+    document.getElementById("cartItems");
+
+  const cartTotal =
+    document.getElementById("cartTotal");
+
+  if(cart.length === 0){
+
+    cartItems.innerHTML =
+      "<p>Your cart is empty.</p>";
+
+    cartTotal.innerText = "₹0";
+
+    return;
+  }
+
+
+  let total = 0;
+
+  cartItems.innerHTML = "";
+
+
+  cart.forEach((item,index)=>{
+
+    total += item.price;
+
+    cartItems.innerHTML += `
+
+      <div class="cartItem">
+
+        <div>
+
+          <strong>
+            ${item.name}
+          </strong>
+
+          <small>
+            ₹${item.price.toLocaleString("en-IN")}
+          </small>
+
+        </div>
+
+        <button
+          class="removeBtn"
+          onclick="removeFromCart(${index})">
+          REMOVE
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+
+  cartTotal.innerText =
+    "₹" + total.toLocaleString("en-IN");
+}
+
+
+function removeFro
