@@ -6,7 +6,7 @@
 <title>ADISA OUTFITS</title>
 
 <style>
-*{
+*{ 
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -226,6 +226,92 @@ footer{
   .products{
     grid-template-columns:1fr;
   }
+}
+  /* PREMIUM HEADER */
+header {
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding: 16px 6%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+nav a {
+  position: relative;
+  margin-left: 22px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO PREMIUM LOOK */
+.hero {
+  min-height: 650px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.65)
+  );
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 72px);
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  text-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+.hero p {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 </style>
 </head>
