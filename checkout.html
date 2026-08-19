@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ADISA OUTFITS — Checkout</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:#070707;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(212,175,55,.12),transparent 28%),
+    radial-gradient(circle at 90% 70%,rgba(212,175,55,.08),transparent 30%);
+}
+
+.gold{
+  color:#d4af37;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:76px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(7,7,7,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:4px;
+}
+
+.logo span{
+  color:#d4af37;
+  font-weight:400;
+}
+
+.backBtn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#aaa;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.backBtn:hover{
+  color:#d4af37;
+  transform:translateX(-3px);
+}
+
+/* ================= MAIN ================= */
+
+.checkout{
+  max-width:1200px;
+  margin:auto;
+  padding:55px 20px 80px;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= HEADING ================= */
+
+.heading{
+  margin-bottom:38px;
+}
+
+.heading small{
+  color:#d4af37;
+  font-size:10px;
+  letter-spacing:4px;
+  font-weight:800;
+}
+
+.heading h1{
+  font-size:clamp(38px,6vw,65px);
+  line-height:1;
+  margin-top:10px;
+  letter-spacing:-2px;
+}
+
+.heading h1 span{
+  color:#d4af37;
+}
+
+.heading p{
+  color:#777;
+  font-size:12px;
+  margin-top:13px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress{
+  display:flex;
+  align-items:center;
+  margin-bottom:35px;
+}
+
+.progressStep{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#777;
+  font-size:10px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.progressNumber{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#171717;
+  border:1px solid #333;
+  color:#888;
+  font-size:9px;
+}
+
+.progressStep.active{
+  color:#fff;
+}
+
+.progressStep.active .progressNumber{
+  background:#d4af37;
+  color:#111;
+  border-color:#d4af37;
+}
+
+.progressLine{
+  height:1px;
+  width:70px;
+  background:#292929;
+  margin:0 12px;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:1.18fr .82fr;
+  gap:24px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+  background:rgba(18,18,18,.92);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  padding:27px;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:25px;
+  right:25px;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,.6),
+    transparent
+  );
+}
+
+.card + .card{
+  margin-top:22px;
+}
+
+.cardTitle{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:25px;
+}
+
+.number{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#d4af37,#f2d477);
+  color:#111;
+  font-size:10px;
+  font-weight:900;
+  box-shadow:0 5px 20px rgba(212,175,55,.15);
+}
+
+.cardTitle h2{
+  font-size:18px;
+  letter-spacing:-.3px;
+}
+
+/* ================= PRODUCT ================= */
+
+.product{
+  display:flex;
+  gap:18px;
+  padding:4px;
+}
+
+.productImage{
+  width:125px;
+  height:150px;
+  border-radius:18px;
+  object-fit:cover;
+  background:#222;
+  border:1px solid #333;
+}
+
+.productDetails{
+  flex:1;
+  padding-top:5px;
+}
+
+.productDetails small{
+  color:#777;
+  font-size:9px;
+  letter-spacing:2px;
+  font-weight:800;
+}
+
+.productDetails h3{
+  font-size:18px;
+  margin:8px 0;
+}
+
+.price{
+  color:#d4af37;
+  font-size:20px;
+  font-weight:900;
+}
+
+.options{
+  display:flex;
+  gap:10px;
+  margin-top:17px;
+}
+
+.optionBox{
+  flex:1;
+}
+
+.optionBox label,
+.field label{
+  display:block;
+  color:#777;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.5px;
+  margin-bottom:7px;
+}
+
+select,
+input{
+  width:100%;
+  background:#0a0a0a;
+  color:#fff;
+  border:1px solid #303030;
+  border-radius:12px;
+  padding:13px;
+  font-family:Poppins,sans-serif;
+  font-size:11px;
+  outline:none;
+  transition:.25s;
+}
+
+select:focus,
+input:focus{
+  border-color:#d4af37;
+  box-shadow:0 0 0 3px rgba(212,175,55,.08);
+}
+
+/* ================= FORM ================= */
+
+.formGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.field{
+  margin-bottom:5px;
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+.phoneBox{
+  display:flex;
+  gap:10px;
+}
+
+.verifyBtn{
+  width:115px;
+  border:0;
+  border-radius:12px;
+  background:#d4af37;
+  color:#111;
+  font-family:Poppins,sans-serif;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.verifyBtn:hover{
+  background:#fff;
+  transform:translateY(-1px);
+}
+
+.verifyStatus{
+  display:none;
+  color:#6ee7a0;
+  font-size:9px;
+  margin-top:7px;
+}
+
+.verifyStatus.show{
+  display:block;
+}
+
+/* ================= PAYMENT ================= */
+
+.paymentOption{
+  width:100%;
+  border:1px solid #303030;
+  border-radius:16px;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  transition:.3s;
+}
+
+.paymentOption.selected{
+  border-color:#d4af37;
+  background:rgba(212,175,55,.06);
+}
+
+.paymentLeft{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.paymentIcon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:#202020;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+.paymentName{
+  font-size:12px;
+  font-weight:800;
+}
+
+.paymentSub{
+  color:#666;
+  font-size:8px;
+  margin-top:3px;
+}
+
+.selectPayment{
+  color:#d4af37;
+  font-size:9px;
+  font-weight:900;
+}
+
+/* ================= SUMMARY ================= */
+
+.summaryProduct{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding-bottom:18px;
+  border-bottom:1px solid #292929;
+}
+
+.summaryName{
+  font-size:12px;
+  font-weight:800;
+}
+
+.summaryMeta{
+  color:#777;
+  font-size:9px;
+  line-height:1.8;
+  margin-top:5px;
+}
+
+.summaryPrice{
+  color:#d4af37;
+  font-size:14px;
+  font-weight:900;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  padding:13px 0;
+  color:#777;
+  font-size:10px;
+}
+
+.row strong{
+  color:#ddd;
+}
+
+.total{
+  border-top:1px solid #333;
+  margin-top:8px;
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.total span{
+  color:#777;
+  font-size:10px;
+  font-weight:700;
+}
+
+.total strong{
+  color:#d4af37;
+  font-size:27px;
+}
+
+/* ================= ORDER BUTTON ================= */
+
+.placeOrder{
+  width:100%;
+  margin-top:25px;
+  padding:17px;
+  border:0;
+  border-radius:30px;
+  background:linear-gradient(
+    135deg,
+    #c9a52d,
+    #f4d77c,
+    #c9a52d
+  );
+  background-size:200% 100%;
+  color:#111;
+  font-family:Poppins,sans-serif;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.5px;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.placeOrder:hover{
+  background-position:100% 0;
+  transform:translateY(-2px);
+  box-shadow:0 12px 35px rgba(212,175,55,.2);
+}
+
+.secure{
+  text-align:center;
+  color:#555;
+  font-size:8px;
+  margin-top:13px;
+}
+
+/* ================= TRUST ================= */
+
+.trust{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:15px;
+}
+
+.trustItem{
+  padding:12px 5px;
+  text-align:center;
+  border:1px solid #222;
+  border-radius:12px;
+}
+
+.trustItem span{
+  display:block;
+  font-size:15px;
+  margin-bottom:3px;
+}
+
+.trustItem small{
+  color:#666;
+  font-size:7px;
+  font-weight:700;
+}
+
+/* ================= SUCCESS ================= */
+
+.success{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(0,0,0,.9);
+  backdrop-filter:blur(12px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.success.show{
+  display:flex;
+}
+
+.successBox{
+  max-width:450px;
+  width:100%;
+  text-align:center;
+  background:#121212;
+  border:1px solid #333;
+  border-radius:28px;
+  padding:45px 25px;
+  box-shadow:0 30px 100px rgba(0,0,0,.7);
+}
+
+.successIcon{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#d4af37,#f1d477);
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 20px;
+  font-size:30px;
+  font-weight:900;
+}
+
+.successBox h2{
+  font-size:27px;
+}
+
+.successBox p{
+  color:#888;
+  font-size:11px;
+  line-height:1.7;
+  margin:10px 0 25px;
+}
+
+.continueBtn{
+  display:inline-block;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  padding:13px 28px;
+  border-radius:25px;
+  font-size:10px;
+  font-weight:900;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .progressLine{
+    width:35px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .header{
+    height:65px;
+    padding:0 18px;
+  }
+
+  .logo{
+    font-size:16px;
+    letter-spacing:2px;
+  }
+
+  .backBtn{
+    font-size:9px;
+  }
+
+  .checkout{
+    padding:38px 14px 55px;
+  }
+
+  .heading{
+    margin-bottom:28px;
+  }
+
+  .heading h1{
+    font-size:38px;
+  }
+
+  .heading p{
+    font-size:10px;
+    line-height:1.6;
+  }
+
+  .progress{
+    margin-bottom:25px;
+  }
+
+  .progressStep{
+    font-size:0;
+  }
+
+  .progressNumber{
+    width:27px;
+    height:27px;
+  }
+
+  .progressLine{
+    flex:1;
+    width:auto;
+    margin:0 7px;
+  }
+
+  .card{
+    padding:19px;
+    border-radius:20px;
+  }
+
+  .cardTitle h2{
+    font-size:16px;
+  }
+
+  .product{
+    gap:13px;
+  }
+
+  .productImage{
+    width:92px;
+    height:115px;
+  }
+
+  .productDetails h3{
+    font-size:14px;
+  }
+
+  .price{
+    font-size:17px;
+  }
+
+  .options{
+    gap:7px;
+    margin-top:12px;
+  }
+
+  select,
+  input{
+    padding:11px;
+    font-size:10px;
+  }
+
+  .formGrid{
+    grid-template-columns:1fr;
+    gap:2px;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .phoneBox{
+    flex-direction:column;
+  }
+
+  .verifyBtn{
+    width:100%;
+    padding:12px;
+  }
+
+  .trust{
+    grid-template-columns:1fr 1fr 1fr;
+  }
+
+  .total strong{
+    font-size:23px;
+  }
+
+}
+
+@media(max-width:380px){
+
+  .product{
+    flex-direction:column;
+  }
+
+  .productImage{
+    width:100%;
+    height:230px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="logo">
+    ADISA <span>OUTFITS</span>
+  </div>
+
+  <a href="index.html" class="backBtn">
+    ← BACK TO SHOP
+  </a>
+
+</header>
+
+
+<main class="checkout">
+
+  <div class="heading">
+
+    <small>ADISA OUTFITS • SECURE CHECKOUT</small>
+
+    <h1>
+      Complete Your <span>Order.</span>
+    </h1>
+
+    <p>
+      You're one step away from your new look.
+    </p>
+
+  </div>
+
+
+  <!-- PROGRESS -->
+
+  <div class="progress">
+
+    <div class="progressStep active">
+      <div class="progressNumber">01</div>
+      DETAILS
+    </div>
+
+    <div class="progressLine"></div>
+
+    <div class="progressStep active">
+      <div class="progressNumber">02</div>
+      ADDRESS
+    </div>
+
+    <div class="progressLine"></div>
+
+    <div class="progressStep">
+      <div class="progressNumber">03</div>
+      PAYMENT
+    </div>
+
+  </div>
+
+
+  <div class="grid">
+
+
+    <!-- LEFT SIDE -->
+
+    <div>
+
+
+      <!-- ORDER -->
+
+      <div class="card">
+
+        <div class="cardTitle">
+          <div class="number">01</div>
+          <h2>Order Details</h2>
+        </div>
+
+        <div class="product">
+
+          <img
+            id="productImage"
+            class="productImage"
+            src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=600&q=90"
+            alt="Product"
+          >
+
+          <div class="productDetails">
+
+            <small>ADISA PREMIUM EDIT</small>
+
+            <h3 id="productName">
+              Classic Oversized Shirt
+            </h3>
+
+            <div class="price">
+              ₹<span id="productPrice">1499</span>
+            </div>
+
+            <div class="options">
+
+              <div class="optionBox">
+
+                <label>SIZE</label>
+
+                <select id="size">
+
+                  <option value="">
+                    Select Size
+                  </option>
+
+                  <option>S</option>
+                  <option>M</option>
+                  <option>L</option>
+                  <option>XL</option>
+                  <option>XXL</option>
+
+                </select>
+
+              </div>
+
+
+              <div class="optionBox">
+
+                <label>QUANTITY</label>
+
+                <select
+                  id="quantity"
+                  onchange="updateTotal()"
+                >
+
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CUSTOMER -->
+
+      <div class="card">
+
+        <div class="cardTitle">
+          <div class="number">02</div>
+          <h2>Customer Details</h2>
+        </div>
+
+        <div class="formGrid">
+
+          <div class="field">
+
+            <label>FULL NAME</label>
+
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Your full name"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>EMAIL ADDRESS</label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Your email"
+            >
+
+          </div>
+
+
+          <div class="field full">
+
+            <label>MOBILE NUMBER</label>
+
+            <div class="phoneBox">
+
+              <input
+                type="tel"
+                id="phone"
+                maxlength="10"
+                placeholder="10-digit mobile number"
+              >
+
+              <button
+                class="verifyBtn"
+                type="button"
+                onclick="verifyPhone()"
+              >
+                VERIFY NUMBER
+              </button>
+
+            </div>
+
+            <div
+              class="verifyStatus"
+              id="verifyStatus"
+            >
+              ✓ Mobile number verified
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ADDRESS -->
+
+      <div class="card">
+
+        <div class="cardTitle">
+          <div class="number">03</div>
+          <h2>Delivery Address</h2>
+        </div>
+
+        <div class="formGrid">
+
+          <div class="field full">
+
+            <label>HOUSE / STREET / AREA</label>
+
+            <input
+              type="text"
+              id="address"
+              placeholder="House no., street, area"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>CITY</label>
+
+            <input
+              type="text"
+              id="city"
+              placeholder="City"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>STATE</label>
+
+            <input
+              type="text"
+              id="state"
+              placeholder="State"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>PIN CODE</label>
+
+            <input
+              type="tel"
+              id="pincode"
+              maxlength="6"
+              placeholder="6-digit PIN"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PAYMENT -->
+
+      <div class="card">
+
+        <div class="cardTitle">
+          <div class="number">04</div>
+          <h2>Payment Method</h2>
+        </div>
+
+
+        <div
+          class="paymentOption selected"
+          onclick="selectPayment()"
+        >
+
+          <div class="paymentLeft">
+
+            <div class="paymentIcon">
+              💳
+            </div>
+
+            <div>
+
+              <div class="paymentName">
+                Online Payment
+              </div>
+
+              <div class="paymentSub">
+                Secure & encrypted payment
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="selectPayment">
+            SELECTED ✓
+          </div>
+
+        </div>
+
+
+        <div
+          class="paymentOption"
+          style="margin-top:12px;opacity:.5;"
+        >
+
+          <div class="paymentLeft">
+
+            <div class="paymentIcon">
+              📦
+            </div>
+
+            <div>
+
+              <div class="paymentName">
+                Cash on Delivery
+              </div>
+
+              <div class="paymentSub">
+                Currently unavailable
+              </div>
+
+            </div>
+
+          </div>
+
+          <div
+            style="
+              color:#ff7272;
+              font-size:8px;
+              font-weight:800;
+            "
+          >
+            UNAVAILABLE
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div>
+
+      <div class="card">
+
+        <div class="cardTitle">
+
+          <div class="number">05</div>
+
+          <h2>
+            Order Summary
+          </h2>
+
+        </div>
+
+
+        <div class="summaryProduct">
+
+          <div>
+
+            <div
+              class="summaryName"
+              id="summaryName"
+            >
+              Classic Oversized Shirt
+            </div>
+
+            <div class="summaryMeta">
+
+              Size:
+              <span id="summarySize">—</span>
+
+              <br>
+
+              Quantity:
+              <span id="summaryQty">1</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="summaryPrice">
+
+            ₹<span id="summaryPrice">
+              1499
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="row">
+
+          <span>Subtotal</span>
+
+          <strong>
+            ₹<span id="subtotal">1499</span>
+          </strong>
+
+        </div>
+
+
+        <div class="row">
+
+          <span>Shipping</span>
+
+          <strong>
+            FREE
+          </strong>
+
+        </div>
+
+
+        <div class="row">
+
+          <span>Payment</span>
+
+          <strong class="gold">
+            ONLINE
+          </strong>
+
+        </div>
+
+
+        <div class="total">
+
+          <span>
+            TOTAL AMOUNT
+          </span>
+
+          <strong>
+            ₹<span id="total">1499</span>
+          </strong>
+
+        </div>
+
+
+        <button
+          class="placeOrder"
+          type="button"
+          onclick="placeOrder()"
+        >
+          CONTINUE TO PAYMENT →
+        </button>
+
+
+        <div class="secure">
+          🔒 Your information is protected
+        </div>
+
+
+        <div class="trust">
+
+          <div class="trustItem">
+            <span>🔒</span>
+            <small>SECURE</small>
+          </div>
+
+          <div class="trustItem">
+            <span>🚚</span>
+            <small>FAST DELIVERY</small>
+          </div>
+
+          <div class="trustItem">
+            <span>↩️</span>
+            <small>EASY RETURN</small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- SUCCESS -->
+
+<div
+  class="success"
+  id="success"
+>
+
+  <div class="successBox">
+
+    <div class="successIcon">
+      ✓
+    </div>
+
+    <h2>
+      Order Details Ready
+    </h2>
+
+    <p>
+      Your details have been verified successfully.
+      Continue to complete your secure online payment.
+    </p>
+
+    <a
+      href="index.html"
+      class="continueBtn"
+    >
+      BACK TO SHOP
+    </a>
+
+  </div>
+
+</div>
+
+
+<script>
+
+let verified = false;
+
+
+/* ================= GET PRODUCT FROM URL ================= */
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const urlName =
+  params.get("name");
+
+const urlPrice =
+  params.get("price");
+
+const urlImage =
+  params.get("image");
+
+
+if(urlName){
+
+  const name =
+    decodeURIComponent(urlName);
+
+  document.getElementById("productName")
+    .textContent = name;
+
+  document.getElementById("summaryName")
+    .textContent = name;
+
+}
+
+
+if(urlPrice && !isNaN(urlPrice)){
+
+  document.getElementById("productPrice")
+    .textContent =
+    Number(urlPrice).toLocaleString("en-IN");
+
+  updateTotal();
+
+}
+
+
+if(urlImage){
+
+  document.getElementById("productImage")
+    .src =
+    decodeURIComponent(urlImage);
+
+}
+
+
+/* ================= TOTAL ================= */
+
+function updateTotal(){
+
+  const price =
+    Number(urlPrice) || 1499;
+
+  const qty =
+    Number(
+      document.getElementById("quantity").value
+    );
+
+  const total =
+    price * qty;
+
+  const formatted =
+    total.toLocaleString("en-IN");
+
+  document.getElementById("summaryPrice")
+    .textContent = formatted;
+
+  document.getElementById("subtotal")
+    .textContent = formatted;
+
+  document.getElementById("total")
+    .textContent = formatted;
+
+  document.getElementById("summaryQty")
+    .textContent = qty;
+
+  document.getElementById("summarySize")
+    .textContent =
+    document.getElementById("size").value || "—";
+
+}
+
+
+/* ================= SIZE ================= */
+
+document
+.getElementById("size")
+.addEventListener(
+  "change",
+  function(){
+
+    document.getElementById("summarySize")
+      .textContent =
+      this.value || "—";
+
+  }
+);
+
+
+/* ================= PHONE VERIFY ================= */
+
+function verifyPhone(){
+
+  const phone =
+    document
+    .getElementById("phone")
+    .value
+    .trim();
+
+  if(!/^[6-9]\d{9}$/.test(phone)){
+
+    alert(
+      "Please enter a valid 10-digit mobile number."
+    );
+
+    return;
+
+  }
+
+  verified = true;
+
+  document
+    .getElementById("verifyStatus")
+    .classList
+    .add("show");
+
+}
+
+
+/* ================= PAYMENT ================= */
+
+function selectPayment(){
+
+  alert(
+    "Online payment selected."
+  );
+
+}
+
+
+/* ================= PLACE ORDER ================= */
+
+function placeOrder(){
+
+  const name =
+    document
+    .getElementById("fullName")
+    .value
+    .trim();
+
+  const email =
+    document
+    .getElementById("email")
+    .value
+    .trim();
+
+  const phone =
+    document
+    .getElementById("phone")
+    .value
+    .trim();
+
+  const size =
+    document
+    .getElementById("size")
+    .value;
+
+  const address =
+    document
+    .getElementById("address")
+    .value
+    .trim();
+
+  const city =
+    document
+    .getElementById("city")
+    .value
+    .trim();
+
+  const state =
+    document
+    .getElementById("state")
+    .value
+    .trim();
+
+  const pincode =
+    document
+    .getElementById("pincode")
+    .value
+    .trim();
+
+
+  if(!name){
+
+    alert(
+      "Please enter your full name."
+    );
+
+    return;
+
+  }
+
+
+  if(email &&
+     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+
+    alert(
+      "Please enter a valid email address."
+    );
+
+    return;
+
+  }
+
+
+  if(!/^[6-9]\d{9}$/.test(phone)){
+
+    alert(
+      "Please enter a valid mobile number."
+    );
+
+    return;
+
+  }
+
+
+  if(!verified){
+
+    alert(
+      "Please verify your mobile number first."
+    );
+
+    return;
+
+  }
+
+
+  if(!size){
+
+    alert(
+      "Please select your product size."
+    );
+
+    return;
+
+  }
+
+
+  if(!address || !city || !state){
+
+    alert(
+      "Please complete your delivery address."
+    );
+
+    return;
+
+  }
+
+
+  if(!/^\d{6}$/.test(pincode)){
+
+    alert(
+      "Please enter a valid 6-digit PIN code."
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("success")
+    .classList
+    .add("show");
+
+}
+
+</script>
+
+</body>
+</html>
